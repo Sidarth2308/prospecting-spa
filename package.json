@@ -1,0 +1,75 @@
+{
+  "name": "prospecting-spa",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "test": "jest --coverage",
+    "tree": "tree -I 'node_modules|build|coverage' --dirsfirst --charset=ascii ."
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "not IE 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@microsoft/tsdoc": "^0.13.2",
+    "@testing-library/dom": "^8.5.0",
+    "@types/chai": "^4.2.21",
+    "@types/enzyme": "^3.10.9",
+    "@types/jest": "^26.0.24",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "^14.17.5",
+    "@types/react": "^17.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-istanbul": "^0.1.2",
+    "eslint-plugin-jest-formatting": "^3.0.0",
+    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "gts": "^3.1.0",
+    "husky": "^7.0.2",
+    "jest": "^27.2.1",
+    "license-checker": "^25.0.1",
+    "mongoose": "^6.0.7",
+    "ts-jest": "^27.0.5",
+    "uuid-mongodb": "^2.4.4"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/react-dom": "^17.0.9",
+    "axios": "^0.21.1",
+    "lodash": "^4.17.21",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "^4.0.3",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
+    "typescript": "^4.3.5",
+    "web-vitals": "^2.1.0"
+  }
+}

@@ -1,0 +1,41 @@
+# Git
+.git
+.github
+.gitattributes
+.gitignore
+
+# Husky
+.husky
+
+# Serverless
+.serverless
+serverless.ts
+
+# Vscode
+.vscode
+
+# Testing
+coverage
+jest.config.js
+.scannerwork
+scannerwork
+
+# Modules
+node_modules
+yarn.lock
+package.json
+package-lock.json
+
+# Linters and Formatters
+.prettierrc.js
+.eslintignore
+
+# Configs and Env
+tsconfig.json
+tsconfig.paths.json
+webpack.config.json
+.env
+.env.*
+
+# Other Files
+README.md

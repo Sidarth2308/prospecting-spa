@@ -1,0 +1,62 @@
+{
+  "client": {
+    "first_name": "",
+    "age_range": {
+      "low": "",
+      "high": ""
+    },
+    "gender": "",
+    "education_level": "",
+    "income_range": {
+      "low": "",
+      "high": ""
+    },
+    "email": ""
+  },
+  "responses": [
+    [
+      // I Think
+      ["Half Full", "1.0"], // Tuple Consists of [ User_Response, Response Value ]
+      ["78", "78"],
+      ["50", "50"],
+      ["25", "25"],
+      ["100", "100"],
+      ["72", "72"]
+    ],
+    [
+      // I Feel
+      ["15", "15"],
+      ["27", "27"],
+      ["Stick to the current route", "0.1"],
+      ["Ahh I hate it! :rage:", "0.1"],
+      ["Well, Thats Life! :smiling_face:", "0.2"]
+    ],
+    [
+      // I Focus
+      ["Losses", "0.1"],
+      ["I ended up doing", "0.2"],
+      ["The risk", "0.1"],
+      ["What others expect of me", "0.1"]
+    ],
+    [
+      // I Lean
+      ["6", "6"],
+      ["8", "8"],
+      ["2", "2"],
+      ["3", "3"],
+      [
+        // Drag and Drop Question
+        ["Security", "0.1"],
+        ["Helping Others", "0.1"],
+        ["Freedom", "0.2"],
+        ["Family", "0.4"],
+        ["Travel", "0.3"],
+        ["Community", "0.1"],
+        ["Health", "0.2"],
+        ["User Input A", "0.0"],
+        ["User Input B", "0.0"],
+        ["User Input C", "0.0"]
+      ]
+    ]
+  ]
+}
