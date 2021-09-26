@@ -6,12 +6,11 @@ package.json
 package-lock.json
 .scannerwork
 .github
-node_modules
 coverage/
 .prettierrc.js
 build/
 .build/
-
+node_modules/*
 
 
 # For Now

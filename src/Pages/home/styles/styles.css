@@ -1,0 +1,14 @@
+body {
+  background-image: url('../../../assets/background.svg') !important;
+
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.RightArrow {
+  transform: rotate(180deg);
+  border-radius: 50px;
+  filter: invert(56%) sepia(59%) saturate(492%) hue-rotate(212deg)
+    brightness(103%) contrast(98%);
+}

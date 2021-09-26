@@ -1,0 +1,62 @@
+body {
+  background-image: url('../../../assets/background.svg') !important;
+
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.MainContainer {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+}
+.HeadingContainer {
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.HeadingQuestion {
+  font-weight: 700;
+  color: #000;
+  font-size: 38px;
+  line-height: 64px;
+  text-align: center;
+}
+.HeadingQuestionDescription {
+  color: #191c2cb2;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.NextButton {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background: #191c2c;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.PreviousButton {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.RightArrow {
+  transform: rotate(180deg);
+  border-radius: 50px;
+  filter: invert(56%) sepia(59%) saturate(492%) hue-rotate(212deg)
+    brightness(103%) contrast(98%);
+}
