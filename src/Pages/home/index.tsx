@@ -20,7 +20,7 @@ const Home: FC = () => {
   // Const dispatch = useDispatch();
   const [counter, setCounter] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
-  const [section, setSection] = useState(1);
+  const [section, setSection] = useState(0);
   // UseEffect(() => {
   //   Dispatch(FetchData());
   // }, []);
