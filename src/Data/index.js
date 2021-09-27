@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable node/no-unsupported-features/es-syntax */
 import question1Graphic from '../assets/questionGraphics/glassQuestion1.svg';
 import question2Graphic from '../assets/questionGraphics/personQuestion2.svg';
@@ -19,291 +20,1900 @@ import question17Graphic from '../assets/questionGraphics/watchingQuestion17.svg
 import question18Graphic from '../assets/questionGraphics/personQuestion18.svg';
 import question19Graphic from '../assets/questionGraphics/menuQuestion19.svg';
 
-export const QuestionData = [
-  {
-    id: 0,
-    questionDescription:
-      'Alrighty then, let’s get started…what do you see here?',
-    questionText: 'Is the glass half empty or half full?',
-    type: {
-      id: 0,
-      type: 'RadioButton',
+export const API_URL = 'http://localhost:5000/fetch-data';
 
-      options: ['Half Empty', 'Half Full', 'I just see water'],
-    },
-    graphic: question1Graphic,
-    dotsOnPage: 0,
+export const QuestionData = {
+  id: 'ASSESSMENT-UUIDv4-GOES-HERE',
+  name: 'Prospecting',
+  template_id: '1cda1f71-e8de-4678-9d37-2ae4e6bf4bed',
+  theme: 'syntoniq-prospecting',
+  relations: {
+    organization_id: 'ORG-UUIDv4-GOES-HERE --> Can be blank for now',
+    suborganization_id: 'SUBORG-UUIDv4-GOES-HERE --> Can be blank for now',
+    advisor_id: 'ADVISOR-UUIDv4-GOES-HERE --> Can be blank for now',
+    client_id: 'CLIENT-UUIDv4-GOES-HERE --> Can be blank for now',
   },
-  {
-    id: 1,
-    questionDescription:
-      'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
-
-    questionText:
-      'Being publicly recognized for a professional or personal achievement',
-    type: {
-      id: 1,
-      type: 'SliderWithTwoGraphics',
-    },
-    graphic: question2Graphic,
-    dotsOnPage: 1,
+  client: {
+    first_name: '',
+    last_name: '',
   },
-  {
-    id: 2,
-    questionDescription:
-      'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
+  sections: ['I Think', 'I Feel', 'I Focus', 'I Lean'],
+  questions: [
+    [
+      {
+        preface: 'Alrighty then, let’s get started…what do you see here?',
+        body: 'Is the glass half empty or half full?',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'small-multicard',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [
+                ['Half Empty', '0.4'],
+                ['Half Full', '0.4'],
+                ['I Just See Water!', '0.2'],
+              ],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question1Graphic,
+        dimensions: ['163px', '272px'],
+      },
+      {
+        preface:
+          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+        body: 'Being publicly recognized for a professional or personal achievement',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: 'you_person',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: 'others_person',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '100',
+              },
+              slider: {
+                default: '50',
+                min: '0',
+                max: '100',
+                step: '1',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
 
-    questionText:
-      'Win a free vacation for you and four of your close friends or family',
-    type: {
-      id: 1,
-      type: 'SliderWithTwoGraphics',
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question2Graphic,
+        dimensions: ['140.34px', '296.32px'],
+      },
+      {
+        preface:
+          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+        body: 'Win a free vacation for you and four of your close friends or family',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: 'you_car',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: 'other_car',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '100',
+              },
+              slider: {
+                default: '50',
+                min: '0',
+                max: '100',
+                step: '1',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question3Graphic,
+        dimensions: ['353.33px', '180px'],
+      },
+      {
+        preface:
+          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+        body: 'Achieve a comfortable lifestyle in retirement.',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: 'you_beach_chair',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: 'others_beach_chair',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '100',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question4Graphic,
+        dimensions: ['260px', '260px'],
+      },
+      {
+        preface:
+          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+        body: 'Getting the Flu or bad cold within the next 12 months ',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: 'you_thermometer',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: 'others_thermometer',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '100',
+              },
+              slider: {
+                default: '50',
+                min: '0',
+                max: '100',
+                step: '1',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question5Graphic,
+        dimensions: ['205px', '205px'],
+      },
+      {
+        preface:
+          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+        body: 'Losing more money than your peers in the market in the next 3 years',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: 'you_money_bag_decline',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: 'others_money_bag_decline',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '100',
+              },
+              slider: {
+                default: '50',
+                min: '0',
+                max: '100',
+                step: '1',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question6Graphic,
+        dimensions: ['189px', '258px'],
+      },
+    ],
+    [
+      {
+        preface:
+          'Imagine you are taking a train to work that runs once every 30 mins. Unfortunately, you miss the train today by 5 minutes…',
+        body: 'How much would you regret leaving your home late by 5 mins?',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'smiling_emoji',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider-with-transition',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Well, thats Life!',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Ahh I hate It!',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '100',
+              },
+              slider: {
+                default: '0',
+                min: '0',
+                max: '100',
+                step: '1',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon1: question7Graphic,
+        icon2: question8Graphic,
+        dimensions: ['231px', '154px'],
+      },
+      {
+        preface:
+          'Don’t hate us…you missed it, but it’s just by a whisker. You can still see it leaving the station.',
+        body: 'How much would you regret missing it by just a few seconds?',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'angry_frown_emoji',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider-with-transition',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Well, Thats Life!',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Ahh I hate it!',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '100',
+              },
+              slider: {
+                default: '100',
+                min: '0',
+                max: '100',
+                step: '1',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon1: question7Graphic,
+        icon2: question8Graphic,
+
+        dimensions: ['231px', '154px'],
+      },
+      {
+        preface:
+          'Imagine you are driving to an important meeting and the traffic seems a little worse today. Worse still, you accidentally forgot your phone and you feel you may be late by at least 15 mins if you run back home to get it. You remember an alternative route you have taken a few times before that seemed like it was faster.  ',
+        body: 'What would you do?',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'two_cars_at_stoplight',
+          },
+        },
+        elements: [
+          {
+            question_type: 'card',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Stick to the current route',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.1',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Take the alternate one',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.2',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question9Graphic,
+        dimensions: ['426px', '169px'],
+      },
+      {
+        preface:
+          'You just made a large purchase that you have always wanted to buy. A week after buying it, the price of it is now slashed by third.  ',
+        body: 'How would you feel about it?',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'shopping_bag_with_coins',
+          },
+        },
+        elements: [
+          {
+            question_type: 'card',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Ahh I hate it! :rage:',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.1',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Well, Thats Life! :smiling_face:',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.2',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question10Graphic,
+        dimensions: ['196px', '193px'],
+      },
+      {
+        preface:
+          'I wouldn’t have cared much had the price been slashed after… ',
+        body: 'Pick when in the future it wouldn’t have bothered you',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'date_picker',
+          },
+        },
+        elements: [
+          {
+            question_type: 'card',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Ahh I hate it! :rage:',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.1',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Well, Thats Life! :smiling_face:',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.2',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question11Graphic,
+        dimensions: ['316px', '238px'],
+      },
+    ],
+    [
+      {
+        preface: '',
+        body: 'In life, I often find myself focusing on',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'gold_chalice_with_target',
+          },
+        },
+        elements: [
+          {
+            question_type: 'card',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Losses',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.1',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'Gain',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.2',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question12Graphic,
+        dimensions: ['273px', '206px'],
+      },
+      {
+        preface: '',
+        body: 'When it comes to regret, I tend to find myself regretting things that:',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'Frowning Face',
+          },
+        },
+        elements: [
+          {
+            question_type: 'card',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'I have missed out on',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.1',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'I ended up doing',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.2',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question13Graphic,
+        dimensions: ['245px', '174px'],
+      },
+      {
+        preface: '',
+        body: 'When it comes to trying new products or services, I find myself focusing on',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'gold_chalice_with_target_and_badge',
+          },
+        },
+        elements: [
+          {
+            question_type: 'card',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'The risk',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.1',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'The benefit',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.2',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question14Graphic,
+        dimensions: ['295px', '222px'],
+      },
+      {
+        preface: '',
+        body: 'When it comes to big decisions in my life, I often focus on:',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'directions_post_with_question_mark',
+          },
+        },
+        elements: [
+          {
+            question_type: 'card',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'What others expect of me',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.1',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: 'What I aspire to be',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0.2',
+              },
+              slider: {
+                default: '',
+                min: '',
+                max: '',
+                step: '',
+                ticks: false,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: question15Graphic,
+        dimensions: ['220px', '221px'],
+      },
+    ],
+    [
+      {
+        preface: '',
+        body: 'I tend to do way too much research before making a large purchase.',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'phone_car_computer',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Disagree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Agree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '8',
+              },
+              slider: {
+                default: '4',
+                min: '0',
+                max: '8',
+                step: '1',
+                ticks: true,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: '',
+      },
+      {
+        preface: '',
+        body: 'I tend to spend too much time looking for what to watch instead of watching.',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'screen_with_playbar',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Disagree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Agree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '8',
+              },
+              slider: {
+                default: '4',
+                min: '0',
+                max: '8',
+                step: '1',
+                ticks: true,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: '',
+      },
+      {
+        preface: '',
+        body: 'I think of myself as a perfectionist, never comfortable settling for “good enough”.',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'person_with_thumbs_up',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Disagree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Agree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '8',
+              },
+              slider: {
+                default: '4',
+                min: '0',
+                max: '8',
+                step: '1',
+                ticks: true,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: '',
+      },
+      {
+        preface: '',
+        body: 'In a restaurant, I like to look over a menu carefully to make sure I choose the best option',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: 'menu_with_fork_and_spoon',
+          },
+        },
+        elements: [
+          {
+            question_type: 'slider',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Disagree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '0',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: 'Strongly Agree',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '8',
+              },
+              slider: {
+                default: '4',
+                min: '0',
+                max: '8',
+                step: '1',
+                ticks: true,
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [],
+            },
+          },
+        ],
+        icon: '',
+      },
+      {
+        preface:
+          'Below are some key values, and if you do not see ones that are important to you, please add in the Green box.',
+        body: 'Please rank in order of importance at least 3 to 5 of your core values by dragging and dropping them in the blue box.',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'dragdrop',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '',
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [
+                ['Security', '0.1'],
+                ['Freedom', '0.2'],
+                ['Travel', '0.3'],
+                ['Family', '0.4'],
+                ['Helping Others', '0.1'],
+                ['Health', '0.2'],
+                ['Community', '0.1'],
+                ['User Input A', '0.0'],
+                ['User Input B', '0.0'],
+                ['User Input C', '0.0'],
+              ],
+            },
+          },
+        ],
+        icon: '',
+      },
+    ],
+  ],
+  responses: [],
+  results: {},
+  report: {
+    client: {
+      template_id: '',
+      link: '',
+      last_accessed: '',
     },
-    graphic: question3Graphic,
-    dotsOnPage: 2,
-  },
-  {
-    id: 3,
-    questionDescription:
-      'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
-
-    questionText: 'Achieve a comfortable lifestyle in retirement.',
-    type: {
-      id: 1,
-      type: 'SliderWithTwoGraphics',
+    advisor: {
+      template_id: '',
+      link: '',
     },
-    graphic: question4Graphic,
-    dotsOnPage: 2,
   },
-  {
-    id: 4,
-    questionDescription:
-      'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
+  status: 'created',
+  percent_complete: 0,
+  last_question_completed: 0,
+  created_at: '2021-08-13T05:01:24.649Z  --> ISO8601 Date String',
+  updated_at: '2021-08-13T05:01:24.649Z  --> ISO8601 Date String',
+  completed_at: '2021-08-13T05:01:24.649Z  --> ISO8601 Date String',
+  meta_data: {},
+};
 
-    questionText: 'Getting the Flu or bad cold within the next 12 months',
-    type: {
-      id: 1,
-      type: 'SliderWithTwoGraphics',
-    },
-    graphic: question5Graphic,
-    dotsOnPage: 2,
-  },
-  {
-    id: 5,
-    questionDescription:
-      'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
+// Export const QuestionData = [
+//   {
+//     Id: 0,
+//     QuestionDescription:
+//       'Alrighty then, let’s get started…what do you see here?',
+//     QuestionText: 'Is the glass half empty or half full?',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
 
-    questionText:
-      'Losing more money than your peers in the market in the next 3 years',
-    type: {
-      id: 1,
-      type: 'SliderWithTwoGraphics',
-    },
-    graphic: question6Graphic,
-    dotsOnPage: 2,
-  },
-  {
-    id: 6,
-    questionDescription:
-      'Imagine you are taking a train to work that runs once every 30 mins. Unfortunately, you miss the train today by 5 minutes…',
+//       Options: ['Half Empty', 'Half Full', 'I just see water'],
+//     },
+//     Graphic: question1Graphic,
+//     DotsOnPage: 0,
+//   },
+//   {
+//     Id: 1,
+//     QuestionDescription:
+//       'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
 
-    questionText: 'How much would you regret leaving your home late by 5 mins?',
-    type: {
-      id: 2,
-      type: 'SliderWithOneGraphic',
-      options: ['Well, thats Life!', 'Ahh I hate it!'],
-    },
-    graphic: question7Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 7,
-    questionDescription:
-      'Don’t hate us…you missed it, but it’s just by a whisker. You can still see it leaving the station.',
+//     QuestionText:
+//       'Being publicly recognized for a professional or personal achievement',
+//     Type: {
+//       Id: 1,
+//       Type: 'SliderWithTwoGraphics',
+//     },
+//     Graphic: question2Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 2,
+//     QuestionDescription:
+//       'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
 
-    questionText: 'How much would you regret missing it by just a few seconds?',
-    type: {
-      id: 2,
-      type: 'SliderWithOneGraphic',
-      options: ['Well, thats Life!', 'Ahh I hate it!'],
-    },
-    graphic: question8Graphic,
-    dotsOnPage: 2,
-  },
-  {
-    id: 8,
-    questionDescription:
-      'Imagine you are driving to an important meeting and the traffic seems a little worse today. Worse still, you accidentally forgot your phone and you feel you may be late by at least 15 mins if you run back home to get it. You remember an alternative route you have taken a few times before that seemed like it was faster.  ',
+//     QuestionText:
+//       'Win a free vacation for you and four of your close friends or family',
+//     Type: {
+//       Id: 1,
+//       Type: 'SliderWithTwoGraphics',
+//     },
+//     Graphic: question3Graphic,
+//     DotsOnPage: 2,
+//   },
+//   {
+//     Id: 3,
+//     QuestionDescription:
+//       'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
 
-    questionText: 'What would you do?',
-    type: {
-      id: 0,
-      type: 'RadioButton',
+//     QuestionText: 'Achieve a comfortable lifestyle in retirement.',
+//     Type: {
+//       Id: 1,
+//       Type: 'SliderWithTwoGraphics',
+//     },
+//     Graphic: question4Graphic,
+//     DotsOnPage: 2,
+//   },
+//   {
+//     Id: 4,
+//     QuestionDescription:
+//       'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
 
-      options: ['Stick to the current router', 'Take the alternate route'],
-    },
-    graphic: question9Graphic,
-    dotsOnPage: 3,
-  },
-  {
-    id: 9,
-    questionDescription:
-      'You just made a large purchase that you have always wanted to buy. A week after buying it, the price of it is now slashed by third.',
+//     QuestionText: 'Getting the Flu or bad cold within the next 12 months',
+//     Type: {
+//       Id: 1,
+//       Type: 'SliderWithTwoGraphics',
+//     },
+//     Graphic: question5Graphic,
+//     DotsOnPage: 2,
+//   },
+//   {
+//     Id: 5,
+//     QuestionDescription:
+//       'Think of individuals like you, people you instinctively compare yourself to.\n What is the likelihood that each of the following events will happen to you personally as compared to them?',
 
-    questionText: 'How would you feel about it?',
-    type: {
-      id: 0,
-      type: 'RadioButton',
-      options: ['Ahh I hate it!', 'Well, thats Life!'],
-    },
-    graphic: question10Graphic,
-    dotsOnPage: 4,
-  },
-  {
-    id: 10,
-    questionDescription:
-      'I wouldn’t have cared much had the price been slashed after…',
+//     QuestionText:
+//       'Losing more money than your peers in the market in the next 3 years',
+//     Type: {
+//       Id: 1,
+//       Type: 'SliderWithTwoGraphics',
+//     },
+//     Graphic: question6Graphic,
+//     DotsOnPage: 2,
+//   },
+//   {
+//     Id: 6,
+//     QuestionDescription:
+//       'Imagine you are taking a train to work that runs once every 30 mins. Unfortunately, you miss the train today by 5 minutes…',
 
-    questionText: 'Pick when in the future it wouldn’t have bothered you',
-    type: {
-      id: 0,
-      type: 'RadioButton',
-      options: ['Ahh I hate it!', 'Well, thats Life!'],
-    },
-    graphic: question11Graphic,
-    dotsOnPage: 4,
-  },
-  {
-    id: 11,
-    questionDescription: '',
+//     QuestionText: 'How much would you regret leaving your home late by 5 mins?',
+//     Type: {
+//       Id: 2,
+//       Type: 'SliderWithOneGraphic',
+//       Options: ['Well, thats Life!', 'Ahh I hate it!'],
+//     },
+//     Graphic: question7Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 7,
+//     QuestionDescription:
+//       'Don’t hate us…you missed it, but it’s just by a whisker. You can still see it leaving the station.',
 
-    questionText: 'In life, I often find myself focusing on',
-    type: {
-      id: 0,
-      type: 'RadioButton',
-      options: ['Losses', 'Gain'],
-    },
-    graphic: question12Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 12,
-    questionDescription: '',
+//     QuestionText: 'How much would you regret missing it by just a few seconds?',
+//     Type: {
+//       Id: 2,
+//       Type: 'SliderWithOneGraphic',
+//       Options: ['Well, thats Life!', 'Ahh I hate it!'],
+//     },
+//     Graphic: question8Graphic,
+//     DotsOnPage: 2,
+//   },
+//   {
+//     Id: 8,
+//     QuestionDescription:
+//       'Imagine you are driving to an important meeting and the traffic seems a little worse today. Worse still, you accidentally forgot your phone and you feel you may be late by at least 15 mins if you run back home to get it. You remember an alternative route you have taken a few times before that seemed like it was faster.  ',
 
-    questionText:
-      'When it comes to regret, I tend to find myself regretting things that:',
-    type: {
-      id: 0,
-      type: 'RadioButton',
-      options: ['I have missed out on', 'I ended up doing'],
-    },
-    graphic: question13Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 13,
-    questionDescription: '',
+//     QuestionText: 'What would you do?',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
 
-    questionText:
-      'When it comes to trying new products or services, I find myself focusing on',
-    type: {
-      id: 0,
-      type: 'RadioButton',
-      options: ['The Risk', 'The Benefit'],
-    },
-    graphic: question14Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 14,
-    questionDescription: '',
+//       Options: ['Stick to the current router', 'Take the alternate route'],
+//     },
+//     Graphic: question9Graphic,
+//     DotsOnPage: 3,
+//   },
+//   {
+//     Id: 9,
+//     QuestionDescription:
+//       'You just made a large purchase that you have always wanted to buy. A week after buying it, the price of it is now slashed by third.',
 
-    questionText:
-      'When it comes to big decisions in my life, I often focus on:',
-    type: {
-      id: 0,
-      type: 'RadioButton',
-      options: ['What others expect of me', 'What I aspire to be'],
-    },
-    graphic: question15Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 15,
-    questionDescription: '',
+//     QuestionText: 'How would you feel about it?',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
+//       Options: ['Ahh I hate it!', 'Well, thats Life!'],
+//     },
+//     Graphic: question10Graphic,
+//     DotsOnPage: 4,
+//   },
+//   {
+//     Id: 10,
+//     QuestionDescription:
+//       'I wouldn’t have cared much had the price been slashed after…',
 
-    questionText:
-      'I tend to do way too much research before making a large purchase.',
-    type: {
-      id: 3,
-      type: 'SliderWithOneGraphicAndNotation',
-      options: ['Strongly Disagree', 'Strongly Agree'],
-    },
-    graphic: question16Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 16,
-    questionDescription: '',
+//     QuestionText: 'Pick when in the future it wouldn’t have bothered you',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
+//       Options: ['Ahh I hate it!', 'Well, thats Life!'],
+//     },
+//     Graphic: question11Graphic,
+//     DotsOnPage: 4,
+//   },
+//   {
+//     Id: 11,
+//     QuestionDescription: '',
 
-    questionText:
-      'I tend to spend too much time looking for what to watch instead of watching.',
-    type: {
-      id: 3,
-      type: 'SliderWithOneGraphicAndNotation',
-      options: ['Strongly Disagree', 'Strongly Agree'],
-    },
-    graphic: question17Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 17,
-    questionDescription: '',
+//     QuestionText: 'In life, I often find myself focusing on',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
+//       Options: ['Losses', 'Gain'],
+//     },
+//     Graphic: question12Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 12,
+//     QuestionDescription: '',
 
-    questionText:
-      'I think of myself as a perfectionist, never comfortable settling for “good enough”.',
-    type: {
-      id: 3,
-      type: 'SliderWithOneGraphicAndNotation',
-      options: ['Strongly Disagree', 'Strongly Agree'],
-    },
-    graphic: question18Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 5,
-    questionDescription: '',
+//     QuestionText:
+//       'When it comes to regret, I tend to find myself regretting things that:',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
+//       Options: ['I have missed out on', 'I ended up doing'],
+//     },
+//     Graphic: question13Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 13,
+//     QuestionDescription: '',
 
-    questionText:
-      'In a restaurant, I like to look over a menu carefully to make sure I choose the best option',
-    type: {
-      id: 3,
-      type: 'SliderWithOneGraphicAndNotation',
-      options: ['Strongly Disagree', 'Strongly Agree'],
-    },
-    graphic: question19Graphic,
-    dotsOnPage: 1,
-  },
-  {
-    id: 19,
-    questionDescription:
-      'Below are some key values, and if you do not see ones that are important to you, please add in the Green box.',
+//     QuestionText:
+//       'When it comes to trying new products or services, I find myself focusing on',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
+//       Options: ['The Risk', 'The Benefit'],
+//     },
+//     Graphic: question14Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 14,
+//     QuestionDescription: '',
 
-    questionText:
-      'Please rank in order of importance at least 3 to 5 of your core values by dragging and dropping them in the blue box.',
-    type: {
-      id: 4,
-      type: 'DragAndDrop',
-      options: [
-        'Security',
-        'Freedom',
-        'Travel',
-        'Family',
-        'Helping Others',
-        'Health',
-        'Community',
-      ],
-    },
-    dotsOnPage: 1,
-  },
-];
+//     QuestionText:
+//       'When it comes to big decisions in my life, I often focus on:',
+//     Type: {
+//       Id: 0,
+//       Type: 'RadioButton',
+//       Options: ['What others expect of me', 'What I aspire to be'],
+//     },
+//     Graphic: question15Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 15,
+//     QuestionDescription: '',
+
+//     QuestionText:
+//       'I tend to do way too much research before making a large purchase.',
+//     Type: {
+//       Id: 3,
+//       Type: 'SliderWithOneGraphicAndNotation',
+//       Options: ['Strongly Disagree', 'Strongly Agree'],
+//     },
+//     Graphic: question16Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 16,
+//     QuestionDescription: '',
+
+//     QuestionText:
+//       'I tend to spend too much time looking for what to watch instead of watching.',
+//     Type: {
+//       Id: 3,
+//       Type: 'SliderWithOneGraphicAndNotation',
+//       Options: ['Strongly Disagree', 'Strongly Agree'],
+//     },
+//     Graphic: question17Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 17,
+//     QuestionDescription: '',
+
+//     QuestionText:
+//       'I think of myself as a perfectionist, never comfortable settling for “good enough”.',
+//     Type: {
+//       Id: 3,
+//       Type: 'SliderWithOneGraphicAndNotation',
+//       Options: ['Strongly Disagree', 'Strongly Agree'],
+//     },
+//     Graphic: question18Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 5,
+//     QuestionDescription: '',
+
+//     QuestionText:
+//       'In a restaurant, I like to look over a menu carefully to make sure I choose the best option',
+//     Type: {
+//       Id: 3,
+//       Type: 'SliderWithOneGraphicAndNotation',
+//       Options: ['Strongly Disagree', 'Strongly Agree'],
+//     },
+//     Graphic: question19Graphic,
+//     DotsOnPage: 1,
+//   },
+//   {
+//     Id: 19,
+//     QuestionDescription:
+//       'Below are some key values, and if you do not see ones that are important to you, please add in the Green box.',
+
+//     QuestionText:
+//       'Please rank in order of importance at least 3 to 5 of your core values by dragging and dropping them in the blue box.',
+//     Type: {
+//       Id: 4,
+//       Type: 'DragAndDrop',
+//       Options: [
+//         'Security',
+//         'Freedom',
+//         'Travel',
+//         'Family',
+//         'Helping Others',
+//         'Health',
+//         'Community',
+//       ],
+//     },
+//     DotsOnPage: 1,
+//   },
+// ];

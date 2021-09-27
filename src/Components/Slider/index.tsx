@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable radix */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable node/no-extraneous-import */
 import {Image} from '@chakra-ui/image';
-import {Box, Flex, Text} from '@chakra-ui/layout';
+import {Box, Flex} from '@chakra-ui/layout';
 import {
   Slider,
   SliderFilledTrack,
@@ -12,27 +15,32 @@ import {
 } from '@chakra-ui/slider';
 import {useContext, FC} from 'react';
 import sliderImage from '../../assets/slider.svg';
-import './styles.css';
+import './styles/styles.css';
+import annotationArrow from '../../assets/annotationArrow.svg';
 
+import annotationArrowReverse from '../../assets/annotationArrowReverse.svg';
 import {StateContext} from '../../Context';
 type Props = {
-  graphic?: string;
+  graphic: string;
+  dimension: string[];
+  slider: any;
 };
-type NotationProps = {
-  graphic?: string;
-  options?: string[];
+type TransitionProps = {
+  graphic1: string;
+  graphic2: string;
+  dimension: string[];
+  slider: any;
 };
 
 // ValueFromContext?.answers[valueFromContext.counter]  || 50
 
-export const SliderComponent: FC<Props> = ({graphic}) => {
+export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
   const valueFromContext = useContext(StateContext);
-  let val = 50;
+  let val = 0;
   if (valueFromContext !== null) {
     // eslint-disable-next-line radix
-    val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 50;
+    val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 0;
   }
-
   return (
     <Box marginTop="200px" marginBottom="30px">
       <Flex
@@ -40,24 +48,69 @@ export const SliderComponent: FC<Props> = ({graphic}) => {
         alignItems="flex-end"
         justifyContent="space-between"
       >
-        <div className="DarkAnnotation">You</div>
-        <div className="DarkAnnotation-side">Others</div>
+        <div>
+          <div
+            className="DarkAnnotation"
+            style={{
+              bottom: `${150 - val}px`,
+              left: `${150 - val}px`,
+            }}
+          >
+            You
+          </div>
+
+          <Image
+            src={annotationArrow}
+            className="AnnotationArrow"
+            style={{
+              bottom: `${145 - val}px`,
+              left: `${160 - val}px`,
+            }}
+          />
+        </div>
+
+        <div>
+          <div
+            className="DarkAnnotation-side"
+            style={{
+              bottom: `${50 + val}px`,
+              right: `${50 + val}px`,
+            }}
+          >
+            Others
+          </div>
+
+          <Image
+            src={annotationArrowReverse}
+            className="AnnotationArrow-side"
+            style={{
+              bottom: `${43 + val}px`,
+              right: `${60 + val}px`,
+            }}
+          />
+        </div>
         <Image
+          userSelect="none"
           zIndex="-10"
-          bottom="-14px"
+          bottom="0px"
           position="absolute"
           src={graphic}
-          height={`${200 - val}px`}
-          width={`${200 - val}px`}
+          minWidth="30px"
+          minHeight="30px"
+          height={`calc(${dimension[1]}*${((100 - val) * 0.8) / 100} )`}
+          width={`calc(${dimension[0]}*${((100 - val) * 0.8) / 100} )`}
         />
         <Image
           zIndex="-10"
-          bottom="-14px"
+          userSelect="none"
+          bottom="0px"
           position="absolute"
-          right="-30px"
+          right="0"
           src={graphic}
-          height={`${100 + val}px`}
-          width={`${100 + val}px`}
+          minWidth="30px"
+          minHeight="30px"
+          height={`calc(${dimension[1]}*${(val * 0.8) / 100} )`}
+          width={`calc(${dimension[0]}*${(val * 0.8) / 100} )`}
         />
       </Flex>
 
@@ -66,6 +119,7 @@ export const SliderComponent: FC<Props> = ({graphic}) => {
           aria-label="slider-ex-4"
           value={val}
           onChange={(newVal) => {
+            console.log(newVal);
             if (valueFromContext !== null) {
               const tempAnswers = valueFromContext.answers;
               tempAnswers[valueFromContext.counter] = newVal.toString();
@@ -92,77 +146,45 @@ export const SliderComponent: FC<Props> = ({graphic}) => {
   );
 };
 
-export const SliderWithOneGraphic: FC<Props> = ({graphic}) => {
-  const valueFromContext = useContext(StateContext);
-  let val = 50;
-  if (valueFromContext !== null) {
-    val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 50;
-  }
-
-  return (
-    <Box marginTop="200px" marginBottom="30px">
-      <Flex position="relative" alignItems="center" justifyContent="center">
-        <Image
-          zIndex="-10"
-          bottom="-14px"
-          position="absolute"
-          src={graphic}
-          height={`${200}px`}
-          width={`${200}px`}
-        />
-      </Flex>
-
-      <Flex width="600px" alignItems="flex-end">
-        <Slider
-          aria-label="slider-ex-4"
-          value={val}
-          onChange={(newVal) => {
-            if (valueFromContext !== null) {
-              const tempAnswers = valueFromContext.answers;
-              tempAnswers[valueFromContext.counter] = newVal.toString();
-              valueFromContext.setAnswers([...tempAnswers]);
-            }
-          }}
-        >
-          <SliderTrack bgGradient="linear(to-l, #FA94FC,#86BDFE,#FA94FC)">
-            <SliderFilledTrack bg="transparent" />
-          </SliderTrack>
-          <SliderThumb
-            background="transparent"
-            boxSize={8}
-            backgroundImage={sliderImage}
-            backgroundSize="50px"
-            backgroundRepeat="no-repeat"
-            backgroundPosition="center center"
-          >
-            <Box color="tomato" />
-          </SliderThumb>
-        </Slider>
-      </Flex>
-    </Box>
-  );
-};
-
-export const SliderWithOneGraphicAndNotation: FC<NotationProps> = ({
-  graphic,
-  options,
+export const SliderComponentWithTransition: FC<TransitionProps> = ({
+  graphic1,
+  graphic2,
+  dimension,
+  slider,
 }) => {
+  console.log(slider.default);
   const valueFromContext = useContext(StateContext);
-  let val = 50;
+  let val = parseInt(slider.default);
   if (valueFromContext !== null) {
-    val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 50;
+    // eslint-disable-next-line radix
+    val =
+      parseInt(valueFromContext.answers[valueFromContext.counter]) ||
+      parseInt(slider.default);
   }
-
   return (
     <Box marginTop="200px" marginBottom="30px">
-      <Flex position="relative" alignItems="center" justifyContent="center">
+      <Flex
+        position="relative"
+        alignItems="flex-end"
+        justifyContent="space-between"
+      >
         <Image
-          zIndex="-10"
-          bottom="-14px"
+          bottom="10px"
+          right="30%"
           position="absolute"
-          src={graphic}
-          height={`${200}px`}
-          width={`${200}px`}
+          src={graphic1}
+          opacity={(100 - val) / 100}
+          height={dimension[1]}
+          width={dimension[0]}
+        />
+        <Image
+          bottom="10px"
+          right="30%"
+          position="absolute"
+          opacity={val / 100}
+          src={graphic2}
+          height={dimension[1]}
+          width={dimension[0]}
         />
       </Flex>
 
@@ -171,6 +193,7 @@ export const SliderWithOneGraphicAndNotation: FC<NotationProps> = ({
           aria-label="slider-ex-4"
           value={val}
           onChange={(newVal) => {
+            console.log(newVal);
             if (valueFromContext !== null) {
               const tempAnswers = valueFromContext.answers;
               tempAnswers[valueFromContext.counter] = newVal.toString();
@@ -193,10 +216,115 @@ export const SliderWithOneGraphicAndNotation: FC<NotationProps> = ({
           </SliderThumb>
         </Slider>
       </Flex>
-      <Flex alignItems="center" justifyContent="space-between">
-        <Text>{options?.[0]}</Text>
-        <Text>{options?.[1]}</Text>
-      </Flex>
     </Box>
   );
 };
+
+// Export const SliderWithOneGraphic: FC<Props> = ({graphic}) => {
+//   Const valueFromContext = useContext(StateContext);
+//   Let val = 50;
+//   If (valueFromContext !== null) {
+//     Val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 50;
+//   }
+
+//   Return (
+//     <Box marginTop="200px" marginBottom="30px">
+//       <Flex position="relative" alignItems="center" justifyContent="center">
+//         <Image
+//           ZIndex="-10"
+//           Bottom="-14px"
+//           Position="absolute"
+//           Src={graphic}
+//           Height={`${200}px`}
+//           Width={`${200}px`}
+//         />
+//       </Flex>
+
+//       <Flex width="600px" alignItems="flex-end">
+//         <Slider
+//           Aria-label="slider-ex-4"
+//           Value={val}
+//           OnChange={(newVal) => {
+//             If (valueFromContext !== null) {
+//               Const tempAnswers = valueFromContext.answers;
+//               TempAnswers[valueFromContext.counter] = newVal.toString();
+//               ValueFromContext.setAnswers([...tempAnswers]);
+//             }
+//           }}
+//         >
+//           <SliderTrack bgGradient="linear(to-l, #FA94FC,#86BDFE,#FA94FC)">
+//             <SliderFilledTrack bg="transparent" />
+//           </SliderTrack>
+//           <SliderThumb
+//             Background="transparent"
+//             BoxSize={8}
+//             BackgroundImage={sliderImage}
+//             BackgroundSize="50px"
+//             BackgroundRepeat="no-repeat"
+//             BackgroundPosition="center center"
+//           >
+//             <Box color="tomato" />
+//           </SliderThumb>
+//         </Slider>
+//       </Flex>
+//     </Box>
+//   );
+// };
+
+// Export const SliderWithOneGraphicAndNotation: FC<NotationProps> = ({
+//   Graphic,
+//   Options,
+// }) => {
+//   Const valueFromContext = useContext(StateContext);
+//   Let val = 50;
+//   If (valueFromContext !== null) {
+//     Val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 50;
+//   }
+
+//   Return (
+//     <Box marginTop="200px" marginBottom="30px">
+//       <Flex position="relative" alignItems="center" justifyContent="center">
+//         <Image
+//           ZIndex="-10"
+//           Bottom="-14px"
+//           Position="absolute"
+//           Src={graphic}
+//           Height={`${200}px`}
+//           Width={`${200}px`}
+//         />
+//       </Flex>
+
+//       <Flex width="600px" alignItems="flex-end">
+//         <Slider
+//           Aria-label="slider-ex-4"
+//           Value={val}
+//           OnChange={(newVal) => {
+//             If (valueFromContext !== null) {
+//               Const tempAnswers = valueFromContext.answers;
+//               TempAnswers[valueFromContext.counter] = newVal.toString();
+//               ValueFromContext.setAnswers([...tempAnswers]);
+//             }
+//           }}
+//         >
+//           <SliderTrack bgGradient="linear(to-l, #FA94FC,#86BDFE,#FA94FC)">
+//             <SliderFilledTrack bg="transparent" />
+//           </SliderTrack>
+//           <SliderThumb
+//             Background="transparent"
+//             BoxSize={8}
+//             BackgroundImage={sliderImage}
+//             BackgroundSize="50px"
+//             BackgroundRepeat="no-repeat"
+//             BackgroundPosition="center center"
+//           >
+//             <Box color="tomato" />
+//           </SliderThumb>
+//         </Slider>
+//       </Flex>
+//       <Flex alignItems="center" justifyContent="space-between">
+//         <Text>{options?.[0]}</Text>
+//         <Text>{options?.[1]}</Text>
+//       </Flex>
+//     </Box>
+//   );
+// };

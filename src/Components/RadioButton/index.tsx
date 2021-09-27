@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable no-magic-numbers */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable node/no-extraneous-import */
 import {Image} from '@chakra-ui/image';
@@ -6,23 +10,74 @@ import {useContext, FC} from 'react';
 import './styles/styles.css';
 import {StateContext} from '../../Context';
 type Props = {
-  options?: string[];
-  graphic?: string;
+  options: any;
+  graphic: string;
+  dimension: string[];
 };
 
-const RadioButton: FC<Props> = ({options, graphic}) => {
+const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
   const valueFromContext = useContext(StateContext);
   return (
-    <Box marginTop="30px" marginBottom="30px">
+    <Box marginTop="32px">
       <Flex
         position="relative"
         alignItems="center"
         direction="column"
         justifyContent="space-between"
       >
-        <Image src={graphic} />
+        <Image
+          src={graphic}
+          style={{height: dimension[1], width: dimension[0]}}
+        />
         <Flex className="RadioButtonsContainer">
-          {options?.map((option, index) => {
+          {options?.map((option: string[], index: number) => {
+            return (
+              <Flex
+                key={index}
+                className={
+                  valueFromContext?.answers[valueFromContext.counter] ===
+                  option[0]
+                    ? 'RadioButtonSelected'
+                    : 'RadioButton'
+                }
+                onClick={() => {
+                  if (valueFromContext !== null) {
+                    const tempAnswers = valueFromContext.answers;
+                    tempAnswers[valueFromContext.counter] = option[0];
+                    valueFromContext.setAnswers([...tempAnswers]);
+                  }
+                }}
+              >
+                {option[0]}
+              </Flex>
+            );
+          })}
+        </Flex>
+      </Flex>
+    </Box>
+  );
+};
+
+export const RadioButtonWithTwoOptions: FC<Props> = ({
+  options,
+  graphic,
+  dimension,
+}) => {
+  const valueFromContext = useContext(StateContext);
+  return (
+    <Box marginTop="32px">
+      <Flex
+        position="relative"
+        alignItems="center"
+        direction="column"
+        justifyContent="space-between"
+      >
+        <Image
+          src={graphic}
+          style={{height: dimension[1], width: dimension[0]}}
+        />
+        <Flex className="RadioButtonsContainer">
+          {options?.map((option: string, index: number) => {
             return (
               <Flex
                 key={index}
