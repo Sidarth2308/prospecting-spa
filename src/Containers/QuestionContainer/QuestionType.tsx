@@ -9,6 +9,7 @@ import RadioButton, {
 } from '../../Components/RadioButton';
 import {
   SliderComponent,
+  SliderComponentWithNotation,
   SliderComponentWithTransition,
 } from '../../Components/Slider';
 type Props = {
@@ -48,6 +49,10 @@ const QuestionType: FC<Props> = ({
       <SliderComponentWithTransition
         graphic1={graphic1 ? graphic1 : ''}
         graphic2={graphic2 ? graphic2 : ''}
+        options={[
+          questionDetails[0]?.context.left.text.below,
+          questionDetails[0]?.context.right.text.below,
+        ]}
         dimension={dimension}
         slider={questionDetails[0]?.context.slider}
       />
@@ -61,6 +66,18 @@ const QuestionType: FC<Props> = ({
         ]}
         dimension={dimension}
         graphic={graphic ? graphic : ''}
+      />
+    );
+  } else if (questionDetails[0]?.question_type === 'slider-with-notation') {
+    return (
+      <SliderComponentWithNotation
+        graphic={graphic ? graphic : ''}
+        options={[
+          questionDetails[0]?.context.left.text.below,
+          questionDetails[0]?.context.right.text.below,
+        ]}
+        dimension={dimension}
+        slider={questionDetails[0]?.context.slider}
       />
     );
   }

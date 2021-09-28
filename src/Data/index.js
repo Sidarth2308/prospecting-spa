@@ -1233,7 +1233,7 @@ export const QuestionData = {
         },
         elements: [
           {
-            question_type: 'slider',
+            question_type: 'slider-with-notation',
             question_override: {
               preface: '',
               body: '',
@@ -1294,7 +1294,8 @@ export const QuestionData = {
             },
           },
         ],
-        icon: '',
+        icon: question16Graphic,
+        dimensions: ['594px', '159.14px'],
       },
       {
         preface: '',
@@ -1309,7 +1310,7 @@ export const QuestionData = {
         },
         elements: [
           {
-            question_type: 'slider',
+            question_type: 'slider-with-notation',
             question_override: {
               preface: '',
               body: '',
@@ -1370,7 +1371,8 @@ export const QuestionData = {
             },
           },
         ],
-        icon: '',
+        icon: question17Graphic,
+        dimensions: ['402px', '235px'],
       },
       {
         preface: '',
@@ -1385,7 +1387,7 @@ export const QuestionData = {
         },
         elements: [
           {
-            question_type: 'slider',
+            question_type: 'slider-with-notation',
             question_override: {
               preface: '',
               body: '',
@@ -1446,7 +1448,8 @@ export const QuestionData = {
             },
           },
         ],
-        icon: '',
+        icon: question18Graphic,
+        dimensions: ['118px', '211.24px'],
       },
       {
         preface: '',
@@ -1461,7 +1464,7 @@ export const QuestionData = {
         },
         elements: [
           {
-            question_type: 'slider',
+            question_type: 'slider-with-notation',
             question_override: {
               preface: '',
               body: '',
@@ -1522,7 +1525,8 @@ export const QuestionData = {
             },
           },
         ],
-        icon: '',
+        icon: question19Graphic,
+        dimensions: ['252px', '252px'],
       },
       {
         preface:

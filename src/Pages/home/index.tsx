@@ -1,19 +1,27 @@
+/* eslint-disable @typescript-eslint/promise-function-async */
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable no-use-before-define */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable no-magic-numbers */
-import {useState, FC} from 'react';
+
+import React, {useState, FC, Suspense} from 'react';
+import {Spinner} from '@chakra-ui/react';
 
 // Import {useSelector, useDispatch} from 'react-redux';
 // Import {FetchData} from '../../Redux/actions/data';
+// Import {RootState} from '../../Redux/reducers';
+
+import {StateContext} from '../../Context';
 import {QuestionData} from '../../Data';
 import './styles/styles.css';
 
-import QuestionContainer from '../../Containers/QuestionContainer';
-
-import {StateContext} from '../../Context';
-// Import {RootState} from '../../Redux/reducers';
+const QuestionContainer = React.lazy(
+  () => import('../../Containers/QuestionContainer')
+);
 
 const Home: FC = () => {
   // Const fetchedData = useSelector((state: RootState) => state.fetchData);
@@ -46,16 +54,18 @@ const Home: FC = () => {
   return (
     <StateContext.Provider value={{answers, setAnswers, counter}}>
       {QuestionData && (
-        <QuestionContainer
-          progressData={{
-            counter: counter,
-            total: QuestionData.questions[section].length,
-            heading: QuestionData.sections[section],
-          }}
-          data={QuestionData.questions[section][counter]}
-          handleNext={increaseCounter}
-          handlePrev={decreaseCounter}
-        />
+        <Suspense fallback={<Spinner />}>
+          <QuestionContainer
+            progressData={{
+              counter: counter,
+              total: QuestionData.questions[section].length,
+              heading: QuestionData.sections[section],
+            }}
+            data={QuestionData.questions[section][counter]}
+            handleNext={increaseCounter}
+            handlePrev={decreaseCounter}
+          />
+        </Suspense>
       )}
     </StateContext.Provider>
   );
