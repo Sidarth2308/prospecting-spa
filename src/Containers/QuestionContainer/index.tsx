@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -9,7 +11,6 @@ import './styles/styles.css';
 import {Flex, Text} from '@chakra-ui/layout';
 
 import {StateContext} from '../../Context';
-import dotsImage from '../../assets/dotsOnPage.svg';
 import arrowIcon from '../../assets/arrow.svg';
 import {CircularProgress, CircularProgressLabel} from '@chakra-ui/progress';
 import {Image} from '@chakra-ui/image';
@@ -30,7 +31,9 @@ const QuestionContainer: FC<Props> = ({
   progressData,
 }) => {
   const valueFromContext = useContext(StateContext);
-  const disabled = valueFromContext?.answers[valueFromContext.counter]
+  const disabled = valueFromContext?.answers[valueFromContext.section][
+    valueFromContext.counter
+  ]
     ? false
     : true;
   return (
@@ -74,9 +77,6 @@ const QuestionContainer: FC<Props> = ({
         )}
 
         <Text className="HeadingQuestion">{data?.body}</Text>
-      </Flex>
-      <Flex>
-        <Image src={dotsImage} />
       </Flex>
       <QuestionType
         questionDetails={data.elements}

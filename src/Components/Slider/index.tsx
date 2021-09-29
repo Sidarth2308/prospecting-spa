@@ -46,7 +46,12 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
   let val = 0;
   if (valueFromContext !== null) {
     // eslint-disable-next-line radix
-    val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 0;
+    val =
+      parseInt(
+        valueFromContext.answers[valueFromContext.section][
+          valueFromContext.counter
+        ]
+      ) || 0;
   }
   return (
     <Box marginTop="200px" marginBottom="30px">
@@ -142,10 +147,10 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
           aria-label="slider-ex-4"
           value={val}
           onChange={(newVal) => {
-            console.log(newVal);
             if (valueFromContext !== null) {
               const tempAnswers = valueFromContext.answers;
-              tempAnswers[valueFromContext.counter] = newVal.toString();
+              tempAnswers[valueFromContext.section][valueFromContext.counter] =
+                newVal.toString();
               valueFromContext.setAnswers([...tempAnswers]);
             }
           }}
@@ -185,8 +190,11 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
   if (valueFromContext !== null) {
     // eslint-disable-next-line radix
     val =
-      parseInt(valueFromContext.answers[valueFromContext.counter]) ||
-      parseInt(slider.default);
+      parseInt(
+        valueFromContext.answers[valueFromContext.section][
+          valueFromContext.counter
+        ]
+      ) || parseInt(slider.default);
   }
   return (
     <Box marginTop="200px" marginBottom="30px">
@@ -220,10 +228,10 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           aria-label="slider-ex-4"
           value={val}
           onChange={(newVal) => {
-            console.log(newVal);
             if (valueFromContext !== null) {
               const tempAnswers = valueFromContext.answers;
-              tempAnswers[valueFromContext.counter] = newVal.toString();
+              tempAnswers[valueFromContext.section][valueFromContext.counter] =
+                newVal.toString();
               valueFromContext.setAnswers([...tempAnswers]);
             }
           }}
@@ -251,8 +259,8 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         </Slider>
       </Flex>
       <Flex alignItems="center" justifyContent="space-between">
-        <Text className="NotationText">{options?.[0]}</Text>
-        <Text className="NotationText">{options?.[1]}</Text>
+        <Text className="NotationText">{options[0]}</Text>
+        <Text className="NotationText">{options[1]}</Text>
       </Flex>
     </Box>
   );
@@ -268,18 +276,22 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
   let val = 0;
   if (valueFromContext !== null) {
     // eslint-disable-next-line radix
-    val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 0;
+    val =
+      parseInt(
+        valueFromContext.answers[valueFromContext.section][
+          valueFromContext.counter
+        ]
+      ) || 0;
   }
   return (
-    <Box marginTop="300px" marginBottom="30px">
+    <Box marginTop="10px" marginBottom="30px">
       <Flex
         position="relative"
         alignItems="flex-end"
         justifyContent="space-between"
       >
         <Image
-          position="absolute"
-          bottom="72px"
+          margin="0 auto 27px auto"
           src={graphic}
           height={dimension[1]}
           width={dimension[0]}
@@ -294,10 +306,10 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
           max={parseInt(slider.max) * 10}
           value={val}
           onChange={(newVal) => {
-            console.log(newVal);
             if (valueFromContext !== null) {
               const tempAnswers = valueFromContext.answers;
-              tempAnswers[valueFromContext.counter] = newVal.toString();
+              tempAnswers[valueFromContext.section][valueFromContext.counter] =
+                newVal.toString();
               valueFromContext.setAnswers([...tempAnswers]);
             }
           }}
@@ -325,118 +337,9 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
         </Slider>
       </Flex>
       <Flex alignItems="center" justifyContent="space-between">
-        <Text className="NotationText">{options?.[0]}</Text>
-        <Text className="NotationText">{options?.[1]}</Text>
+        <Text className="NotationText">{options[0]}</Text>
+        <Text className="NotationText">{options[1]}</Text>
       </Flex>
     </Box>
   );
 };
-
-// Export const SliderWithOneGraphic: FC<Props> = ({graphic}) => {
-//   Const valueFromContext = useContext(StateContext);
-//   Let val = 50;
-//   If (valueFromContext !== null) {
-//     Val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 50;
-//   }
-
-//   Return (
-//     <Box marginTop="200px" marginBottom="30px">
-//       <Flex position="relative" alignItems="center" justifyContent="center">
-//         <Image
-//           ZIndex="-10"
-//           Bottom="-14px"
-//           Position="absolute"
-//           Src={graphic}
-//           Height={`${200}px`}
-//           Width={`${200}px`}
-//         />
-//       </Flex>
-
-//       <Flex width="600px" alignItems="flex-end">
-//         <Slider
-//           Aria-label="slider-ex-4"
-//           Value={val}
-//           OnChange={(newVal) => {
-//             If (valueFromContext !== null) {
-//               Const tempAnswers = valueFromContext.answers;
-//               TempAnswers[valueFromContext.counter] = newVal.toString();
-//               ValueFromContext.setAnswers([...tempAnswers]);
-//             }
-//           }}
-//         >
-//           <SliderTrack bgGradient="linear(to-l, #FA94FC,#86BDFE,#FA94FC)">
-//             <SliderFilledTrack bg="transparent" />
-//           </SliderTrack>
-//           <SliderThumb
-//             Background="transparent"
-//             BoxSize={8}
-//             BackgroundImage={sliderImage}
-//             BackgroundSize="50px"
-//             BackgroundRepeat="no-repeat"
-//             BackgroundPosition="center center"
-//           >
-//             <Box color="tomato" />
-//           </SliderThumb>
-//         </Slider>
-//       </Flex>
-//     </Box>
-//   );
-// };
-
-// Export const SliderWithOneGraphicAndNotation: FC<NotationProps> = ({
-//   Graphic,
-//   Options,
-// }) => {
-//   Const valueFromContext = useContext(StateContext);
-//   Let val = 50;
-//   If (valueFromContext !== null) {
-//     Val = parseInt(valueFromContext.answers[valueFromContext.counter]) || 50;
-//   }
-
-//   Return (
-//     <Box marginTop="200px" marginBottom="30px">
-//       <Flex position="relative" alignItems="center" justifyContent="center">
-//         <Image
-//           ZIndex="-10"
-//           Bottom="-14px"
-//           Position="absolute"
-//           Src={graphic}
-//           Height={`${200}px`}
-//           Width={`${200}px`}
-//         />
-//       </Flex>
-
-//       <Flex width="600px" alignItems="flex-end">
-//         <Slider
-//           Aria-label="slider-ex-4"
-//           Value={val}
-//           OnChange={(newVal) => {
-//             If (valueFromContext !== null) {
-//               Const tempAnswers = valueFromContext.answers;
-//               TempAnswers[valueFromContext.counter] = newVal.toString();
-//               ValueFromContext.setAnswers([...tempAnswers]);
-//             }
-//           }}
-//         >
-//           <SliderTrack bgGradient="linear(to-l, #FA94FC,#86BDFE,#FA94FC)">
-//             <SliderFilledTrack bg="transparent" />
-//           </SliderTrack>
-//           <SliderThumb
-//             Background="transparent"
-//             BoxSize={8}
-//             BackgroundImage={sliderImage}
-//             BackgroundSize="50px"
-//             BackgroundRepeat="no-repeat"
-//             BackgroundPosition="center center"
-//           >
-//             <Box color="tomato" />
-//           </SliderThumb>
-//         </Slider>
-//       </Flex>
-//       <Flex alignItems="center" justifyContent="space-between">
-//         <Text>{options?.[0]}</Text>
-//         <Text>{options?.[1]}</Text>
-//       </Flex>
-//     </Box>
-//   );
-// };

@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable complexity */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 /* eslint-disable no-magic-numbers */
 import {FC} from 'react';
+import DatePicker from '../../Components/DatePicker';
+import DragAndDrop from '../../Components/DragAndDrop';
 import RadioButton, {
   RadioButtonWithTwoOptions,
 } from '../../Components/RadioButton';
@@ -80,6 +84,10 @@ const QuestionType: FC<Props> = ({
         slider={questionDetails[0]?.context.slider}
       />
     );
+  } else if (questionDetails[0]?.question_type === 'dragdrop') {
+    return <DragAndDrop data={questionDetails[0]?.context.dragdrop} />;
+  } else if (questionDetails[0]?.question_type === 'date-picker') {
+    return <DatePicker />;
   }
   return <div>I am QuestionType</div>;
 };

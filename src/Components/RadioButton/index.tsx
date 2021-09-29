@@ -35,15 +35,18 @@ const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
               <Flex
                 key={index}
                 className={
-                  valueFromContext?.answers[valueFromContext.counter] ===
-                  option[0]
+                  valueFromContext?.answers[valueFromContext.section][
+                    valueFromContext.counter
+                  ] === option[0]
                     ? 'RadioButtonSelected'
                     : 'RadioButton'
                 }
                 onClick={() => {
                   if (valueFromContext !== null) {
                     const tempAnswers = valueFromContext.answers;
-                    tempAnswers[valueFromContext.counter] = option[0];
+                    tempAnswers[valueFromContext.section][
+                      valueFromContext.counter
+                    ] = option[0];
                     valueFromContext.setAnswers([...tempAnswers]);
                   }
                 }}
@@ -82,14 +85,18 @@ export const RadioButtonWithTwoOptions: FC<Props> = ({
               <Flex
                 key={index}
                 className={
-                  valueFromContext?.answers[valueFromContext.counter] === option
+                  valueFromContext?.answers[valueFromContext.section][
+                    valueFromContext.counter
+                  ] === option
                     ? 'RadioButtonSelected'
                     : 'RadioButton'
                 }
                 onClick={() => {
                   if (valueFromContext !== null) {
                     const tempAnswers = valueFromContext.answers;
-                    tempAnswers[valueFromContext.counter] = option;
+                    tempAnswers[valueFromContext.section][
+                      valueFromContext.counter
+                    ] = option;
                     valueFromContext.setAnswers([...tempAnswers]);
                   }
                 }}

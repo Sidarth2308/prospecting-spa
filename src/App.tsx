@@ -2,12 +2,17 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {Home} from './Pages';
 import {ChakraProvider} from '@chakra-ui/react';
+import {DndProvider} from 'react-dnd';
+
+import {HTML5Backend} from 'react-dnd-html5-backend';
 
 function App() {
   return (
-    <ChakraProvider>
-      <Home />
-    </ChakraProvider>
+    <DndProvider backend={HTML5Backend}>
+      <ChakraProvider>
+        <Home />
+      </ChakraProvider>
+    </DndProvider>
   );
 }
 

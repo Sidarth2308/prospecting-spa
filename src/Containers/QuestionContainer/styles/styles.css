@@ -11,7 +11,6 @@ body {
   align-items: center;
   justify-content: center;
   margin: 20px auto;
-  max-width: 800px;
 }
 
 .PercentageHeading {
@@ -44,23 +43,25 @@ body {
 }
 .HeadingQuestion {
   color: #000;
-  max-width: 862px;
+  max-width: 997px;
   text-align: center;
   font-family: 'Inter', sans-serif;
 
   font-style: normal;
   font-weight: bold;
   font-size: 34px;
+  white-space: pre-line;
   line-height: 48px;
 }
 .HeadingQuestionDescription {
   font-family: Inter;
   font-style: normal;
-  max-width: 1025px;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 32px;
 
+  max-width: 1040px;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 32px;
+  white-space: pre-line;
   /* identical to box height, or 160% */
   text-align: center;
   margin-bottom: 10px;

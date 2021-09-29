@@ -123,7 +123,7 @@ export const QuestionData = {
       },
       {
         preface:
-          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each\n of the following events will happen to you personally as compared to them?',
         body: 'Being publicly recognized for a professional or personal achievement',
         context: {
           above: '',
@@ -202,7 +202,7 @@ export const QuestionData = {
       },
       {
         preface:
-          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each\n of the following events will happen to you personally as compared to them?',
         body: 'Win a free vacation for you and four of your close friends or family',
         context: {
           above: '',
@@ -281,7 +281,7 @@ export const QuestionData = {
       },
       {
         preface:
-          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
+          'Think of individuals like you, people you instinctively compare yourself to.\nWhat is the likelihood that each of the following events will happen to you personally as compared to them?',
         body: 'Achieve a comfortable lifestyle in retirement.',
         context: {
           above: '',
@@ -359,8 +359,8 @@ export const QuestionData = {
       },
       {
         preface:
-          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
-        body: 'Getting the Flu or bad cold within the next 12 months ',
+          'Think of individuals like you, people you instinctively compare yourself to.\nWhat is the likelihood that each of the following events will happen to you personally as compared to them?',
+        body: 'Getting the Flu or bad cold within the\n next 12 months ',
         context: {
           above: '',
           center: '',
@@ -437,8 +437,8 @@ export const QuestionData = {
       },
       {
         preface:
-          'Think of individuals like you, people you instinctively compare yourself to. What is the likelihood that each of the following events will happen to you personally as compared to them?',
-        body: 'Losing more money than your peers in the market in the next 3 years',
+          'Think of individuals like you, people you instinctively compare yourself to.\nWhat is the likelihood that each of the following events will happen to you personally as compared to them?',
+        body: 'Losing more money than your peers in the market\n in the next 3 years',
         context: {
           above: '',
           center: '',
@@ -517,8 +517,8 @@ export const QuestionData = {
     [
       {
         preface:
-          'Imagine you are taking a train to work that runs once every 30 mins. Unfortunately, you miss the train today by 5 minutes…',
-        body: 'How much would you regret leaving your home late by 5 mins?',
+          'Imagine you are taking a train to work that runs once every 30 mins. Unfortunately, you\n miss the train today by 5 minutes…',
+        body: 'How much would you regret leaving your home\n late by 5 mins?',
         context: {
           above: '',
           center: '',
@@ -596,8 +596,8 @@ export const QuestionData = {
       },
       {
         preface:
-          'Don’t hate us…you missed it, but it’s just by a whisker. You can still see it leaving the station.',
-        body: 'How much would you regret missing it by just a few seconds?',
+          'Don’t hate us…you missed it, but it’s just by a whisker. You can still see it \nleaving the station.',
+        body: 'How much would you regret missing it by just\n a few seconds?',
         context: {
           above: '',
           center: '',
@@ -676,7 +676,7 @@ export const QuestionData = {
       },
       {
         preface:
-          'Imagine you are driving to an important meeting and the traffic seems a little worse today. Worse still, you accidentally forgot your phone and you feel you may be late by at least 15 mins if you run back home to get it. You remember an alternative route you have taken a few times before that seemed like it was faster.  ',
+          'Imagine you are driving to an important meeting and the traffic seems a little worse today. Worse still, you\n accidentally forgot your phone and you feel you may be late by at least 15 mins if you run back home to get it.\n You remember an alternative route you have taken a few times before that seemed like it was faster.  ',
         body: 'What would you do?',
         context: {
           above: '',
@@ -754,7 +754,7 @@ export const QuestionData = {
       },
       {
         preface:
-          'You just made a large purchase that you have always wanted to buy. A week after buying it, the price of it is now slashed by third.  ',
+          'You just made a large purchase that you have always wanted to buy.\n A week after buying it, the price of it is now slashed by third.',
         body: 'How would you feel about it?',
         context: {
           above: '',
@@ -989,7 +989,7 @@ export const QuestionData = {
       },
       {
         preface: '',
-        body: 'When it comes to regret, I tend to find myself regretting things that:',
+        body: 'When it comes to regret, I tend to find\n myself regretting things that:',
         context: {
           above: '',
           center: '',
@@ -1066,7 +1066,7 @@ export const QuestionData = {
       },
       {
         preface: '',
-        body: 'When it comes to trying new products or services, I find myself focusing on',
+        body: 'When it comes to trying new products or\n services, I find myself focusing on',
         context: {
           above: '',
           center: '',
@@ -1143,7 +1143,7 @@ export const QuestionData = {
       },
       {
         preface: '',
-        body: 'When it comes to big decisions in my life, I often focus on:',
+        body: 'When it comes to big decisions in my\n life, I often focus on:',
         context: {
           above: '',
           center: '',
@@ -1222,7 +1222,7 @@ export const QuestionData = {
     [
       {
         preface: '',
-        body: 'I tend to do way too much research before making a large purchase.',
+        body: 'I tend to do way too much research before\n making a large purchase.',
         context: {
           above: '',
           center: '',
@@ -1279,7 +1279,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '8',
+                max: '10',
                 step: '1',
                 ticks: true,
               },
@@ -1299,7 +1299,7 @@ export const QuestionData = {
       },
       {
         preface: '',
-        body: 'I tend to spend too much time looking for what to watch instead of watching.',
+        body: 'I tend to spend too much time looking for what\n to watch instead of watching.',
         context: {
           above: '',
           center: '',
@@ -1356,7 +1356,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '8',
+                max: '10',
                 step: '1',
                 ticks: true,
               },
@@ -1376,7 +1376,7 @@ export const QuestionData = {
       },
       {
         preface: '',
-        body: 'I think of myself as a perfectionist, never comfortable settling for “good enough”.',
+        body: 'I think of myself as a perfectionist, never\n comfortable settling for “good enough”.',
         context: {
           above: '',
           center: '',
@@ -1433,7 +1433,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '8',
+                max: '10',
                 step: '1',
                 ticks: true,
               },
@@ -1453,7 +1453,7 @@ export const QuestionData = {
       },
       {
         preface: '',
-        body: 'In a restaurant, I like to look over a menu carefully to make sure I choose the best option',
+        body: 'In a restaurant, I like to look over a menu\n carefully to make sure I choose the best option',
         context: {
           above: '',
           center: '',
@@ -1510,7 +1510,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '8',
+                max: '10',
                 step: '1',
                 ticks: true,
               },
@@ -1600,9 +1600,9 @@ export const QuestionData = {
                 ['Helping Others', '0.1'],
                 ['Health', '0.2'],
                 ['Community', '0.1'],
-                ['User Input A', '0.0'],
-                ['User Input B', '0.0'],
-                ['User Input C', '0.0'],
+                ['Type your value', '0.0'],
+                ['Type your value', '0.0'],
+                ['Type your value', '0.0'],
               ],
             },
           },

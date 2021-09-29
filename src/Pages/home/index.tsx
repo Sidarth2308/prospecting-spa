@@ -26,9 +26,14 @@ const QuestionContainer = React.lazy(
 const Home: FC = () => {
   // Const fetchedData = useSelector((state: RootState) => state.fetchData);
   // Const dispatch = useDispatch();
-  const [counter, setCounter] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
   const [section, setSection] = useState(0);
+  const [counter, setCounter] = useState(0);
+  const [answers, setAnswers] = useState<string[][]>(
+    QuestionData.questions.map(() => {
+      return [];
+    })
+  );
+  console.log(answers);
   // UseEffect(() => {
   //   Dispatch(FetchData());
   // }, []);
@@ -52,7 +57,7 @@ const Home: FC = () => {
     }
   };
   return (
-    <StateContext.Provider value={{answers, setAnswers, counter}}>
+    <StateContext.Provider value={{answers, setAnswers, counter, section}}>
       {QuestionData && (
         <Suspense fallback={<Spinner />}>
           <QuestionContainer
