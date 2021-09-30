@@ -844,7 +844,7 @@ export const QuestionData = {
         },
         elements: [
           {
-            question_type: 'card',
+            question_type: 'date-picker',
             question_override: {
               preface: '',
               body: '',

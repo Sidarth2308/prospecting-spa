@@ -56,22 +56,24 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
   ) => {
     const source = item.source;
     if (source === 'left-box') {
-      const newRightData = rightData;
-      newRightData[index] = {...item, source: 'right-box'};
+      if (rightData[index].id === '-1') {
+        const newRightData = rightData;
+        newRightData[index] = {...item, source: 'right-box'};
 
-      const newLeftData = leftData;
-      const Index = newLeftData.findIndex(
-        (element: {
-          id: string;
-          value: string;
-          active: boolean;
-          source?: string;
-        }) => element.id === item.id
-      );
-      newLeftData[Index] = {...item, active: false};
+        const newLeftData = leftData;
+        const Index = newLeftData.findIndex(
+          (element: {
+            id: string;
+            value: string;
+            active: boolean;
+            source?: string;
+          }) => element.id === item.id
+        );
+        newLeftData[Index] = {...item, active: false};
 
-      setLeftData([...newLeftData]);
-      setRightData([...newRightData]);
+        setLeftData([...newLeftData]);
+        setRightData([...newRightData]);
+      }
     } else {
       const newRightData = rightData;
       const Index = newRightData.findIndex(

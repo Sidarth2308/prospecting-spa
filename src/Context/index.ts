@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {createContext} from 'react';
+import {createContext} from 'react';
 
 export const StateContext = createContext<{
-  answers: string[][];
-  setAnswers: React.Dispatch<React.SetStateAction<string[][]>>;
+  answers: any;
+  setAnswers: any;
   counter: number;
   section: number;
 } | null>(null);

@@ -26,8 +26,8 @@ const QuestionContainer = React.lazy(
 const Home: FC = () => {
   // Const fetchedData = useSelector((state: RootState) => state.fetchData);
   // Const dispatch = useDispatch();
-  const [section, setSection] = useState(0);
-  const [counter, setCounter] = useState(0);
+  const [section, setSection] = useState(1);
+  const [counter, setCounter] = useState(4);
   const [answers, setAnswers] = useState<string[][]>(
     QuestionData.questions.map(() => {
       return [];

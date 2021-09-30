@@ -64,8 +64,8 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
           <div
             className="DarkAnnotation"
             style={{
-              bottom: `${150 - val}px`,
-              left: `${150 - val}px`,
+              bottom: `${170 - val}px`,
+              left: `${200 - val}px`,
             }}
           >
             You
@@ -75,8 +75,8 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
             src={annotationArrow}
             className="AnnotationArrow"
             style={{
-              bottom: `${145 - val}px`,
-              left: `${160 - val}px`,
+              bottom: `${165 - val}px`,
+              left: `${210 - val}px`,
             }}
           />
         </div>
@@ -85,8 +85,8 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
           <div
             className="DarkAnnotation-side"
             style={{
-              bottom: `${50 + val}px`,
-              right: `${50 + val}px`,
+              bottom: `${70 + val}px`,
+              right: `${100 + val}px`,
             }}
           >
             Others
@@ -96,8 +96,8 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
             src={annotationArrowReverse}
             className="AnnotationArrow-side"
             style={{
-              bottom: `${43 + val}px`,
-              right: `${60 + val}px`,
+              bottom: `${63 + val}px`,
+              right: `${110 + val}px`,
             }}
           />
         </div>
@@ -112,12 +112,12 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
           height={[
             `calc(${dimension[1]}*${((100 - val) * 0.5) / 100} )`,
             `calc(${dimension[1]}*${((100 - val) * 0.5) / 100} )`,
-            `calc(${dimension[1]}*${((100 - val) * 0.8) / 100} )`,
+            `calc(${dimension[1]}*${((200 - val) * 0.4) / 100} )`,
           ]}
           width={[
             `calc(${dimension[0]}*${((100 - val) * 0.5) / 100} )`,
             `calc(${dimension[0]}*${((100 - val) * 0.5) / 100} )`,
-            `calc(${dimension[0]}*${((100 - val) * 0.8) / 100} )`,
+            `calc(${dimension[0]}*${((200 - val) * 0.4) / 100} )`,
           ]}
         />
         <Image
@@ -132,12 +132,12 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
           height={[
             `calc(${dimension[1]}*${(val * 0.5) / 100} )`,
             `calc(${dimension[1]}*${(val * 0.5) / 100} )`,
-            `calc(${dimension[1]}*${(val * 0.8) / 100} )`,
+            `calc(${dimension[1]}*${((val + 100) * 0.4) / 100} )`,
           ]}
           width={[
             `calc(${dimension[0]}*${(val * 0.5) / 100} )`,
             `calc(${dimension[0]}*${(val * 0.5) / 100} )`,
-            `calc(${dimension[0]}*${(val * 0.8) / 100} )`,
+            `calc(${dimension[0]}*${((val + 100) * 0.4) / 100} )`,
           ]}
         />
       </Flex>
