@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/promise-function-async */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
@@ -6,15 +8,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 /* eslint-disable node/no-extraneous-import */
-import {useContext, FC} from 'react';
+import React, {useContext, FC, Suspense} from 'react';
 import './styles/styles.css';
 import {Flex, Text} from '@chakra-ui/layout';
+
+const QuestionType = React.lazy(() => import('./QuestionType'));
 
 import {StateContext} from '../../Context';
 import arrowIcon from '../../assets/arrow.svg';
 import {CircularProgress, CircularProgressLabel} from '@chakra-ui/progress';
 import {Image} from '@chakra-ui/image';
-import QuestionType from './QuestionType';
+import {Spinner} from '@chakra-ui/spinner';
 type Props = {
   data: any;
   progressData: any;
@@ -78,13 +82,15 @@ const QuestionContainer: FC<Props> = ({
 
         <Text className="HeadingQuestion">{data?.body}</Text>
       </Flex>
-      <QuestionType
-        questionDetails={data.elements}
-        graphic={data.icon}
-        dimension={data.dimensions}
-        graphic1={data.icon1}
-        graphic2={data.icon2}
-      />
+      <Suspense fallback={<Spinner />}>
+        <QuestionType
+          questionDetails={data.elements}
+          graphic={data.icon}
+          dimension={data.dimensions}
+          graphic1={data.icon1}
+          graphic2={data.icon2}
+        />
+      </Suspense>
       <Flex alignItems="center" justifyContent="center" userSelect="none">
         <Flex className="PreviousButton" onClick={handlePrev}>
           <Image width="40%" src={arrowIcon} className="LeftArrow" />
