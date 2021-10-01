@@ -1,33 +1,31 @@
 /* eslint-disable @typescript-eslint/member-delimiter-style */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable node/no-extraneous-import */
 /* eslint-disable no-use-before-define */
-/* eslint-disable @typescript-eslint/promise-function-async */
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
-/* eslint-disable no-use-before-define */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable no-magic-numbers */
 import {Flex} from '@chakra-ui/layout';
 import React, {useState} from 'react';
 // Import {useDrop} from 'react-dnd';
 import {LeftCard, RightCard} from './cards';
 import './styles/styles.css';
 import {ChangeDataContext} from '../../Context';
+import {isUndefined} from 'lodash';
 type Props = {
-  data?: any;
+  data?: string[][];
 };
 
-const LeftDataRearrange = (data: any) => {
+const FIRST_INDEX = 0;
+
+const LeftDataRearrange: (data: string[][] | undefined) => {
+  value: string;
+  id: string;
+  active: boolean;
+  source: string;
+}[] = (data: string[][] | undefined) => {
+  if (isUndefined(data)) {
+    return [{value: '0', id: '-1', active: false, source: 'none'}];
+  }
   const returnData = data.map((singleData: string[], index: number) => {
     return {
-      value: singleData[0],
+      value: singleData[FIRST_INDEX],
       id: `column-0-${index}`,
       active: true,
       source: 'left-box',
@@ -36,7 +34,15 @@ const LeftDataRearrange = (data: any) => {
   return returnData;
 };
 
-const RightDataRearrange = (data: any) => {
+const RightDataRearrange: (data: string[][] | undefined) => {
+  value: string;
+  id: string;
+  active: boolean;
+  source: string;
+}[] = (data: string[][] | undefined) => {
+  if (isUndefined(data)) {
+    return [{value: '0', id: '-1', active: false, source: 'none'}];
+  }
   const returnData = data.map(() => {
     return {value: '', id: '-1', active: false, source: 'right-box'};
   });
@@ -50,7 +56,15 @@ const RightDataRearrange = (data: any) => {
 const DragAndDrop: React.FC<Props> = ({data}) => {
   const [leftData, setLeftData] = useState(LeftDataRearrange(data));
   const [rightData, setRightData] = useState(RightDataRearrange(data));
-  const DataChange = (
+  const DataChange: (
+    item: {
+      id: string;
+      value: string;
+      active: boolean;
+      source: string;
+    },
+    index: number
+  ) => void = (
     item: {id: string; value: string; active: boolean; source: string},
     index: number
   ) => {
@@ -99,18 +113,22 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
       setRightData([...newRightData]);
     }
   };
-  const TextChange = (
-    item: {id: string; value: string; active: boolean},
+  const TextChange: (
+    item: {
+      id: string;
+      value: string;
+      active: boolean;
+      source: string;
+    },
+    value: string
+  ) => void = (
+    item: {id: string; value: string; active: boolean; source: string},
     value: string
   ) => {
     const newLeftData = leftData;
     const Index = newLeftData.findIndex(
-      (element: {
-        id: string;
-        value: string;
-        active: boolean;
-        source?: string;
-      }) => element.id === item.id
+      (element: {id: string; value: string; active: boolean; source: string}) =>
+        element.id === item.id
     );
     newLeftData[Index] = {...item, value: value};
 

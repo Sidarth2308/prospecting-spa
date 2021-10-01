@@ -1,10 +1,5 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable complexity */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-/* eslint-disable no-magic-numbers */
+import {isUndefined} from 'lodash';
 import {FC} from 'react';
 import DatePicker from '../../Components/DatePicker';
 import DragAndDrop from '../../Components/DragAndDrop';
@@ -16,13 +11,85 @@ import {
   SliderComponentWithNotation,
   SliderComponentWithTransition,
 } from '../../Components/Slider';
+
+const FIRST_INDEX = 0;
+
 type Props = {
-  questionDetails: any;
+  questionDetails: {
+    question_type: string;
+    question_override: {
+      preface: string;
+      body: string;
+    };
+    context: {
+      help_text: string;
+      left: {
+        icon: {
+          above: string;
+          center: string;
+          below: string;
+        };
+        text: {
+          above: string;
+          center: string;
+          below: string;
+        };
+        subtext: {
+          above: string;
+          center: string;
+          below: string;
+        };
+        value: string;
+      };
+      right: {
+        icon: {
+          above: string;
+          center: string;
+          below: string;
+        };
+        text: {
+          above: string;
+          center: string;
+          below: string;
+        };
+        subtext: {
+          above: string;
+          center: string;
+          below: string;
+        };
+        value: string;
+      };
+      slider?: {
+        default: string;
+        min: string;
+        max: string;
+        step: string;
+        ticks: boolean;
+      };
+      input: {
+        body: string;
+        placeholder: string;
+        values: string[];
+      };
+      radio: string[];
+      multicard: string[][];
+      dragdrop: string[][];
+    };
+  }[];
   graphic?: string;
 
   graphic1?: string;
   graphic2?: string;
   dimension: string[];
+};
+
+const graphicCheck: (graphic: string | undefined) => string = (
+  graphic: string | undefined
+) => {
+  if (isUndefined(graphic)) {
+    return '';
+  }
+  return graphic;
 };
 
 const QuestionType: FC<Props> = ({
@@ -32,61 +99,67 @@ const QuestionType: FC<Props> = ({
   graphic2,
   graphic1,
 }) => {
-  if (questionDetails[0]?.question_type === 'small-multicard') {
+  if (questionDetails[FIRST_INDEX]?.question_type === 'small-multicard') {
     return (
       <RadioButton
-        graphic={graphic ? graphic : ''}
-        options={questionDetails[0]?.context.multicard}
+        graphic={graphicCheck(graphic)}
+        options={questionDetails[FIRST_INDEX]?.context.multicard}
         dimension={dimension}
       />
     );
-  } else if (questionDetails[0]?.question_type === 'slider') {
+  } else if (questionDetails[FIRST_INDEX]?.question_type === 'slider') {
     return (
       <SliderComponent
-        graphic={graphic ? graphic : ''}
-        slider={questionDetails[0]?.context.slider}
+        graphic={graphicCheck(graphic)}
+        slider={questionDetails[FIRST_INDEX]?.context.slider}
         dimension={dimension}
       />
     );
-  } else if (questionDetails[0]?.question_type === 'slider-with-transition') {
+  } else if (
+    questionDetails[FIRST_INDEX]?.question_type === 'slider-with-transition'
+  ) {
     return (
       <SliderComponentWithTransition
-        graphic1={graphic1 ? graphic1 : ''}
-        graphic2={graphic2 ? graphic2 : ''}
+        graphic1={graphicCheck(graphic1)}
+        graphic2={graphicCheck(graphic2)}
         options={[
-          questionDetails[0]?.context.left.text.below,
-          questionDetails[0]?.context.right.text.below,
+          questionDetails[FIRST_INDEX]?.context.left.text.below,
+          questionDetails[FIRST_INDEX]?.context.right.text.below,
         ]}
         dimension={dimension}
-        slider={questionDetails[0]?.context.slider}
+        slider={questionDetails[FIRST_INDEX]?.context.slider}
       />
     );
-  } else if (questionDetails[0]?.question_type === 'card') {
+  } else if (questionDetails[FIRST_INDEX]?.question_type === 'card') {
     return (
       <RadioButtonWithTwoOptions
         options={[
-          questionDetails[0]?.context.left.text.center,
-          questionDetails[0]?.context.right.text.center,
+          questionDetails[FIRST_INDEX]?.context.left.text.center,
+          questionDetails[FIRST_INDEX]?.context.right.text.center,
         ]}
         dimension={dimension}
-        graphic={graphic ? graphic : ''}
+        graphic={graphicCheck(graphic)}
       />
     );
-  } else if (questionDetails[0]?.question_type === 'slider-with-notation') {
+  } else if (
+    questionDetails[FIRST_INDEX]?.question_type === 'slider-with-notation'
+  ) {
     return (
       <SliderComponentWithNotation
-        graphic={graphic ? graphic : ''}
+        graphic={graphicCheck(graphic)}
         options={[
-          questionDetails[0]?.context.left.text.below,
-          questionDetails[0]?.context.right.text.below,
+          questionDetails[FIRST_INDEX]?.context.left.text.below,
+          questionDetails[FIRST_INDEX]?.context.right.text.below,
         ]}
         dimension={dimension}
-        slider={questionDetails[0]?.context.slider}
+        slider={questionDetails[FIRST_INDEX]?.context.slider}
       />
     );
-  } else if (questionDetails[0]?.question_type === 'dragdrop') {
-    return <DragAndDrop data={questionDetails[0]?.context.dragdrop} />;
-  } else if (questionDetails[0]?.question_type === 'date-picker') {
+  } else if (questionDetails[FIRST_INDEX]?.question_type === 'dragdrop') {
+    return (
+      <DragAndDrop data={questionDetails[FIRST_INDEX]?.context.dragdrop} />
+    );
+  } else if (questionDetails[FIRST_INDEX]?.question_type === 'date-picker') {
     return <DatePicker />;
   }
   return <div>I am QuestionType</div>;

@@ -1,27 +1,101 @@
-/* eslint-disable @typescript-eslint/promise-function-async */
 /* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 /* eslint-disable node/no-extraneous-import */
 import React, {useContext, FC, Suspense} from 'react';
 import './styles/styles.css';
 import {Flex, Text} from '@chakra-ui/layout';
 
-const QuestionType = React.lazy(() => import('./QuestionType'));
+const QuestionType = React.lazy(async () => import('./QuestionType'));
 
 import {StateContext} from '../../Context';
 import arrowIcon from '../../assets/arrow.svg';
 import {CircularProgress, CircularProgressLabel} from '@chakra-ui/progress';
 import {Image} from '@chakra-ui/image';
 import {Spinner} from '@chakra-ui/spinner';
+import {isUndefined} from 'lodash';
 type Props = {
-  data: any;
-  progressData: any;
+  data: {
+    preface: string;
+    body: string;
+    context: {
+      above: string;
+      center: string;
+      below: {
+        body: string;
+        icon: string;
+      };
+    };
+    elements: {
+      question_type: string;
+      question_override: {
+        preface: string;
+        body: string;
+      };
+      context: {
+        help_text: string;
+        left: {
+          icon: {
+            above: string;
+            center: string;
+            below: string;
+          };
+          text: {
+            above: string;
+            center: string;
+            below: string;
+          };
+          subtext: {
+            above: string;
+            center: string;
+            below: string;
+          };
+          value: string;
+        };
+        right: {
+          icon: {
+            above: string;
+            center: string;
+            below: string;
+          };
+          text: {
+            above: string;
+            center: string;
+            below: string;
+          };
+          subtext: {
+            above: string;
+            center: string;
+            below: string;
+          };
+          value: string;
+        };
+        slider?: {
+          default: string;
+          min: string;
+          max: string;
+          step: string;
+          ticks: boolean;
+        };
+        input: {
+          body: string;
+          placeholder: string;
+          values: string[];
+        };
+        radio: string[];
+        multicard: string[][];
+        dragdrop: string[][];
+      };
+    }[];
+
+    icon?: string;
+    icon1?: string;
+    icon2?: string;
+    dimensions?: string[];
+  };
+  progressData: {
+    counter: number;
+    total: number;
+    heading: string;
+  };
   handleNext: () => void;
   handlePrev: () => void;
 };
@@ -35,11 +109,18 @@ const QuestionContainer: FC<Props> = ({
   progressData,
 }) => {
   const valueFromContext = useContext(StateContext);
-  const disabled = valueFromContext?.answers[valueFromContext.section][
-    valueFromContext.counter
-  ]
-    ? false
-    : true;
+  const disabled = isUndefined(
+    valueFromContext?.answers[valueFromContext.section][
+      valueFromContext.counter
+    ]
+  )
+    ? true
+    : false;
+  console.log(
+    valueFromContext?.answers[valueFromContext.section][
+      valueFromContext.counter
+    ]
+  );
   return (
     <Flex className="MainContainer">
       <Flex alignItems="center" justifyContent="center" marginBottom="32px">
@@ -76,17 +157,17 @@ const QuestionContainer: FC<Props> = ({
         }}
       ></div>
       <Flex className="HeadingContainer">
-        {data?.preface !== '' && (
-          <Text className="HeadingQuestionDescription">{data?.preface}</Text>
+        {data.preface !== '' && (
+          <Text className="HeadingQuestionDescription">{data.preface}</Text>
         )}
 
-        <Text className="HeadingQuestion">{data?.body}</Text>
+        <Text className="HeadingQuestion">{data.body}</Text>
       </Flex>
       <Suspense fallback={<Spinner />}>
         <QuestionType
           questionDetails={data.elements}
           graphic={data.icon}
-          dimension={data.dimensions}
+          dimension={data.dimensions || ['', '']}
           graphic1={data.icon1}
           graphic2={data.icon2}
         />
@@ -97,8 +178,10 @@ const QuestionContainer: FC<Props> = ({
         </Flex>
         <Flex
           className={disabled ? 'NextButtonDisabled' : 'NextButton'}
-          onClick={() => {
-            !disabled && handleNext();
+          onClick={(): void => {
+            if (!disabled) {
+              handleNext();
+            }
           }}
         >
           <Image width="40%" src={arrowIcon} className="RightArrow" />

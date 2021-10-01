@@ -1,23 +1,11 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable no-undefined */
-/* eslint-disable @typescript-eslint/prefer-optional-chain */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable node/no-extraneous-import */
-/* eslint-disable no-magic-numbers */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-/* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable no-use-before-define */
 
 import {Box, Flex} from '@chakra-ui/layout';
+import {isUndefined} from 'lodash';
 import React, {useContext, useEffect, useState} from 'react';
 import {StateContext} from '../../Context';
 import './styles/styles.css';
-interface Props {}
 
 const dates = [
   '0',
@@ -52,37 +40,44 @@ const dates = [
   '29',
   '30',
 ];
-const months = ['00', '01', '02', '03', '04', '05', '06'];
-const DatePicker: React.FC<Props> = () => {
+
+const months = ['00', '01', '02', '03', '04'];
+const FIRST_INDEX = 0;
+const SECOND_INDEX = 1;
+const INCREMENT_DECREMENT = 1;
+
+const DatePicker: React.FC = () => {
   const valueFromContext = useContext(StateContext);
-  const [selectedMonth, setSelectedMonth] = useState<string | null>(() => {
+  const [selectedMonth, setSelectedMonth] = useState<string>(() => {
     if (
       valueFromContext !== null &&
-      valueFromContext.answers[valueFromContext.section][
-        valueFromContext.counter
-      ]
+      !isUndefined(
+        valueFromContext.answers[valueFromContext.section][
+          valueFromContext.counter
+        ]
+      )
     ) {
       return valueFromContext.answers[valueFromContext.section][
         valueFromContext.counter
-      ][1];
+      ][SECOND_INDEX];
     }
     return '00';
   });
-  const [selectedDate, setSelectedDate] = useState<string | null>(() => {
+  const [selectedDate, setSelectedDate] = useState<string>(() => {
     if (
       valueFromContext !== null &&
-      valueFromContext.answers[valueFromContext.section][
-        valueFromContext.counter
-      ]
+      !isUndefined(
+        valueFromContext.answers[valueFromContext.section][
+          valueFromContext.counter
+        ]
+      )
     ) {
       return valueFromContext.answers[valueFromContext.section][
         valueFromContext.counter
-      ][0];
+      ][FIRST_INDEX];
     }
     return '0';
   });
-
-  console.log(selectedDate, selectedMonth);
 
   useEffect(() => {
     if (selectedMonth && selectedDate) {
@@ -112,7 +107,7 @@ const DatePicker: React.FC<Props> = () => {
             return (
               <Box
                 key={index}
-                onClick={() => {
+                onClick={(): void => {
                   setSelectedDate(date);
                 }}
               >
@@ -122,7 +117,7 @@ const DatePicker: React.FC<Props> = () => {
                 >
                   {date}
                 </Flex>
-                {index < dates.length - 1 && (
+                {index < dates.length - INCREMENT_DECREMENT && (
                   <div className="DateDivider"></div>
                 )}
               </Box>
@@ -141,7 +136,7 @@ const DatePicker: React.FC<Props> = () => {
             return (
               <Box
                 key={index}
-                onClick={() => {
+                onClick={(): void => {
                   setSelectedMonth(month);
                 }}
               >
@@ -151,7 +146,7 @@ const DatePicker: React.FC<Props> = () => {
                 >
                   {month}
                 </Flex>
-                {index < months.length - 1 && (
+                {index < months.length - INCREMENT_DECREMENT && (
                   <div className="DateDivider"></div>
                 )}
               </Box>

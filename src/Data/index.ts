@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable node/no-unsupported-features/es-syntax */
 import question1Graphic from '../assets/questionGraphics/glassQuestion1.svg';
 import question2Graphic from '../assets/questionGraphics/personQuestion2.svg';
 import question3Graphic from '../assets/questionGraphics/carQuestion3.svg';
@@ -1279,7 +1277,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '10',
+                max: '8',
                 step: '1',
                 ticks: true,
               },
@@ -1356,7 +1354,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '10',
+                max: '8',
                 step: '1',
                 ticks: true,
               },
@@ -1433,7 +1431,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '10',
+                max: '8',
                 step: '1',
                 ticks: true,
               },
@@ -1510,7 +1508,7 @@ export const QuestionData = {
               slider: {
                 default: '4',
                 min: '0',
-                max: '10',
+                max: '8',
                 step: '1',
                 ticks: true,
               },
