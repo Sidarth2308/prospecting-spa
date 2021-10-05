@@ -16,6 +16,17 @@
   cursor: pointer;
   margin: 0 16px;
 }
+@media (max-width: 800px) {
+  .RadioButtonsContainer {
+    flex-direction: column;
+  }
+  .RadioButtonSelected {
+    margin: 8px 0;
+  }
+  .RadioButton {
+    margin: 8px 0;
+  }
+}
 
 .RadioButtonSelected {
   background: linear-gradient(97.18deg, #f870fb -40.71%, #7266ff 82.8%);

@@ -74,6 +74,10 @@ const MULTIPLICATION_CONSTANT_SMALL = 0.5;
 const MULTIPLICATION_CONSTANT_EXTRA_SMALL = 0.5;
 const MULTIPLICATION_CONSTANT_LARGE = 0.4;
 
+const IMAGE_SCALING_SMALL = 0.75;
+const IMAGE_SCALING_LARGE = 1;
+const IMAGE_SCALING_EXTRA_SMALL = 0.5;
+
 // ValueFromContext?.answers[valueFromContext.counter]  || 50
 
 const getStateValue: (
@@ -229,7 +233,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
         />
       </Flex>
 
-      <Flex width={['300px', '400px', '600px']} alignItems="flex-end">
+      <Flex width={['280px', '400px', '600px']} alignItems="flex-end">
         <Slider
           aria-label="slider-ex-4"
           value={val}
@@ -292,7 +296,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
       >
         <Image
           bottom="10px"
-          right="30%"
+          right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic1}
           opacity={(PERCENTAGE_CONSTANT - val) / PERCENTAGE_CONSTANT}
@@ -301,7 +305,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         />
         <Image
           bottom="10px"
-          right="30%"
+          right={['5%', '22%', '30%']}
           position="absolute"
           opacity={val / PERCENTAGE_CONSTANT}
           src={graphic2}
@@ -310,7 +314,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         />
       </Flex>
 
-      <Flex width="600px" alignItems="flex-end">
+      <Flex width={['280px', '400px', '600px']} alignItems="flex-end">
         <Slider
           aria-label="slider-ex-4"
           value={val}
@@ -346,8 +350,12 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         </Slider>
       </Flex>
       <Flex alignItems="center" justifyContent="space-between">
-        <Text className="NotationText">{options[FIRST_INDEX]}</Text>
-        <Text className="NotationText">{options[SECOND_INDEX]}</Text>
+        <Text className="NotationText" fontSize={['12px', '15px', '20px']}>
+          {options[FIRST_INDEX]}
+        </Text>
+        <Text className="NotationText" fontSize={['12px', '15px', '20px']}>
+          {options[SECOND_INDEX]}
+        </Text>
       </Flex>
     </Box>
   );
@@ -380,13 +388,22 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
         <Image
           margin="0 auto 27px auto"
           src={graphic}
-          height={dimension[SECOND_INDEX]}
-          width={dimension[FIRST_INDEX]}
+          height={[
+            `calc(${dimension[SECOND_INDEX]}*${IMAGE_SCALING_EXTRA_SMALL})`,
+            `calc(${dimension[SECOND_INDEX]}*${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[SECOND_INDEX]}*${IMAGE_SCALING_LARGE})`,
+          ]}
+          width={[
+            `calc(${dimension[FIRST_INDEX]}*${IMAGE_SCALING_EXTRA_SMALL})`,
+            `calc(${dimension[FIRST_INDEX]}*${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[FIRST_INDEX]}*${IMAGE_SCALING_LARGE})`,
+          ]}
         />
       </Flex>
 
-      <Flex width="600px" alignItems="flex-end">
+      <Flex alignItems="flex-end">
         <Slider
+          width={['280px', '400px', '600px']}
           aria-label="slider-ex-4"
           step={parseInt(checkUndefined(slider?.step)) * ENLARGING_CONSTANT}
           min={0}
@@ -424,8 +441,12 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
         </Slider>
       </Flex>
       <Flex alignItems="center" justifyContent="space-between">
-        <Text className="NotationText">{options[FIRST_INDEX]}</Text>
-        <Text className="NotationText">{options[SECOND_INDEX]}</Text>
+        <Text className="NotationText" fontSize={['12px', '15px', '20px']}>
+          {options[FIRST_INDEX]}
+        </Text>
+        <Text className="NotationText" fontSize={['12px', '15px', '20px']}>
+          {options[SECOND_INDEX]}
+        </Text>
       </Flex>
     </Box>
   );

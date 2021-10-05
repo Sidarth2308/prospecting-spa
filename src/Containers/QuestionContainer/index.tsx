@@ -102,6 +102,8 @@ type Props = {
 
 const percentageConstant = 100;
 
+const INCREMENT_DECREMENT = 1;
+
 const QuestionContainer: FC<Props> = ({
   data,
   handleNext,
@@ -116,25 +118,23 @@ const QuestionContainer: FC<Props> = ({
   )
     ? true
     : false;
-  console.log(
-    valueFromContext?.answers[valueFromContext.section][
-      valueFromContext.counter
-    ]
-  );
   return (
     <Flex className="MainContainer">
       <Flex alignItems="center" justifyContent="center" marginBottom="32px">
         <Flex alignItems="center" justifyContent="center" marginRight="10px">
           <CircularProgress
             value={Math.round(
-              (progressData.counter / progressData.total) * percentageConstant
+              ((progressData.counter - INCREMENT_DECREMENT) /
+                progressData.total) *
+                percentageConstant
             )}
             color="#775ef0"
           >
             <CircularProgressLabel>
               <b>
                 {Math.round(
-                  (progressData.counter / progressData.total) *
+                  ((progressData.counter - INCREMENT_DECREMENT) /
+                    progressData.total) *
                     percentageConstant
                 )}
                 %
@@ -158,10 +158,22 @@ const QuestionContainer: FC<Props> = ({
       ></div>
       <Flex className="HeadingContainer">
         {data.preface !== '' && (
-          <Text className="HeadingQuestionDescription">{data.preface}</Text>
+          <Text
+            fontSize={['14px', '14px', '19px']}
+            lineHeight={['20px', '24px', '32px']}
+            className="HeadingQuestionDescription"
+          >
+            {data.preface}
+          </Text>
         )}
 
-        <Text className="HeadingQuestion">{data.body}</Text>
+        <Text
+          fontSize={['22px', '28px', '34px']}
+          lineHeight={['30px', '32px', '48px']}
+          className="HeadingQuestion"
+        >
+          {data.body}
+        </Text>
       </Flex>
       <Suspense fallback={<Spinner />}>
         <QuestionType

@@ -11,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 20px auto;
+  max-width: 100%;
 }
 
 .PercentageHeading {
@@ -49,9 +50,7 @@ body {
 
   font-style: normal;
   font-weight: bold;
-  font-size: 34px;
   white-space: pre-line;
-  line-height: 48px;
 }
 .HeadingQuestionDescription {
   font-family: Inter;
@@ -59,8 +58,6 @@ body {
 
   max-width: 1040px;
   font-weight: 500;
-  font-size: 19px;
-  line-height: 32px;
   white-space: pre-line;
   /* identical to box height, or 160% */
   text-align: center;

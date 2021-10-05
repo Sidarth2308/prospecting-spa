@@ -34,6 +34,8 @@
   text-align: center;
   margin: 6px 33.5px;
   user-select: none;
+  align-items: center;
+  justify-content: center;
 }
 .HandleNumber {
   flex-direction: column;

@@ -20,6 +20,8 @@ type TwoOptionsProps = {
 
 const FIRST_INDEX = 0;
 const SECOND_INDEX = 1;
+const IMAGE_SCALING_SMALL = 0.75;
+const IMAGE_SCALING_LARGE = 1;
 
 const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
   const valueFromContext = useContext(StateContext);
@@ -33,10 +35,14 @@ const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
       >
         <Image
           src={graphic}
-          style={{
-            height: dimension[SECOND_INDEX],
-            width: dimension[FIRST_INDEX],
-          }}
+          height={[
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
+          width={[
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
         />
         <Flex className="RadioButtonsContainer">
           {options.map((option: string[], index: number) => {
@@ -86,10 +92,14 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
       >
         <Image
           src={graphic}
-          style={{
-            height: dimension[SECOND_INDEX],
-            width: dimension[FIRST_INDEX],
-          }}
+          height={[
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
+          width={[
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
         />
         <Flex className="RadioButtonsContainer">
           {options.map((option: string, index: number) => {

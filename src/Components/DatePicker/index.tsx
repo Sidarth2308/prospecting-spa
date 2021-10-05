@@ -59,7 +59,7 @@ const DatePicker: React.FC = () => {
     ) {
       return valueFromContext.answers[valueFromContext.section][
         valueFromContext.counter
-      ][SECOND_INDEX];
+      ][FIRST_INDEX];
     }
     return '00';
   });
@@ -74,7 +74,7 @@ const DatePicker: React.FC = () => {
     ) {
       return valueFromContext.answers[valueFromContext.section][
         valueFromContext.counter
-      ][FIRST_INDEX];
+      ][SECOND_INDEX];
     }
     return '0';
   });
@@ -84,8 +84,8 @@ const DatePicker: React.FC = () => {
       if (valueFromContext !== null) {
         const tempAnswers = valueFromContext.answers;
         tempAnswers[valueFromContext.section][valueFromContext.counter] = [
-          selectedDate,
           selectedMonth,
+          selectedDate,
         ];
         valueFromContext.setAnswers([...tempAnswers]);
       }
@@ -93,65 +93,78 @@ const DatePicker: React.FC = () => {
   }, [selectedDate, selectedMonth]);
   return (
     <Flex
-      className="DatePickerContainer"
+      width="316px"
       alignItems="center"
-      justifyItems="center"
+      justifyContent="space-between"
+      margin="0 20px"
     >
-      <Flex alignItems="center" justifyContent="center" direction="column">
-        <Flex className="DatePickerHeadline">Days</Flex>
+      <Flex
+        className="DatePickerContainer"
+        alignItems="center"
+        justifyItems="center"
+      >
+        <Flex alignItems="center" justifyContent="center" direction="column">
+          <Flex className="DatePickerHeadline">Days</Flex>
 
-        <div className="DateDivider"></div>
+          <div className="DateDivider"></div>
 
-        <Flex className="HandleNumber">
-          {dates.map((date: string, index: number) => {
-            return (
-              <Box
-                key={index}
-                onClick={(): void => {
-                  setSelectedDate(date);
-                }}
-              >
-                <Flex
-                  color={selectedDate === date ? '#191c2c' : '#8A95D6'}
-                  className="DisplayNumber"
+          <Flex className="HandleNumber">
+            {dates.map((date: string, index: number) => {
+              return (
+                <Box
+                  key={index}
+                  onClick={(): void => {
+                    setSelectedDate(date);
+                  }}
                 >
-                  {date}
-                </Flex>
-                {index < dates.length - INCREMENT_DECREMENT && (
-                  <div className="DateDivider"></div>
-                )}
-              </Box>
-            );
-          })}
+                  <Flex
+                    color={selectedDate === date ? '#191c2c' : '#8A95D6'}
+                    className="DisplayNumber"
+                  >
+                    {date}
+                  </Flex>
+                  {index < dates.length - INCREMENT_DECREMENT && (
+                    <div className="DateDivider"></div>
+                  )}
+                </Box>
+              );
+            })}
+          </Flex>
         </Flex>
       </Flex>
 
-      <Flex alignItems="center" justifyContent="center" direction="column">
-        <Flex className="DatePickerHeadline">Month</Flex>
+      <Flex
+        className="DatePickerContainer"
+        alignItems="center"
+        justifyItems="center"
+      >
+        <Flex alignItems="center" justifyContent="center" direction="column">
+          <Flex className="DatePickerHeadline">Month</Flex>
 
-        <div className="DateDivider"></div>
+          <div className="DateDivider"></div>
 
-        <Flex className="HandleNumber">
-          {months.map((month: string, index: number) => {
-            return (
-              <Box
-                key={index}
-                onClick={(): void => {
-                  setSelectedMonth(month);
-                }}
-              >
-                <Flex
-                  color={selectedMonth === month ? '#191c2c' : '#8A95D6'}
-                  className="DisplayNumber"
+          <Flex className="HandleNumber">
+            {months.map((month: string, index: number) => {
+              return (
+                <Box
+                  key={index}
+                  onClick={(): void => {
+                    setSelectedMonth(month);
+                  }}
                 >
-                  {month}
-                </Flex>
-                {index < months.length - INCREMENT_DECREMENT && (
-                  <div className="DateDivider"></div>
-                )}
-              </Box>
-            );
-          })}
+                  <Flex
+                    color={selectedMonth === month ? '#191c2c' : '#8A95D6'}
+                    className="DisplayNumber"
+                  >
+                    {month}
+                  </Flex>
+                  {index < months.length - INCREMENT_DECREMENT && (
+                    <div className="DateDivider"></div>
+                  )}
+                </Box>
+              );
+            })}
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
