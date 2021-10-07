@@ -2,11 +2,11 @@
 /* eslint-disable node/no-extraneous-import */
 /* eslint-disable no-use-before-define */
 import {Flex} from '@chakra-ui/layout';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 // Import {useDrop} from 'react-dnd';
 import {LeftCard, RightCard} from './cards';
 import './styles/styles.css';
-import {ChangeDataContext} from '../../Context';
+import {ChangeDataContext, StateContext} from '../../Context';
 import {isUndefined} from 'lodash';
 type Props = {
   data?: string[][];
@@ -54,6 +54,7 @@ const RightDataRearrange: (data: string[][] | undefined) => {
 // };
 
 const DragAndDrop: React.FC<Props> = ({data}) => {
+  const valueFromContext = useContext(StateContext);
   const [leftData, setLeftData] = useState(LeftDataRearrange(data));
   const [rightData, setRightData] = useState(RightDataRearrange(data));
   const DataChange: (
@@ -111,6 +112,14 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
       newRightData[index] = item;
 
       setRightData([...newRightData]);
+    }
+    if (valueFromContext !== null) {
+      const tempAnswers = valueFromContext.answers;
+      tempAnswers[valueFromContext.section][valueFromContext.counter] =
+        rightData.map((single) => {
+          return single.value;
+        });
+      valueFromContext.setAnswers([...tempAnswers]);
     }
   };
   const TextChange: (

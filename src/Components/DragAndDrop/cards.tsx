@@ -5,7 +5,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable no-magic-numbers */
 /* eslint-disable no-use-before-define */
 /* eslint-disable node/no-extraneous-import */
 import {Input} from '@chakra-ui/input';
@@ -13,6 +12,9 @@ import {Flex, Text} from '@chakra-ui/layout';
 import React, {useContext, useState} from 'react';
 import {useDrag, useDrop} from 'react-dnd';
 import {ChangeDataContext} from '../../Context';
+
+const NUMBER_CHECK = 10;
+const INCREMENT_DECREMENT = 1;
 
 interface LeftCardProps {
   data: {value: string; id: string; active: boolean; source?: string};
@@ -28,7 +30,7 @@ const ItemTypes = {
 };
 
 const numberAdjuster = (number: number) => {
-  if (number < 10) {
+  if (number < NUMBER_CHECK) {
     return `0${number}`;
   }
   return number;
@@ -114,7 +116,9 @@ export const RightCard: React.FC<RightCardProps> = ({data, numbering}) => {
       justifyContent="center"
       marginRight="20px"
     >
-      <Text className="NumberText">{numberAdjuster(numbering + 1)}</Text>
+      <Text className="NumberText">
+        {numberAdjuster(numbering + INCREMENT_DECREMENT)}
+      </Text>
       <Flex
         ref={data.active ? drag : null}
         color={isDragging ? 'black' : 'red'}

@@ -117,7 +117,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
         alignItems="flex-end"
         justifyContent="space-between"
       >
-        <div>
+        <div style={{zIndex: 1}}>
           <div
             className="DarkAnnotation"
             style={{
@@ -138,7 +138,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
           />
         </div>
 
-        <div>
+        <div style={{zIndex: 1}}>
           <div
             className="DarkAnnotation-side"
             style={{
@@ -160,7 +160,6 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
         </div>
         <Image
           userSelect="none"
-          zIndex="-10"
           bottom="0px"
           position="absolute"
           src={graphic}
@@ -198,7 +197,6 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
           ]}
         />
         <Image
-          zIndex="-10"
           userSelect="none"
           bottom="0px"
           position="absolute"

@@ -1529,87 +1529,87 @@ export const QuestionData = {
         icon: question19Graphic,
         dimensions: ['252px', '252px'],
       },
-      // {
-      //   preface:
-      //     'Below are some key values, and if you do not see ones that are important to you, please add in the Green box.',
-      //   body: 'Please rank in order of importance at least 3 to 5 of your core values by dragging and dropping them in the blue box.',
-      //   context: {
-      //     above: '',
-      //     center: '',
-      //     below: {
-      //       body: '',
-      //       icon: '',
-      //     },
-      //   },
-      //   elements: [
-      //     {
-      //       question_type: 'dragdrop',
-      //       question_override: {
-      //         preface: '',
-      //         body: '',
-      //       },
-      //       context: {
-      //         help_text: '',
-      //         left: {
-      //           icon: {
-      //             above: '',
-      //             center: '',
-      //             below: '',
-      //           },
-      //           text: {
-      //             above: '',
-      //             center: '',
-      //             below: '',
-      //           },
-      //           subtext: {
-      //             above: '',
-      //             center: '',
-      //             below: '',
-      //           },
-      //           value: '',
-      //         },
-      //         right: {
-      //           icon: {
-      //             above: '',
-      //             center: '',
-      //             below: '',
-      //           },
-      //           text: {
-      //             above: '',
-      //             center: '',
-      //             below: '',
-      //           },
-      //           subtext: {
-      //             above: '',
-      //             center: '',
-      //             below: '',
-      //           },
-      //           value: '',
-      //         },
-      //         input: {
-      //           body: '',
-      //           placeholder: '',
-      //           values: [],
-      //         },
-      //         radio: [],
-      //         multicard: [],
-      //         dragdrop: [
-      //           ['Security', '0.1'],
-      //           ['Freedom', '0.2'],
-      //           ['Travel', '0.3'],
-      //           ['Family', '0.4'],
-      //           ['Helping Others', '0.1'],
-      //           ['Health', '0.2'],
-      //           ['Community', '0.1'],
-      //           ['Type your value', '0.0'],
-      //           ['Type your value', '0.0'],
-      //           ['Type your value', '0.0'],
-      //         ],
-      //       },
-      //     },
-      //   ],
-      //   icon: '',
-      // },
+      {
+        preface:
+          'Below are some key values, and if you do not see ones that are important to you, please add in the Green box.',
+        body: 'Please rank in order of importance at least 3 to 5 of your core values by dragging and dropping them in the blue box.',
+        context: {
+          above: '',
+          center: '',
+          below: {
+            body: '',
+            icon: '',
+          },
+        },
+        elements: [
+          {
+            question_type: 'dragdrop',
+            question_override: {
+              preface: '',
+              body: '',
+            },
+            context: {
+              help_text: '',
+              left: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '',
+              },
+              right: {
+                icon: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                text: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                subtext: {
+                  above: '',
+                  center: '',
+                  below: '',
+                },
+                value: '',
+              },
+              input: {
+                body: '',
+                placeholder: '',
+                values: [],
+              },
+              radio: [],
+              multicard: [],
+              dragdrop: [
+                ['Security', '0.1'],
+                ['Freedom', '0.2'],
+                ['Travel', '0.3'],
+                ['Family', '0.4'],
+                ['Helping Others', '0.1'],
+                ['Health', '0.2'],
+                ['Community', '0.1'],
+                ['Type your value', '0.0'],
+                ['Type your value', '0.0'],
+                ['Type your value', '0.0'],
+              ],
+            },
+          },
+        ],
+        icon: '',
+      },
     ],
   ],
   responses: [],

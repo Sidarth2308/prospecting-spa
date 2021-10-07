@@ -12,8 +12,15 @@ export const SliderMaxValue = 100;
 const SliderHalfValue = 100;
 const SliderNegativeValue = -1;
 
+// Section 4 Constants
+const MaxGeneralAnswer = 8;
+const MinGeneralAnswer = 0;
+const Section4DivisionConstant = 7;
+const Section4SubtractionConstant = 8;
+
 // List Constants
 const Days_Value = 30;
+const Days_Value_Individual = 4;
 const ListNegativeValue = -1;
 
 // Answer Weight Constants
@@ -116,7 +123,7 @@ const SectionScoreCalculator: (
         const totalDays =
           parseInt(questionData.answer.Option1[Second_Index] as string) *
             Days_Value +
-          Days_Value;
+          Days_Value_Individual;
         const selectedTotalDays = selectedMonth * Days_Value + selectedDays;
         const scaledTotalValue = Scale / totalDays;
         const halfTotalValue = totalDays / Divide_Half_Value;
@@ -249,7 +256,7 @@ const Section3ScoreCalculator: (
         const totalDays =
           parseInt(questionData.answer.Option1[Second_Index] as string) *
             Days_Value +
-          Days_Value;
+          Days_Value_Individual;
         const selectedTotalDays = selectedMonth * Days_Value + selectedDays;
         const scaledTotalValue = Scale / totalDays;
         const halfTotalValue = totalDays / Divide_Half_Value;
@@ -290,6 +297,27 @@ const Section3ScoreCalculator: (
     console.log(PositiveAccumulator, NegativeAccumulator, results[index]);
   });
   return [PositiveAccumulator, NegativeAccumulator];
+};
+
+const Section4ScoreCalculator: (
+  answers: Section,
+  results: (string | string[])[]
+) => number = (answers: Section, results: (string | string[])[]) => {
+  let accumulator = 0;
+  answers.forEach((questionData, index) => {
+    if (questionData.type === 'slider') {
+      let selectedAnswer = 0;
+      if (typeof results[index] === 'string') {
+        selectedAnswer = parseInt(results[index] as string) / SliderFactor;
+      }
+      accumulator = accumulator + selectedAnswer * questionData.weight;
+    } else {
+      accumulator = accumulator + No_Value;
+    }
+
+    console.log(accumulator, results[index], answers[index]);
+  });
+  return accumulator;
 };
 
 const Section1Formula: (
@@ -343,25 +371,15 @@ export const Section4Formula: (
   answers: Section,
   results: (string | string[])[]
 ) => number[] = (answers: Section, results: (string | string[])[]) => {
-  const accumulatorArray = Section3ScoreCalculator(answers, results);
-
   // ROUND((8-J65)/7*100,0)
-  const PromotionScore = Math.round(
-    (accumulatorArray[First_Index] /
-      Math.abs(
-        accumulatorArray[Second_Index] - accumulatorArray[First_Index]
-      )) *
+  const accumulator = Section4ScoreCalculator(answers, results);
+  const Satisfice = Math.round(
+    ((Section4SubtractionConstant - accumulator) / Section4DivisionConstant) *
       PercentageConstant
   );
 
-  const PreventionScore = Math.round(
-    ((accumulatorArray[Second_Index] * ListNegativeValue) /
-      Math.abs(
-        accumulatorArray[Second_Index] - accumulatorArray[First_Index]
-      )) *
-      PercentageConstant
-  );
-  return [PromotionScore, PreventionScore];
+  const Maximize = PercentageConstant - Satisfice;
+  return [Satisfice, Maximize];
 };
 
 export const ScoreConstants = {
@@ -530,5 +548,49 @@ export const ScoreConstants = {
       },
     ],
   },
-  section4: {},
+  section4: {
+    formula: Section4Formula,
+    scores: [
+      {
+        id: 0,
+        type: 'slider',
+        weight: IncreasedWeight,
+        answer: {
+          Option1: [MinGeneralAnswer, '0'],
+          Option2: [MaxGeneralAnswer, '8'],
+          Option3: [NeutralAnswer, ''],
+        },
+      },
+      {
+        id: 1,
+        type: 'slider',
+        weight: IncreasedWeight,
+        answer: {
+          Option1: [MinGeneralAnswer, '0'],
+          Option2: [MaxGeneralAnswer, '8'],
+          Option3: [NeutralAnswer, ''],
+        },
+      },
+      {
+        id: 2,
+        type: 'slider',
+        weight: IncreasedWeight,
+        answer: {
+          Option1: [MinGeneralAnswer, '0'],
+          Option2: [MaxGeneralAnswer, '8'],
+          Option3: [NeutralAnswer, ''],
+        },
+      },
+      {
+        id: 3,
+        type: 'slider',
+        weight: IncreasedWeight,
+        answer: {
+          Option1: [MinGeneralAnswer, '0'],
+          Option2: [MaxGeneralAnswer, '8'],
+          Option3: [NeutralAnswer, ''],
+        },
+      },
+    ],
+  },
 };
