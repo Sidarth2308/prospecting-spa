@@ -52,7 +52,7 @@ const Report: React.FC = () => {
       axios
         .get<ResponseData>(REPORT_API_URL + `/${reportID}`)
         .then((response) => {
-          if (response.status === Success) {
+          if (response.data.status === Success) {
             setReportData({
               fetched: true,
               data: response.data,
