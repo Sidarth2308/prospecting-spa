@@ -229,7 +229,7 @@
 }
 .Final-SectionRight {
   flex-direction: column;
-  width: 426px;
+  max-width: 426px;
 }
 
 .Final-ScreenFooter {
@@ -416,12 +416,22 @@ color: #FFFFFF;
   }
   .Final-DonutChart {
     margin-bottom: 50px;
+    margin-right : 0px;
   }
   .Final-SectionMiddleTextBoxContainer {
     flex-direction: column;
     align-items: center;
   }
   #Section-1 {
+    padding: 50px 50px;
+  }
+  #Section-2 {
+    padding: 50px 50px;
+  }
+  #Section-4 {
+    padding: 50px 50px;
+  }
+  #Section-3 {
     padding: 50px 50px;
   }
   .Final-ScreenFooter {
@@ -442,6 +452,10 @@ color: #FFFFFF;
   }
 }
 @media (max-width: 800px) {
+  .Final-Section2MainHeading{
+    font-size: 30px;
+    line-height: 45px;
+  }
   .Final-ScreenFooter {
     padding: 50px 20px;
     width: 100%;
@@ -449,6 +463,15 @@ color: #FFFFFF;
   }
   
   #Section-1 {
+    padding: 50px 20px;
+  }
+  #Section-2 {
+    padding: 50px 20px;
+  }
+  #Section-4 {
+    padding: 50px 20px;
+  }
+  #Section-3 {
     padding: 50px 20px;
   }
   .Final-FooterRightContainer{
@@ -466,6 +489,10 @@ color: #FFFFFF;
     flex-direction: column;
     align-items: flex-start;
   }
+  .Final-Section2BottomText{
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 @media (max-width: 479px) {
   .Final-CrownIcons {
@@ -479,5 +506,17 @@ color: #FFFFFF;
   .Final-CrownIconsText {
     font-size: 9px;
     line-height: 18.75px;
+  }
+  #Section-1 {
+    padding: 50px 0;
+  }
+  #Section-2 {
+    padding: 50px 0;
+  }
+  #Section-4 {
+    padding: 50px 0;
+  }
+  #Section-3 {
+    padding: 50px 0;
   }
 }

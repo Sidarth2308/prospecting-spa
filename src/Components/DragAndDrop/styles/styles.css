@@ -58,7 +58,7 @@
   border-radius: 32px;
   padding: 32px;
   flex-wrap: wrap;
-
+  justify-content: space-around;
   flex-direction: column;
 }
 
@@ -94,4 +94,37 @@
   font-family: Inter;
 
   color: #ffffff;
+}
+@media (max-width: 479px) {
+  .LeftContainer {
+    width: 300px;
+    margin-right: 0;
+    margin-bottom: 50px;
+
+  }
+  .LeftElementDisabled {
+    width: 120px;
+  }
+  .LeftElement {
+    width: 120px;
+  }
+  
+.RightContainer {
+  width: 300px;
+}
+
+.RightElement {
+  width: 120px;
+}
+.RightElementDisabled {
+  width: 120px;
+}
+.LeftElementText {
+  font-size: 16px;
+  line-height: 20px;
+}
+.LeftElementDisabled {
+  font-size: 16px;
+  line-height: 20px;
+}
 }

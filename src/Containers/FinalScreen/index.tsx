@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 /* eslint-disable no-use-before-define */
 /* eslint-disable node/no-extraneous-import */
 import {Image} from '@chakra-ui/image';
@@ -5,6 +6,9 @@ import {Flex, Text} from '@chakra-ui/layout';
 import React, {useState} from 'react';
 import './styles/styles.css';
 export const Increment_Decrement = 1;
+const PieChartLarge = 316;
+const PieChartMobile = 200;
+
 type Props = {
   name: string;
   email: string;
@@ -39,6 +43,7 @@ import {
   ThinkingStyleTextCalc2,
   ThinkingStyleTextCalc3,
 } from './textLogic';
+import {useMediaQuery} from 'react-responsive';
 
 export const FIRST_INDEX = 0;
 export const SECOND_INDEX = 1;
@@ -56,8 +61,8 @@ const FinalScreen: React.FC<Props> = ({
   name,
   email,
 }) => {
+  const isMobile = useMediaQuery({query: '(max-width: 800px)'});
   const [footerOption, setFooterOption] = useState(DndAnswers[FIRST_INDEX]);
-  console.log(footerOption);
   return (
     <Flex className="FinalMainScreen">
       <Flex id="Section-1">
@@ -163,7 +168,10 @@ const FinalScreen: React.FC<Props> = ({
               startAngle={90}
               segmentsDirection="clockwise"
             >
-              <AdaptiveLayout height={316} width={316} />
+              <AdaptiveLayout
+                height={isMobile ? PieChartMobile : PieChartLarge}
+                width={isMobile ? PieChartMobile : PieChartLarge}
+              />
               <Legend
                 visible={false}
                 orientation="vertical"
@@ -205,7 +213,7 @@ const FinalScreen: React.FC<Props> = ({
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
             >
-              <Flex direction="column" width="426px">
+              <Flex direction="column" width={['250px', '426px']}>
                 <Text className="Final-Section2MainHeading">Awareness</Text>
 
                 <Text
@@ -235,7 +243,7 @@ const FinalScreen: React.FC<Props> = ({
               </Flex>
               <Flex
                 direction="column"
-                width="426px"
+                width={['250px', '426px']}
                 className="Final-SectionRight"
               >
                 <Text className="Final-Section2MainHeading">Analysis</Text>
@@ -305,7 +313,10 @@ const FinalScreen: React.FC<Props> = ({
               startAngle={90}
               segmentsDirection="clockwise"
             >
-              <AdaptiveLayout height={316} width={316} />
+              <AdaptiveLayout
+                height={isMobile ? PieChartMobile : PieChartLarge}
+                width={isMobile ? PieChartMobile : PieChartLarge}
+              />
               <Legend
                 visible={false}
                 orientation="vertical"
@@ -346,7 +357,7 @@ const FinalScreen: React.FC<Props> = ({
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
             >
-              <Flex direction="column" width="426px">
+              <Flex direction="column" width={['250px', '426px']}>
                 <Text className="Final-Section2MainHeading">Awareness</Text>
 
                 <Text
@@ -374,7 +385,7 @@ const FinalScreen: React.FC<Props> = ({
                   to arrive at decisions that provide a satisfactory solution.
                 </Text>
               </Flex>
-              <Flex direction="column" width="426px">
+              <Flex direction="column" width={['250px', '426px']}>
                 <Text className="Final-Section2MainHeading">Analysis</Text>
 
                 <Text
@@ -441,7 +452,10 @@ const FinalScreen: React.FC<Props> = ({
               startAngle={90}
               segmentsDirection="clockwise"
             >
-              <AdaptiveLayout height={316} width={316} />
+              <AdaptiveLayout
+                height={isMobile ? PieChartMobile : PieChartLarge}
+                width={isMobile ? PieChartMobile : PieChartLarge}
+              />
               <Legend
                 visible={false}
                 orientation="vertical"
@@ -482,7 +496,7 @@ const FinalScreen: React.FC<Props> = ({
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
             >
-              <Flex direction="column" width="426px">
+              <Flex direction="column" width={['250px', '426px']}>
                 <Text className="Final-Section2MainHeading">Awareness</Text>
 
                 <Text
@@ -511,7 +525,7 @@ const FinalScreen: React.FC<Props> = ({
                   upside.
                 </Text>
               </Flex>
-              <Flex direction="column" width="426px">
+              <Flex direction="column" width={['250px', '426px']}>
                 <Text className="Final-Section2MainHeading">Analysis</Text>
 
                 <Text

@@ -42,9 +42,12 @@ const RightDataRearrange: (data: string[][] | undefined) => {
   if (isUndefined(data)) {
     return [{value: '0', id: '-1', active: false, source: 'none'}];
   }
-  const returnData = data.map(() => {
-    return {value: '', id: '-1', active: false, source: 'right-box'};
-  });
+  const returnData = [
+    {value: '', id: '-1', active: false, source: 'right-box'},
+    {value: '', id: '-1', active: false, source: 'right-box'},
+    {value: '', id: '-1', active: false, source: 'right-box'},
+  ];
+  console.log(returnData);
   return returnData;
 };
 
@@ -56,6 +59,7 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
   const valueFromContext = useContext(StateContext);
   const [leftData, setLeftData] = useState(LeftDataRearrange(data));
   const [rightData, setRightData] = useState(RightDataRearrange(data));
+  console.log(rightData);
   const DataChange: (
     item: {
       id: string;
@@ -150,6 +154,7 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
         justifyContent="center"
         width="100%"
         marginBottom="24px"
+        direction={['column', 'column', 'row']}
       >
         <Flex>
           <Flex className="LeftContainer">
