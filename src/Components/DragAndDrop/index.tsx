@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/member-delimiter-style */
 /* eslint-disable node/no-extraneous-import */
 /* eslint-disable no-use-before-define */
 import {Flex} from '@chakra-ui/layout';
@@ -155,7 +154,12 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
         <Flex>
           <Flex className="LeftContainer">
             {leftData.map(
-              (singleLeft: {active: boolean; value: string; id: string}) => {
+              (singleLeft: {
+                active: boolean;
+                value: string;
+                id: string;
+                source: string;
+              }) => {
                 return <LeftCard data={singleLeft} key={singleLeft.id} />;
               }
             )}
@@ -165,7 +169,12 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
           <Flex className="RightContainer">
             {rightData.map(
               (
-                singleRight: {active: boolean; value: string; id: string},
+                singleRight: {
+                  active: boolean;
+                  value: string;
+                  id: string;
+                  source: string;
+                },
                 index: number
               ) => {
                 return (

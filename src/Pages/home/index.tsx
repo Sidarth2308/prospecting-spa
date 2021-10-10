@@ -1,18 +1,21 @@
+/* eslint-disable node/no-extraneous-import */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable capitalized-comments */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-use-before-define */
-import React, {useState, FC, Suspense} from 'react';
+import React, {useState, FC, Suspense, useEffect} from 'react';
 import {Box, Spinner} from '@chakra-ui/react';
-
-// Import {useSelector, useDispatch} from 'react-redux';
-// Import {FetchData} from '../../Redux/actions/data';
-// Import {RootState} from '../../Redux/reducers';
-
+import {Flex} from '@chakra-ui/layout';
+import {Input} from '@chakra-ui/input';
+import {Button} from '@chakra-ui/button';
+import {useSelector, useDispatch} from 'react-redux';
+import {FetchData} from '../../Redux/actions/data';
 import {StateContext} from '../../Context';
-import {QuestionData} from '../../Data';
 import './styles/styles.css';
-import FinalScreen from '../../Containers/FinalScreen';
+import {DataState, QuestionsData} from '../../Redux/type';
+import axios from 'axios';
+import {useHistory} from 'react-router';
+import {POST_API_URL} from '../../Data';
 
 const INCREMENT_DECREMENT = 1;
 export const STARTING1 = 1;
@@ -23,67 +26,71 @@ export const Second_Index = 1;
 export const Third_Index = 2;
 export const Fourth_Index = 3;
 
-const DndFirstParam = 3;
-const DndSecondParam = 4;
-
 const QuestionContainer = React.lazy(
   async () => import('../../Containers/QuestionContainer')
 );
 
-const QuestionTotalCounter: () => number = () => {
-  let accumulator = 0;
-  QuestionData.questions.forEach((sectionArray) => {
-    accumulator = accumulator + sectionArray.length;
-  });
-  return accumulator;
-};
-
-const TotalLength = QuestionTotalCounter();
-
 const TestingNumber = 21;
 
-const Home: FC = () => {
-  // Const fetchedData = useSelector((state: RootState) => state.fetchData);
-  // Const dispatch = useDispatch();
-  const [section, setSection] = useState(3);
-  const [counter, setCounter] = useState(4);
-  const [fullCounter, setFullCounter] = useState(20);
-  const [answers, setAnswers] = useState<(string | string[])[][]>(
-    QuestionData.questions.map(() => {
-      return [''];
-    })
-  );
-  console.log(answers[3]);
-  // UseEffect(() => {
-  //   Dispatch(FetchData());
-  // }, []);
+type StateType = {
+  questionData: QuestionsData;
+};
 
-  const FinalAnswerGenerator: () => number[][] = () => {
-    // const SectionScores = [
-    //   [
-    //     ScoreConstants.section1.formula(
-    //       ScoreConstants.section1.scores,
-    //       answers[First_Index]
-    //     ),
-    //   ],
-    //   [
-    //     ScoreConstants.section2.formula(
-    //       ScoreConstants.section2.scores,
-    //       answers[Second_Index]
-    //     ),
-    //   ],
-    //   ScoreConstants.section3.formula(
-    //     ScoreConstants.section3.scores,
-    //     answers[Third_Index]
-    //   ),
-    //   ScoreConstants.section4.formula(
-    //     ScoreConstants.section3.scores,
-    //     answers[Fourth_Index]
-    //   )
-    // ];
-    const SectionScores = [[57], [49], [25, 75], [43, 57]];
-    return SectionScores;
+type PostResponse = {
+  status: number;
+  message: string;
+  reportID: string;
+};
+
+const Home: FC = () => {
+  const QuestionData = useSelector((state: DataState) => {
+    return state.fetchData as StateType;
+  });
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [section, setSection] = useState(0);
+  const [counter, setCounter] = useState(0);
+  const [fullCounter, setFullCounter] = useState(1);
+  const [answers, setAnswers] = useState<(string | string[])[][]>([
+    [''],
+    [''],
+    [''],
+    [''],
+  ]);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [start, setStart] = useState(false);
+
+  const QuestionTotalCounter: () => number = () => {
+    return 20;
   };
+
+  const TotalLength = QuestionTotalCounter();
+  useEffect(() => {
+    dispatch(FetchData());
+  }, []);
+
+  useEffect(() => {
+    if (fullCounter === TestingNumber) {
+      const payload = {
+        client: {
+          name: name,
+          email: email,
+        },
+        answers: answers,
+      };
+      axios
+        .post<PostResponse>(POST_API_URL, payload)
+        .then((response) => {
+          if (response.data.status === 1) {
+            history.push(`/report/${response.data.reportID}`);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [fullCounter]);
 
   // Console.log(
   //   FullCounter,
@@ -98,8 +105,8 @@ const Home: FC = () => {
       if (section > STARTING) {
         setFullCounter(fullCounter - INCREMENT_DECREMENT);
         setCounter(
-          QuestionData.questions[section - INCREMENT_DECREMENT].length -
-            INCREMENT_DECREMENT
+          QuestionData.questionData.questions[section - INCREMENT_DECREMENT]
+            .length - INCREMENT_DECREMENT
         );
         setSection(section - INCREMENT_DECREMENT);
       }
@@ -113,7 +120,7 @@ const Home: FC = () => {
     setFullCounter(fullCounter + INCREMENT_DECREMENT);
     if (
       counter <
-      QuestionData.questions[section].length - INCREMENT_DECREMENT
+      QuestionData.questionData.questions[section].length - INCREMENT_DECREMENT
     ) {
       setCounter(counter + INCREMENT_DECREMENT);
     } else {
@@ -124,24 +131,64 @@ const Home: FC = () => {
   return (
     <StateContext.Provider value={{answers, setAnswers, counter, section}}>
       <Suspense fallback={<Spinner />}>
-        {fullCounter === TestingNumber ? (
-          <FinalScreen
-            SectionScores={FinalAnswerGenerator()}
-            DndAnswers={answers[DndFirstParam][DndSecondParam]}
-          />
-        ) : (
+        {!start ? (
+          <Flex className="StartContainer" direction="column">
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              direction="column"
+            >
+              <Input
+                width="300px"
+                color="white"
+                marginBottom="40px"
+                value={name}
+                type="text"
+                placeholder="Enter your name"
+                onChange={(event): void => {
+                  setName(event.target.value);
+                }}
+              />
+
+              <Input
+                width="300px"
+                value={email}
+                color="white"
+                type="text"
+                marginBottom="40px"
+                placeholder="Enter your email"
+                onChange={(event): void => {
+                  setEmail(event.target.value);
+                }}
+              />
+            </Flex>
+            <Flex>
+              <Button
+                disabled={name === '' || email === ''}
+                size="lg"
+                onClick={(): void => {
+                  setStart(true);
+                }}
+              >
+                Start Assessment
+              </Button>
+            </Flex>
+          </Flex>
+        ) : QuestionData.questionData && fullCounter < TestingNumber ? (
           <Box className="HomeContainer">
             <QuestionContainer
               progressData={{
                 counter: fullCounter,
                 total: TotalLength,
-                heading: QuestionData.sections[section],
+                heading: QuestionData.questionData.sections[section],
               }}
-              data={QuestionData.questions[section][counter]}
+              data={QuestionData.questionData.questions[section][counter]}
               handleNext={increaseCounter}
               handlePrev={decreaseCounter}
             />
           </Box>
+        ) : (
+          <Spinner />
         )}
       </Suspense>
     </StateContext.Provider>

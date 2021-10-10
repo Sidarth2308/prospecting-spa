@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {createContext} from 'react';
 
 export const StateContext = createContext<{
@@ -8,4 +7,14 @@ export const StateContext = createContext<{
   section: number;
 } | null>(null);
 
-export const ChangeDataContext = createContext<any>(null);
+type Item = {
+  id: string;
+  value: string;
+  active: boolean;
+  source: string;
+};
+
+export const ChangeDataContext = createContext<{
+  DataChange: (item: Item, index: number) => void;
+  TextChange: (item: Item, value: string) => void;
+} | null>(null);

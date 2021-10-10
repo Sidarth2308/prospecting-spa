@@ -2,10 +2,12 @@
 /* eslint-disable node/no-extraneous-import */
 import {Image} from '@chakra-ui/image';
 import {Flex, Text} from '@chakra-ui/layout';
-import React from 'react';
+import React, {useState} from 'react';
 import './styles/styles.css';
 export const Increment_Decrement = 1;
 type Props = {
+  name: string;
+  email: string;
   SectionScores: number[][];
   DndAnswers: string | string[];
 };
@@ -32,6 +34,7 @@ import {
   FocusTextCalc1,
   FocusTextCalc2,
   FocusTextCalc3,
+  FooterTextCalc,
   ThinkingStyleTextCalc1,
   ThinkingStyleTextCalc2,
   ThinkingStyleTextCalc3,
@@ -47,18 +50,22 @@ const customizeText: (arg: {valueText: number}) => string = (arg: {
 }) => {
   return `${arg.valueText}`;
 };
-const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
-  console.log(SectionScores);
+const FinalScreen: React.FC<Props> = ({
+  DndAnswers,
+  SectionScores,
+  name,
+  email,
+}) => {
+  const [footerOption, setFooterOption] = useState(DndAnswers[FIRST_INDEX]);
+  console.log(footerOption);
   return (
     <Flex className="FinalMainScreen">
       <Flex id="Section-1">
         <Flex className="Final-TopHeadingSection">
           <Image src={LogoImage} userSelect="none" />
           <Flex direction="column">
-            <Text className="Final-TopHeadingText-bold">Jasmine Rodgers</Text>
-            <Text className="Final-TopHeadingText">
-              jasmine.rodgers@gmail.com
-            </Text>
+            <Text className="Final-TopHeadingText-bold">{name}</Text>
+            <Text className="Final-TopHeadingText">{email}</Text>
           </Flex>
         </Flex>
         <Flex direction="column" marginBottom="40px">
@@ -137,19 +144,19 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
       </Flex>
       <Flex id="Section-2">
         <Flex alignItems="center" className="Final-Section1MiddleContainer">
-          <Flex className="Final-DonutChart">
+          <Flex className="Final-DonutChart" direction="column">
             <PieChart
               id="pie"
               type="doughnut"
               palette={['#fff', '#BE6CFD']}
               dataSource={[
                 {
-                  name: 'Over-Optimism',
-                  value: SectionScores[FIRST_INDEX][FIRST_INDEX],
-                },
-                {
                   name: 'Regret Aversion',
                   value: SectionScores[SECOND_INDEX][FIRST_INDEX],
+                },
+                {
+                  name: 'Over-Optimism',
+                  value: SectionScores[FIRST_INDEX][FIRST_INDEX],
                 },
               ]}
               centerRender={LightBulb}
@@ -176,6 +183,17 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
                 </Label>
               </Series>
             </PieChart>
+
+            <Flex direction="column" marginTop="40px">
+              <Flex marginBottom="18px">
+                <Flex className="Final-ChartLegend1"></Flex>
+                <Text className="Final-LegendText">Over - Optimism</Text>
+              </Flex>
+              <Flex>
+                <Flex className="Final-ChartLegend2"></Flex>
+                <Text className="Final-LegendText">Regret Aversion </Text>
+              </Flex>
+            </Flex>
           </Flex>
           <Flex flex="2" direction="column">
             <Flex className="Final-SectionMiddleTextBoxContainer">
@@ -267,7 +285,7 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
       </Flex>
       <Flex id="Section-3">
         <Flex alignItems="center" className="Final-Section1MiddleContainer">
-          <Flex className="Final-DonutChart">
+          <Flex className="Final-DonutChart" direction="column">
             <PieChart
               id="pie"
               type="doughnut"
@@ -307,6 +325,16 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
                 </Label>
               </Series>
             </PieChart>
+            <Flex direction="column" marginTop="40px">
+              <Flex marginBottom="18px">
+                <Flex className="Final-ChartLegend1"></Flex>
+                <Text className="Final-LegendText">Maximizing</Text>
+              </Flex>
+              <Flex>
+                <Flex className="Final-ChartLegend2"></Flex>
+                <Text className="Final-LegendText">Satisficing</Text>
+              </Flex>
+            </Flex>
           </Flex>
           <Flex flex="2" direction="column">
             <Flex className="Final-SectionMiddleTextBoxContainer">
@@ -393,21 +421,20 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
         </Flex>
       </Flex>
       <Flex id="Section-4">
-        <Flex alignItems="center" className="Final-Section1MiddleContainer">
-          <Flex className="Final-DonutChart">
+        <Flex className="Final-Section1MiddleContainer">
+          <Flex className="Final-DonutChart" direction="column">
             <PieChart
               id="pie"
               type="doughnut"
               palette={['#fff', '#BE6CFD']}
               dataSource={[
                 {
-                  name: 'Prevention',
-                  value: SectionScores[THIRD_INDEX][SECOND_INDEX],
-                },
-
-                {
                   name: 'Promotion',
                   value: SectionScores[THIRD_INDEX][FIRST_INDEX],
+                },
+                {
+                  name: 'Prevention',
+                  value: SectionScores[THIRD_INDEX][SECOND_INDEX],
                 },
               ]}
               centerRender={LookingGlass}
@@ -434,6 +461,16 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
                 </Label>
               </Series>
             </PieChart>
+            <Flex direction="column" marginTop="40px">
+              <Flex marginBottom="18px">
+                <Flex className="Final-ChartLegend1"></Flex>
+                <Text className="Final-LegendText">Prevention</Text>
+              </Flex>
+              <Flex>
+                <Flex className="Final-ChartLegend2"></Flex>
+                <Text className="Final-LegendText">Promotion</Text>
+              </Flex>
+            </Flex>
           </Flex>
           <Flex flex="2" direction="column">
             <Flex className="Final-SectionMiddleTextBoxContainer">
@@ -521,7 +558,7 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
         </Flex>
       </Flex>
 
-      <Flex className="Final-ScreenFooter" alignItems="center">
+      <Flex className="Final-ScreenFooter">
         <Flex direction="column" flex="1" className="Final-FooterLeftContainer">
           <Text className="Final-FooterHeading">Taking Action</Text>
           <Text className="Final-FooterSubHeading">
@@ -529,35 +566,131 @@ const FinalScreen: React.FC<Props> = ({DndAnswers, SectionScores}) => {
             block works
           </Text>
           <div className="Final-FooterDivider"></div>
-          <Flex className="Final-OptionContainer">
+          <Flex
+            className={
+              footerOption === DndAnswers[FIRST_INDEX]
+                ? 'Final-OptionContainer-Selected'
+                : 'Final-OptionContainer'
+            }
+            onClick={(): void => {
+              setFooterOption(DndAnswers[FIRST_INDEX]);
+            }}
+          >
             <Flex alignItems="center" justifyContent="center">
-              <Flex className="Final-FooterNumberCircle">1</Flex>
-              <Text className="Final-OptionText">Freedom</Text>
+              <Flex
+                className={
+                  footerOption === DndAnswers[FIRST_INDEX]
+                    ? 'Final-FooterNumberCircle-Selected'
+                    : 'Final-FooterNumberCircle'
+                }
+              >
+                1
+              </Flex>
+              <Text
+                className={
+                  footerOption === DndAnswers[FIRST_INDEX]
+                    ? 'Final-OptionText-Selected'
+                    : 'Final-OptionText'
+                }
+              >
+                {DndAnswers[FIRST_INDEX]}
+              </Text>
             </Flex>
             <Image src={rightArrowLight} />
           </Flex>
 
           <div className="Final-OptionDivider"></div>
-          <Flex className="Final-OptionContainer">
+          <Flex
+            className={
+              footerOption === DndAnswers[SECOND_INDEX]
+                ? 'Final-OptionContainer-Selected'
+                : 'Final-OptionContainer'
+            }
+            onClick={(): void => {
+              setFooterOption(DndAnswers[SECOND_INDEX]);
+            }}
+          >
             <Flex alignItems="center" justifyContent="center">
-              <Flex className="Final-FooterNumberCircle">2</Flex>
-              <Text className="Final-OptionText">Family</Text>
+              <Flex
+                className={
+                  footerOption === DndAnswers[SECOND_INDEX]
+                    ? 'Final-FooterNumberCircle-Selected'
+                    : 'Final-FooterNumberCircle'
+                }
+              >
+                2
+              </Flex>
+              <Text
+                className={
+                  footerOption === DndAnswers[SECOND_INDEX]
+                    ? 'Final-OptionText-Selected'
+                    : 'Final-OptionText'
+                }
+              >
+                {DndAnswers[SECOND_INDEX]}
+              </Text>
             </Flex>
             <Image src={rightArrowLight} />
           </Flex>
 
           <div className="Final-OptionDivider"></div>
-          <Flex className="Final-OptionContainer">
+          <Flex
+            className={
+              footerOption === DndAnswers[THIRD_INDEX]
+                ? 'Final-OptionContainer-Selected'
+                : 'Final-OptionContainer'
+            }
+            onClick={(): void => {
+              setFooterOption(DndAnswers[THIRD_INDEX]);
+            }}
+          >
             <Flex alignItems="center" justifyContent="center">
-              <Flex className="Final-FooterNumberCircle">3</Flex>
-              <Text className="Final-OptionText">Security</Text>
+              <Flex
+                className={
+                  footerOption === DndAnswers[THIRD_INDEX]
+                    ? 'Final-FooterNumberCircle-Selected'
+                    : 'Final-FooterNumberCircle'
+                }
+              >
+                3
+              </Flex>
+              <Text
+                className={
+                  footerOption === DndAnswers[THIRD_INDEX]
+                    ? 'Final-OptionText-Selected'
+                    : 'Final-OptionText'
+                }
+              >
+                {DndAnswers[THIRD_INDEX]}
+              </Text>
             </Flex>
             <Image src={rightArrowLight} />
           </Flex>
 
           <div className="Final-OptionDivider"></div>
         </Flex>
-        <Flex flex="1"></Flex>
+        <Flex className="Final-FooterRightContainer">
+          <Text className="Final-ActionSteps">Action Steps</Text>
+          <Text className="Final-FooterSelectedHeading">{footerOption}</Text>
+          <Flex direction="column" marginTop="19px">
+            {FooterTextCalc(
+              SectionScores[THIRD_INDEX][FIRST_INDEX],
+              SectionScores[THIRD_INDEX][SECOND_INDEX],
+              SectionScores[FIRST_INDEX][FIRST_INDEX],
+              SectionScores[SECOND_INDEX][FIRST_INDEX],
+              SectionScores[FOURTH_INDEX][FIRST_INDEX],
+              SectionScores[FOURTH_INDEX][SECOND_INDEX],
+              footerOption
+            ).map((footerText, index) => {
+              return (
+                <Flex className="Final-FooterTextContainer" key={index}>
+                  <Flex className="Final-SmallDot"></Flex>
+                  <Flex className="Final-FooterText">{footerText}</Flex>
+                </Flex>
+              );
+            })}
+          </Flex>
+        </Flex>
       </Flex>
     </Flex>
   );

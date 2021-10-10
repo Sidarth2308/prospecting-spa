@@ -1,6 +1,4 @@
 /* eslint-disable complexity */
-/* eslint-disable radix */
-
 // Answer Constants
 const PositiveGeneralAnswer = 10;
 const NegativeGeneralAnswer = -10;
@@ -57,7 +55,7 @@ const SectionScoreCalculator: (
   let accumulator = 0;
   answers.forEach((questionData, index) => {
     if (questionData.type === 'options') {
-      const selectedAnswer = results[index];
+      const selectedAnswer = results[index][First_Index];
       if (selectedAnswer === questionData.answer.Option1[Second_Index]) {
         accumulator =
           accumulator +
@@ -77,10 +75,9 @@ const SectionScoreCalculator: (
         accumulator = accumulator + No_Value;
       }
     } else if (questionData.type === 'slider') {
-      let selectedAnswer = 0;
-      if (typeof results[index] === 'string') {
-        selectedAnswer = parseInt(results[index] as string) * Divide_Half_Value;
-      }
+      let selectedAnswer =
+        parseInt(results[index][First_Index], 10) * Divide_Half_Value;
+
       if (selectedAnswer > SliderHalfValue) {
         if ((questionData.answer.Option1[First_Index] as number) > No_Value) {
           selectedAnswer =
@@ -107,11 +104,11 @@ const SectionScoreCalculator: (
       accumulator =
         accumulator + (selectedAnswer * questionData.weight) / SliderFactor;
     } else if (questionData.type === 'dateSelect') {
-      const selectedMonth = parseInt(results[index][First_Index]);
-      const selectedDays = parseInt(results[index][Second_Index]);
+      const selectedMonth = parseInt(results[index][First_Index], 10);
+      const selectedDays = parseInt(results[index][Second_Index], 10);
       if (
         selectedMonth >=
-        parseInt(questionData.answer.Option1[Second_Index] as string)
+        parseInt(questionData.answer.Option1[Second_Index] as string, 10)
       ) {
         accumulator =
           accumulator + (questionData.answer.Option1[First_Index] as number);
@@ -121,7 +118,7 @@ const SectionScoreCalculator: (
             (questionData.answer.Option2[First_Index] as number)
         );
         const totalDays =
-          parseInt(questionData.answer.Option1[Second_Index] as string) *
+          parseInt(questionData.answer.Option1[Second_Index] as string, 10) *
             Days_Value +
           Days_Value_Individual;
         const selectedTotalDays = selectedMonth * Days_Value + selectedDays;
@@ -158,7 +155,7 @@ const SectionScoreCalculator: (
       accumulator = accumulator + No_Value;
     }
 
-    console.log(accumulator, results[index]);
+    // console.log(accumulator, results[index]);
   });
   return accumulator;
 };
@@ -171,7 +168,7 @@ const Section3ScoreCalculator: (
   let NegativeAccumulator = 0;
   answers.forEach((questionData, index) => {
     if (questionData.type === 'options') {
-      const selectedAnswer = results[index];
+      const selectedAnswer = results[index][First_Index];
       let totalAnswer = 0;
       if (selectedAnswer === questionData.answer.Option1[Second_Index]) {
         totalAnswer =
@@ -193,49 +190,12 @@ const Section3ScoreCalculator: (
       } else {
         NegativeAccumulator += totalAnswer;
       }
-    } else if (questionData.type === 'slider') {
-      let selectedAnswer = 0;
-      if (typeof results[index] === 'string') {
-        selectedAnswer = parseInt(results[index] as string) * Divide_Half_Value;
-      }
-      if (selectedAnswer > SliderHalfValue) {
-        if ((questionData.answer.Option1[First_Index] as number) > No_Value) {
-          selectedAnswer =
-            (selectedAnswer - SliderHalfValue) * SliderNegativeValue;
-        } else if (
-          (questionData.answer.Option1[First_Index] as number) === No_Value
-        ) {
-          selectedAnswer = No_Value;
-        } else {
-          selectedAnswer = selectedAnswer - SliderHalfValue;
-        }
-      } else {
-        if ((questionData.answer.Option2[First_Index] as number) < No_Value) {
-          selectedAnswer =
-            (selectedAnswer - SliderHalfValue) * SliderNegativeValue;
-        } else if (
-          (questionData.answer.Option2[First_Index] as number) === No_Value
-        ) {
-          selectedAnswer = No_Value;
-        } else {
-          selectedAnswer = selectedAnswer - SliderHalfValue;
-        }
-      }
-      if (selectedAnswer > NeutralAnswer) {
-        PositiveAccumulator =
-          PositiveAccumulator +
-          (selectedAnswer * questionData.weight) / SliderFactor;
-      } else {
-        NegativeAccumulator =
-          NegativeAccumulator +
-          (selectedAnswer * questionData.weight) / SliderFactor;
-      }
     } else if (questionData.type === 'dateSelect') {
-      const selectedMonth = parseInt(results[index][First_Index]);
-      const selectedDays = parseInt(results[index][Second_Index]);
+      const selectedMonth = parseInt(results[index][First_Index], 10);
+      const selectedDays = parseInt(results[index][Second_Index], 10);
       if (
         selectedMonth >=
-        parseInt(questionData.answer.Option1[Second_Index] as string)
+        parseInt(questionData.answer.Option1[Second_Index] as string, 10)
       ) {
         if (
           (questionData.answer.Option1[First_Index] as number) > NeutralAnswer
@@ -254,7 +214,7 @@ const Section3ScoreCalculator: (
             (questionData.answer.Option2[First_Index] as number)
         );
         const totalDays =
-          parseInt(questionData.answer.Option1[Second_Index] as string) *
+          parseInt(questionData.answer.Option1[Second_Index] as string, 10) *
             Days_Value +
           Days_Value_Individual;
         const selectedTotalDays = selectedMonth * Days_Value + selectedDays;
@@ -306,16 +266,15 @@ const Section4ScoreCalculator: (
   let accumulator = 0;
   answers.forEach((questionData, index) => {
     if (questionData.type === 'slider') {
-      let selectedAnswer = 0;
-      if (typeof results[index] === 'string') {
-        selectedAnswer = parseInt(results[index] as string) / SliderFactor;
-      }
+      const selectedAnswer =
+        parseInt(results[index][First_Index], 10) / SliderFactor;
+
       accumulator = accumulator + selectedAnswer * questionData.weight;
     } else {
       accumulator = accumulator + No_Value;
     }
 
-    console.log(accumulator, results[index], answers[index]);
+    // Console.log(accumulator, results[index][First_Index], answers[index]);
   });
   return accumulator;
 };

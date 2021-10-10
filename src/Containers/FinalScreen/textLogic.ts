@@ -1,4 +1,6 @@
 const LIMIT = 60;
+const FirstIndex = 0;
+
 export const ThinkingStyleTextCalc1: (OO: number, RA: number) => string = (
   OO: number,
   RA: number
@@ -100,3 +102,195 @@ export const FocusTextCalc3: (Promotion: number, Prevention: number) => string =
     }
     return 'Because your Prevention focus is so high you will only focus on the negatives of this action point.';
   };
+
+export const PossibleTextValues = [
+  {
+    name: 'Family',
+    value: {
+      OO: {
+        High: 'High OO may make you feel like everything will be alright, and it’s important to plan things out.',
+        Mid: 'A balanced approach is great to take care of the family.',
+        Low: 'High RA may make you feel like everything is doom and gloom. But that need not be the case necessarily.',
+      },
+      Maximizing: {
+        High: 'High Max may prevent you from doing anything on time because you spend time looking for the best solution.',
+        Mid: 'A balanced approach is great to take care of the family as you are pragmatic yet smart.',
+        Low: 'High Satisficing may make you pick any solution without careful thought. It’s your Family, so for heaven’s sake think through it!',
+      },
+      Prevention: {
+        High: 'High Prevention may prevent you from doing anything on time because you spend time looking for the best solution.',
+        Mid: 'A balanced regulatory focus is great to take care of the family as you are pragmatic yet smart.',
+        Low: 'High Promotion may make you pick any solution without careful thought. It’s your Family, so for heaven’s sake think through it!',
+      },
+    },
+  },
+  {
+    name: 'Freedom',
+    value: {
+      OO: {
+        High: 'High OO may lead you to over-estimate where you stand with respect to financial freedom.',
+        Mid: 'Your sense of financial freedom is probably well thought-out as you have a balanced thinking style.',
+        Low: 'High RA may make you feel like you are in no way ready for freedom; and it may actually bound you more than you think.',
+      },
+      Maximizing: {
+        High: 'High Max may make you feel that you have the freedom to do what you want. But do you really?',
+        Mid: 'Your sense of financial freedom is probably well thought-out as you have a balanced decision style.',
+        Low: 'High Satisficing may make you feel like you are very free; and it may actually bound you more than you think.',
+      },
+      Prevention: {
+        High: 'High Prevention may make you feel that you have the freedom to do what you want. But do you really?',
+        Mid: 'Your sense of financial freedom is probably well thought-out as you have a balanced locus of focus.',
+        Low: 'High Promotion may make you feel like you are very free; and it may actually bound you more than you think.',
+      },
+    },
+  },
+  {
+    name: 'Security',
+    value: {
+      OO: {
+        High: 'While High OO is great, are you sure you are not neglecting legitimate risks and hence, are adequately covered for them?',
+        Mid: 'Based on your balanced profile, it is highly likely that you have taken a balanced approach to securing your financial future too.',
+        Low: 'High RA may prevent you from taking the right approach as you make regret taking an action. And sometimes, not taking an action can lead to even more regret especially when it comes to Security.',
+      },
+      Maximizing: {
+        High: 'While High Maximizing is great, are you sure you are not neglecting legitimate risks and hence, are adequately covered for them?',
+        Mid: 'Based on your balanced Decision Style, it is highly likely that you have taken a balanced approach to securing your financial future too.',
+        Low: 'High Satisficing may prevent you from taking the right approach as you take speedy calls.',
+      },
+      Prevention: {
+        High: 'While High Prevention is great, are you sure you are not neglecting legitimate risks and hence, are adequately covered for them?',
+        Mid: 'Based on your balanced Focus, it is highly likely that you have taken a balanced approach to securing your financial future too.',
+        Low: 'High Promotion may prevent you from taking the right approach as you take speedy calls.',
+      },
+    },
+  },
+  {
+    name: 'Community',
+    value: {
+      OO: {
+        High: 'High OO gives you the energy to deal with any community issues in a passionate and persevering way. Ensure you do not get drained though.',
+        Mid: 'You approach and tackle community issues with a very sensible and methodical approach. We need more people like you!',
+        Low: 'While high RA may seem that nothing can ever get done, it is important to take a more positive view of life and get going.',
+      },
+      Maximizing: {
+        High: 'High Max may overwhelm you when tackling community issues. Ensure you do not get drained though.',
+        Mid: 'You approach and tackle community issues with a very sensible and methodical decision style approach. That’s great!',
+        Low: 'While high Satisficing may seem everything can get done, it is important to take a more realistic view of life, stop, and reflect.',
+      },
+      Prevention: {
+        High: 'High Prevention may overwhelm you when tackling community issues. Ensure you do not get drained though.',
+        Mid: 'You approach and tackle community issues with a very sensible and methodical focus. That’s great!',
+        Low: 'While high Promotion may seem everything can get done, it is important to take a more realistic view of life, stop, and reflect.',
+      },
+    },
+  },
+  {
+    name: 'Health',
+    value: {
+      OO: {
+        High: 'High OO may make you feel like you are on the right path. While this is great for mental well-being, when it comes to physical health this may be a problem area. Please check with a proper professional on a regular basis.',
+        Mid: 'You approach and tackle health and wellness with a very sensible and methodical approach. We need more people like you!',
+        Low: 'High RA may make you feel like you are in no way ready for health and wellness; this thinking may prevent you from taking the right action.',
+      },
+      Maximizing: {
+        High: 'High Maximizing may make you feel like you can never get on the right path. Not so great for mental well-being!',
+        Mid: 'You approach and tackle health and wellness by taking very sensible and methodical decisions. We need more people like you!',
+        Low: 'High Satisficing may make you feel like you are in no way ready for health and wellness; this thinking may prevent you from taking the right action.',
+      },
+      Prevention: {
+        High: 'High Prevention may make you feel like you can never get on the right path. Not so great for mental well-being!',
+        Mid: 'You approach and tackle health and wellness by taking very sensible and methodical focus. We need more people like you!',
+        Low: 'High Promotion may make you feel like you are in no way ready for health and wellness; this thinking may prevent you from taking the right action.',
+      },
+    },
+  },
+  {
+    name: 'Helping Others',
+    value: {
+      OO: {
+        High: 'High OO gives you the energy to help others in a passionate and loving manner. Ensure you do not get drained though.',
+        Mid: 'You approach helping others with a very sensible and methodical approach. Thank you for your service!',
+        Low: 'High RA may make you feel like everything is doom and gloom and that there is very little point in helping others. As a start, help yourself first!',
+      },
+      Maximizing: {
+        High: 'High Maximizing gives you the energy to help others in a passionate and loving manner. Ensure you do not get drained though.',
+        Mid: 'You approach helping others with a very sensible and methodical Decision Style. Thank you for your service!',
+        Low: 'High Satisficing may make you feel like everything is doom and gloom and that there is very little point in helping others. As a start, satisfy yourself first!',
+      },
+      Prevention: {
+        High: 'High Prevention gives you the energy to help others in a passionate and loving manner. Ensure you do not get drained though.',
+        Mid: 'You approach helping others with a very sensible and methodical Focus Style. Thank you for your service!',
+        Low: 'High Promotion may make you feel like everything is doom and gloom and that there is very little point in helping others. As a start, promote yourself first!',
+      },
+    },
+  },
+  {
+    name: 'Travel',
+    value: {
+      OO: {
+        High: 'High OO makes you feel that you can do what you like and go wherever and whenever you feel like doing it. But before you do that, please consult your bank account.',
+        Mid: 'You approach travelling with a very sensible and methodical approach. Hoteliers need more people like you!',
+        Low: 'While high RA may seem that you can never, ever travel, it is important to take a more positive view of life and get backpacking.',
+      },
+      Maximizing: {
+        High: 'High Maximizing makes you feel that you can never do what you like and go wherever and whenever you feel like doing it. Because you are looking for the best possible solution.',
+        Mid: 'You approach travelling with a very sensible and methodical decision with precision approach. Hoteliers need more people like you!',
+        Low: 'While high Satisficing may seem that you can keep travelling all your life, it is important to take a more negative view of life and stop backpacking.',
+      },
+      Prevention: {
+        High: 'High Maximizing makes you feel that you can never do what you like and go wherever and whenever you feel like doing it. Because you are looking for the best possible solution.',
+        Mid: 'You approach travelling with a very sensible and focused approach. Hoteliers need more people like you!',
+        Low: 'While high Promotion may seem that you can keep travelling all your life, it is important to take a more negative view of life and stop backpacking.',
+      },
+    },
+  },
+];
+
+export const FooterTextCalc: (
+  Promotion: number,
+  Prevention: number,
+  OO: number,
+  RA: number,
+  Satisficing: number,
+  Maximizing: number,
+  SelectedText: string
+) => string[] = (
+  Promotion: number,
+  Prevention: number,
+  OO: number,
+  RA: number,
+  Satisficing: number,
+  Maximizing: number,
+  SelectedText: string
+) => {
+  const resultArray: string[] = [];
+  const textOption = PossibleTextValues.filter((possibleValue) => {
+    return possibleValue.name === SelectedText;
+  });
+  if (textOption.length > FirstIndex) {
+    if (OO > LIMIT) {
+      resultArray.push(textOption[FirstIndex]?.value.OO.High);
+    } else if (OO < LIMIT && RA < LIMIT) {
+      resultArray.push(textOption[FirstIndex]?.value.OO.Mid);
+    } else {
+      resultArray.push(textOption[FirstIndex]?.value.OO.Low);
+    }
+    if (Maximizing > LIMIT) {
+      resultArray.push(textOption[FirstIndex]?.value.Maximizing.High);
+    } else if (Maximizing < LIMIT && Satisficing < LIMIT) {
+      resultArray.push(textOption[FirstIndex]?.value.Maximizing.Mid);
+    } else {
+      resultArray.push(textOption[FirstIndex]?.value.Maximizing.Low);
+    }
+
+    if (Prevention > LIMIT) {
+      resultArray.push(textOption[FirstIndex]?.value.Prevention.High);
+    } else if (Prevention < LIMIT && Promotion < LIMIT) {
+      resultArray.push(textOption[FirstIndex]?.value.Prevention.Mid);
+    } else {
+      resultArray.push(textOption[FirstIndex]?.value.Prevention.Low);
+    }
+  }
+
+  return resultArray;
+};
