@@ -405,6 +405,23 @@ color: #FFFFFF;
   flex-direction: column;
 }
 
+.Final-LinksFooter{
+  padding : 27px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
+  width: 100%;
+}
+.Final-Link{
+  font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+color: #FFFFFF;
+margin-right:100px;
+}
+
 @media (max-width: 1280px) {
   .Final-Section1MiddleContainer {
     flex-direction: column;
@@ -444,7 +461,6 @@ color: #FFFFFF;
   }
   .Final-FooterRightContainer{
     margin-top: 30px;
-    
   }
   .Final-CrownIconsText {
     font-size: 8px;
@@ -455,6 +471,15 @@ color: #FFFFFF;
   .Final-Section2MainHeading{
     font-size: 30px;
     line-height: 45px;
+  }
+  .Final-LinksFooter{
+    flex-direction: column;
+  }
+  .Final-Link{
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom : 20px;
+  margin-right: 0;
   }
   .Final-ScreenFooter {
     padding: 50px 20px;

@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable node/no-extraneous-import */
 import {Image} from '@chakra-ui/image';
-import {Flex, Text} from '@chakra-ui/layout';
+import {Flex, Link, Text} from '@chakra-ui/layout';
 import React, {useState} from 'react';
 import './styles/styles.css';
 export const Increment_Decrement = 1;
@@ -705,6 +705,17 @@ const FinalScreen: React.FC<Props> = ({
             })}
           </Flex>
         </Flex>
+      </Flex>
+      <Flex className="Final-LinksFooter">
+        <Link color="white" className="Final-Link" href="#">
+          About this report
+        </Link>
+        <Link color="white" className="Final-Link" href="#">
+          Disclaimer
+        </Link>
+        <Link color="white" className="Final-Link" href="#">
+          Contacts
+        </Link>
       </Flex>
     </Flex>
   );

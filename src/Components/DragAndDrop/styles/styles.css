@@ -1,8 +1,7 @@
 .LeftContainer {
-  width: 400px;
+  width: 420px;
   height: 400px;
   flex-wrap: wrap;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-right: 40px;
