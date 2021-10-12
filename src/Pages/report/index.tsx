@@ -64,7 +64,6 @@ const Report: React.FC = () => {
         });
     }
   }, [reportID]);
-  console.log(reportData.data);
   const FinalAnswerGenerator: () => number[][] = () => {
     const SectionScores = [
       [
@@ -89,7 +88,6 @@ const Report: React.FC = () => {
       ),
     ];
     // const SectionScores = [[57], [49], [25, 75], [43, 57]];
-    console.log(SectionScores);
     return SectionScores;
   };
 

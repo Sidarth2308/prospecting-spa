@@ -129,6 +129,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
           </div>
 
           <Image
+            userSelect="none"
             src={annotationArrow}
             className="AnnotationArrow"
             style={{
@@ -150,6 +151,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
           </div>
 
           <Image
+            userSelect="none"
             src={annotationArrowReverse}
             className="AnnotationArrow-side"
             style={{
@@ -258,6 +260,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
             backgroundSize="50px"
             backgroundRepeat="no-repeat"
             backgroundPosition="center center"
+            userSelect="none"
           >
             <Box color="tomato" />
           </SliderThumb>
@@ -293,6 +296,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         justifyContent="space-between"
       >
         <Image
+          userSelect="none"
           bottom="10px"
           right={['8%', '22%', '30%']}
           position="absolute"
@@ -326,6 +330,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           }}
         >
           <Image
+            userSelect="none"
             top="3px"
             width="95%"
             left="2.5%"
@@ -384,6 +389,7 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
         justifyContent="space-between"
       >
         <Image
+          userSelect="none"
           margin="0 auto 27px auto"
           src={graphic}
           height={[
@@ -417,6 +423,7 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
           }}
         >
           <Image
+            userSelect="none"
             top="3px"
             width="95%"
             left="2.5%"

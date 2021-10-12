@@ -47,7 +47,6 @@ const RightDataRearrange: (data: string[][] | undefined) => {
     {value: '', id: '-1', active: false, source: 'right-box'},
     {value: '', id: '-1', active: false, source: 'right-box'},
   ];
-  console.log(returnData);
   return returnData;
 };
 
@@ -149,13 +148,7 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
 
   return (
     <ChangeDataContext.Provider value={{DataChange, TextChange}}>
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        width="100%"
-        marginBottom="24px"
-        direction={['column', 'column', 'row']}
-      >
+      <Flex className="DNDContainer">
         <Flex>
           <Flex className="LeftContainer">
             {leftData.map(

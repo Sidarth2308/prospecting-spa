@@ -110,8 +110,9 @@ const SectionScoreCalculator: (
         selectedMonth >=
         parseInt(questionData.answer.Option1[Second_Index] as string, 10)
       ) {
-        accumulator =
-          accumulator + (questionData.answer.Option1[First_Index] as number);
+        accumulator +=
+          (questionData.answer.Option1[First_Index] as number) *
+          questionData.weight;
       } else {
         const Scale = Math.abs(
           (questionData.answer.Option1[First_Index] as number) -
@@ -155,7 +156,7 @@ const SectionScoreCalculator: (
       accumulator = accumulator + No_Value;
     }
 
-    // console.log(accumulator, results[index]);
+    // Console.log(accumulator, results[index]);
   });
   return accumulator;
 };
@@ -254,7 +255,7 @@ const Section3ScoreCalculator: (
     } else {
       PositiveAccumulator += No_Value;
     }
-    console.log(PositiveAccumulator, NegativeAccumulator, results[index]);
+    // Console.log(PositiveAccumulator, NegativeAccumulator, results[index]);
   });
   return [PositiveAccumulator, NegativeAccumulator];
 };
@@ -284,9 +285,9 @@ const Section1Formula: (
   results: (string | string[])[]
 ) => number = (answers: Section, results: (string | string[])[]) => {
   const accumulator = SectionScoreCalculator(answers, results);
+  const defaultCalculation = accumulator - SubtractionConstant;
   const SectionScore = Math.round(
-    ((accumulator - SubtractionConstant) / DivisionConstant) *
-      PercentageConstant
+    (defaultCalculation / DivisionConstant) * PercentageConstant
   );
   return SectionScore;
 };
@@ -296,10 +297,9 @@ const Section2Formula: (
   results: (string | string[])[]
 ) => number = (answers: Section, results: (string | string[])[]) => {
   const accumulator = SectionScoreCalculator(answers, results);
-  const SectionScore = Math.round(
-    ((accumulator - SubtractionConstant) / DivisionConstant) *
-      PercentageConstant
-  );
+  const defaultCalculation =
+    (SubtractionConstant / DivisionConstant) * PercentageConstant;
+  const SectionScore = Math.round(accumulator - defaultCalculation);
   return SectionScore;
 };
 

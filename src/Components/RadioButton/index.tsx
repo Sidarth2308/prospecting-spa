@@ -34,6 +34,7 @@ const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
         justifyContent="space-between"
       >
         <Image
+          userSelect="none"
           src={graphic}
           height={[
             `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_SMALL})`,
@@ -91,6 +92,7 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
         justifyContent="space-between"
       >
         <Image
+          userSelect="none"
           src={graphic}
           height={[
             `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_SMALL})`,

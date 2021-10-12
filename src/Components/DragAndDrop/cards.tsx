@@ -4,6 +4,11 @@ import {Flex, Text} from '@chakra-ui/layout';
 import React, {useContext} from 'react';
 import {useDrag, useDrop} from 'react-dnd';
 import {ChangeDataContext} from '../../Context';
+import number1Image from '../../assets/gold1.svg';
+import number2Image from '../../assets/silver2.svg';
+import number3Image from '../../assets/bronze3.svg';
+import {Image} from '@chakra-ui/image';
+
 type Item = {
   id: string;
   value: string;
@@ -11,8 +16,9 @@ type Item = {
   source: string;
 };
 
-const NUMBER_CHECK = 10;
 const INCREMENT_DECREMENT = 1;
+const Image1 = 1;
+const Image2 = 2;
 
 type LeftCardProps = {
   data: {value: string; id: string; active: boolean; source: string};
@@ -27,13 +33,13 @@ const ItemTypes = {
   CARD: 'card',
 };
 
-const numberAdjuster: (number: number) => string | number = (
-  number: number
-) => {
-  if (number < NUMBER_CHECK) {
-    return `0${number}`;
+const numberAdjuster: (number: number) => string = (number: number) => {
+  if (number === Image1) {
+    return number1Image;
+  } else if (number === Image2) {
+    return number2Image;
   }
-  return number;
+  return number3Image;
 };
 
 export const LeftCard: React.FC<LeftCardProps> = ({data}) => {
@@ -79,15 +85,16 @@ export const RightCard: React.FC<RightCardProps> = ({data, numbering}) => {
     }),
   });
   return (
-    <Flex
-      ref={drop}
-      alignItems="center"
-      justifyContent="center"
-      marginRight="20px"
-    >
-      <Text className="NumberText">
-        {numberAdjuster(numbering + INCREMENT_DECREMENT)}
-      </Text>
+    <Flex className="RightBoxSingle" ref={drop}>
+      <Image
+        userSelect="none"
+        width="100px"
+        height="100px"
+        src={numberAdjuster(numbering + INCREMENT_DECREMENT)}
+        alt={(numbering + INCREMENT_DECREMENT).toString()}
+        position="relative"
+        left="75px"
+      />
       <Flex
         ref={data.active ? drag : null}
         color={isDragging ? 'black' : 'red'}

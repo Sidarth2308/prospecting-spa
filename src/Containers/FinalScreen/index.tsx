@@ -67,7 +67,7 @@ const FinalScreen: React.FC<Props> = ({
     <Flex className="FinalMainScreen">
       <Flex id="Section-1">
         <Flex className="Final-TopHeadingSection">
-          <Image src={LogoImage} userSelect="none" />
+          <Image userSelect="none" src={LogoImage} />
           <Flex direction="column">
             <Text className="Final-TopHeadingText-bold">{name}</Text>
             <Text className="Final-TopHeadingText">{email}</Text>
@@ -144,7 +144,7 @@ const FinalScreen: React.FC<Props> = ({
           </Flex>
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <Image src={scrollIcon} userSelect="none" />
+          <Image userSelect="none" src={scrollIcon} />
         </Flex>
       </Flex>
       <Flex id="Section-2">
@@ -610,7 +610,7 @@ const FinalScreen: React.FC<Props> = ({
                 {DndAnswers[FIRST_INDEX]}
               </Text>
             </Flex>
-            <Image src={rightArrowLight} />
+            <Image userSelect="none" src={rightArrowLight} />
           </Flex>
 
           <div className="Final-OptionDivider"></div>
@@ -644,7 +644,7 @@ const FinalScreen: React.FC<Props> = ({
                 {DndAnswers[SECOND_INDEX]}
               </Text>
             </Flex>
-            <Image src={rightArrowLight} />
+            <Image userSelect="none" src={rightArrowLight} />
           </Flex>
 
           <div className="Final-OptionDivider"></div>
@@ -678,7 +678,7 @@ const FinalScreen: React.FC<Props> = ({
                 {DndAnswers[THIRD_INDEX]}
               </Text>
             </Flex>
-            <Image src={rightArrowLight} />
+            <Image userSelect="none" src={rightArrowLight} />
           </Flex>
 
           <div className="Final-OptionDivider"></div>

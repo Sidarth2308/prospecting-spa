@@ -1,16 +1,13 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable node/no-extraneous-import */
-import React, {useContext, FC, Suspense} from 'react';
+import {useContext, FC} from 'react';
 import './styles/styles.css';
 import {Flex, Text} from '@chakra-ui/layout';
-
-const QuestionType = React.lazy(async () => import('./QuestionType'));
-
+import QuestionType from './QuestionType';
 import {StateContext} from '../../Context';
 import arrowIcon from '../../assets/arrow.svg';
 import {CircularProgress, CircularProgressLabel} from '@chakra-ui/progress';
 import {Image} from '@chakra-ui/image';
-import {Spinner} from '@chakra-ui/spinner';
 import {isUndefined} from 'lodash';
 type Props = {
   data: {
@@ -120,7 +117,12 @@ const QuestionContainer: FC<Props> = ({
     : false;
   return (
     <Flex className="MainContainer">
-      <Flex alignItems="center" justifyContent="center" marginBottom="32px">
+      <Flex
+        alignItems="center"
+        marginTop="20px"
+        justifyContent="center"
+        marginBottom="32px"
+      >
         <Flex alignItems="center" justifyContent="center" marginRight="10px">
           <CircularProgress
             value={Math.round(
@@ -175,29 +177,40 @@ const QuestionContainer: FC<Props> = ({
           {data.body}
         </Text>
       </Flex>
-      <Suspense fallback={<Spinner />}>
-        <QuestionType
-          questionDetails={data.elements}
-          graphic={data.icon}
-          dimension={data.dimensions || ['', '']}
-          graphic1={data.icon1}
-          graphic2={data.icon2}
-        />
-      </Suspense>
+      <QuestionType
+        questionDetails={data.elements}
+        graphic={data.icon}
+        dimension={data.dimensions || ['', '']}
+        graphic1={data.icon1}
+        graphic2={data.icon2}
+      />
       <Flex alignItems="center" justifyContent="center" userSelect="none">
         <Flex className="PreviousButton" onClick={handlePrev}>
           <Image width="40%" src={arrowIcon} className="LeftArrow" />
         </Flex>
-        <Flex
-          className={disabled ? 'NextButtonDisabled' : 'NextButton'}
-          onClick={(): void => {
-            if (!disabled) {
-              handleNext();
-            }
-          }}
-        >
-          <Image width="40%" src={arrowIcon} className="RightArrow" />
-        </Flex>
+        {progressData.counter === progressData.total ? (
+          <button
+            className={disabled ? 'NextButtonFinalDisabled' : 'NextButtonFinal'}
+            onClick={(): void => {
+              if (!disabled) {
+                handleNext();
+              }
+            }}
+          >
+            Complete assessment
+          </button>
+        ) : (
+          <Flex
+            className={disabled ? 'NextButtonDisabled' : 'NextButton'}
+            onClick={(): void => {
+              if (!disabled) {
+                handleNext();
+              }
+            }}
+          >
+            <Image width="40%" src={arrowIcon} className="RightArrow" />
+          </Flex>
+        )}
       </Flex>
     </Flex>
   );

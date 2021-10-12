@@ -1,0 +1,199 @@
+.StartContainer{
+    background-image: url('../../../assets/starting-bg.svg') !important;
+    background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+    height : 100vh;
+
+    flex-direction: column;
+    align-items: flex-start;
+    padding : 44px 150px;
+}
+.Starting-CenterContainer{
+    flex-direction: row;
+    margin-top:127px;
+    width:100%;
+    flex:1;
+    align-items:center;
+}
+.Starting-HeadingText{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 64px;
+    margin-bottom: 24px;
+    color: #000000;
+}
+.Starting-SubText{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 48px;
+    margin-bottom : 48px;
+    color: #191C2C;
+}
+.Starting-Button{
+    background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
+    border-radius: 16px;
+    padding : 19px 90px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: #FFFFFF;
+    max-width: 400px;
+
+    margin-bottom : 38px;
+}
+.Starting-ButtonDisabled{
+    background: lightslategray;
+    border-radius: 16px;
+    padding : 19px 90px;
+    cursor: not-allowed;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: #FFFFFF;
+    max-width: 400px;
+
+    margin-bottom : 38px;
+}
+.Starting-MiniText{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 48px;
+    color: #191C2C;
+    opacity: 0.7;
+}
+.Starting-InputBox{
+    outline: none;
+    padding : 19px 10px;
+    max-width: 400px;
+    width: 100%;
+    height:100%;
+    margin-top:80px;
+    margin-bottom : 40px;
+    text-align: center;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: #191C2C;
+
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.22);
+    box-sizing: border-box;
+    border-radius: 16px;    
+}
+
+.Starting-InputBox:-moz-placeholder{
+text-align: center;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: #191C2C;
+}
+.Starting-InputBox::-webkit-input-placeholder{
+    text-align: center;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: #191C2C;
+}
+.Starting-GraphicImage1{
+    width: 572px;
+    height: 438px;
+    margin-left:auto;
+    user-select: none;
+}
+.Starting-GraphicImage2{
+    user-select: none;
+    width: 500px;
+    height: 500px;
+    margin-left:auto;
+    mix-blend-mode: multiply;
+}
+@media (max-width: 1500px) {
+    .StartContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        padding : 44px 50px;
+    }
+}
+@media (max-width: 1300px) {
+    .StartContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        padding : 44px 30px;
+    }
+}
+@media (max-width: 992px) {
+    
+    .Starting-CenterContainer{
+        flex-direction: column-reverse;
+        margin-top:127px;
+        width:100%;
+        flex:1;
+        align-items:center;
+    }
+    .StartContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        padding : 44px 30px;
+    }
+    .Starting-GraphicImage1{
+        margin-bottom: 40px;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    .Starting-GraphicImage2{
+        margin-bottom: 40px;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    .Starting-HeadingText{
+        font-size: 36px;
+        line-height: 40px;
+        margin-bottom: 24px;
+    }
+    .Starting-SubText{
+        font-size: 28px;
+        line-height: 38px;
+        margin-bottom : 48px;
+    }
+    .Starting-MiniText{
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Starting-GraphicImage1{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 40px;
+        margin-left:auto;
+        margin-right: auto;
+    }
+    .Starting-GraphicImage2{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 40px;
+        margin-left:auto;
+        margin-right: auto;
+    }
+}

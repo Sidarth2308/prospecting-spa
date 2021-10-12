@@ -51,8 +51,6 @@
 .RightContainer {
   width: 545px;
   height: 450px;
-  background: linear-gradient(204.5deg, #be6cfd 15.65%, #7367ff 129.17%);
-  border: 2px solid rgba(186, 175, 251, 0.35);
   box-sizing: border-box;
   border-radius: 32px;
   padding: 32px;
@@ -65,11 +63,15 @@
   align-items: center;
   justify-content: center;
   margin: 0px 0px 9px 21px;
-  width: 186px;
-  height: 67px;
+  width: 100%;
+  height: 100%;
   user-select: none;
-  background: #5d23e9;
-  border-radius: 18px;
+
+  background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
+  border: 2px solid rgba(186, 175, 251, 0.35);
+  box-sizing: border-box;
+  border-radius: 50px 32px 32px 50px;
+
   font-size: 22px;
   line-height: 26px;
   text-align: center;
@@ -77,14 +79,17 @@
   font-family: Inter;
 }
 .RightElementDisabled {
-  border: 2px solid rgba(255, 255, 255, 0.31);
-  box-sizing: border-box;
   border-radius: 18px;
-  width: 186px;
-  height: 67px;
+  width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
   margin: 0px 0px 9px 21px;
+
+  background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
+  border: 2px solid rgba(186, 175, 251, 0.35);
+  box-sizing: border-box;
+  border-radius: 50px 32px 32px 50px;
 
   user-select: none;
 }
@@ -94,7 +99,26 @@
 
   color: #ffffff;
 }
-@media (max-width: 479px) {
+.RightBoxSingle{
+  align-items:center;
+      justify-content:center;
+      margin-right:20px;
+}
+.DNDContainer{
+  align-items:center;
+  justify-content:center;
+  margin-bottom:24px;
+  flex-direction:row;
+}
+
+@media (max-width: 1000px) {
+  .DNDContainer{
+    flex-direction:column;
+  }
+  .RightBoxSingle{
+    position: relative;
+    right: 80px;
+  }
   .LeftContainer {
     width: 300px;
     margin-right: 0;
@@ -113,10 +137,10 @@
 }
 
 .RightElement {
-  width: 120px;
+  width: 300px;
 }
 .RightElementDisabled {
-  width: 120px;
+  width: 300px;
 }
 .LeftElementText {
   font-size: 16px;
