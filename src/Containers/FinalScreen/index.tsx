@@ -153,7 +153,7 @@ const FinalScreen: React.FC<Props> = ({
             <PieChart
               id="pie"
               type="doughnut"
-              palette={['#fff', '#BE6CFD']}
+              palette={['#fff', '#6353EC']}
               dataSource={[
                 {
                   name: 'Regret Aversion',
@@ -213,9 +213,8 @@ const FinalScreen: React.FC<Props> = ({
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
             >
-              <Flex direction="column" width={['250px', '426px']}>
+              <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Awareness</Text>
-
                 <Text
                   className="Final-Section2SubHeading"
                   margin="18px 0 12px 0"
@@ -228,7 +227,6 @@ const FinalScreen: React.FC<Props> = ({
                   impacting your decision-making, it is impossible to make good
                   decisions.
                 </Text>
-
                 <Text
                   className="Final-Section2SubHeading"
                   margin="24px 0 12px 0"
@@ -241,11 +239,7 @@ const FinalScreen: React.FC<Props> = ({
                   because of regret.
                 </Text>
               </Flex>
-              <Flex
-                direction="column"
-                width={['250px', '426px']}
-                className="Final-SectionRight"
-              >
+              <Flex direction="column" className="Final-SectionRight">
                 <Text className="Final-Section2MainHeading">Analysis</Text>
 
                 <Text
@@ -297,7 +291,7 @@ const FinalScreen: React.FC<Props> = ({
             <PieChart
               id="pie"
               type="doughnut"
-              palette={['#fff', '#BE6CFD']}
+              palette={['#fff', '#AD6BFD']}
               dataSource={[
                 {
                   name: 'Satisfice',
@@ -357,9 +351,8 @@ const FinalScreen: React.FC<Props> = ({
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
             >
-              <Flex direction="column" width={['250px', '426px']}>
+              <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Awareness</Text>
-
                 <Text
                   className="Final-Section2SubHeading"
                   margin="18px 0 12px 0"
@@ -372,7 +365,6 @@ const FinalScreen: React.FC<Props> = ({
                   decision-making process, you can start making better
                   decisions.
                 </Text>
-
                 <Text
                   className="Final-Section2SubHeading"
                   margin="24px 0 12px 0"
@@ -385,9 +377,8 @@ const FinalScreen: React.FC<Props> = ({
                   to arrive at decisions that provide a satisfactory solution.
                 </Text>
               </Flex>
-              <Flex direction="column" width={['250px', '426px']}>
+              <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Analysis</Text>
-
                 <Text
                   className="Final-Section2SubHeading"
                   margin="18px 0 12px 0"
@@ -400,7 +391,6 @@ const FinalScreen: React.FC<Props> = ({
                     SectionScores[FOURTH_INDEX][SECOND_INDEX]
                   )}
                 </Text>
-
                 <Text
                   className="Final-Section2SubHeading"
                   margin="24px 0 12px 0"
@@ -437,7 +427,7 @@ const FinalScreen: React.FC<Props> = ({
             <PieChart
               id="pie"
               type="doughnut"
-              palette={['#fff', '#BE6CFD']}
+              palette={['#fff', '#6353EC']}
               dataSource={[
                 {
                   name: 'Promotion',
@@ -496,7 +486,7 @@ const FinalScreen: React.FC<Props> = ({
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
             >
-              <Flex direction="column" width={['250px', '426px']}>
+              <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Awareness</Text>
 
                 <Text
@@ -525,7 +515,7 @@ const FinalScreen: React.FC<Props> = ({
                   upside.
                 </Text>
               </Flex>
-              <Flex direction="column" width={['250px', '426px']}>
+              <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Analysis</Text>
 
                 <Text

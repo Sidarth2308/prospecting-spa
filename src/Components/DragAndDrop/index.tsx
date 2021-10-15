@@ -58,7 +58,7 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
   const valueFromContext = useContext(StateContext);
   const [leftData, setLeftData] = useState(LeftDataRearrange(data));
   const [rightData, setRightData] = useState(RightDataRearrange(data));
-  console.log(rightData);
+
   const DataChange: (
     item: {
       id: string;
@@ -88,6 +88,33 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
         );
         newLeftData[Index] = {...item, active: false};
 
+        setLeftData([...newLeftData]);
+        setRightData([...newRightData]);
+      } else {
+        const newRightData = rightData;
+
+        const newLeftData = leftData;
+        const Index = newLeftData.findIndex(
+          (element: {
+            id: string;
+            value: string;
+            active: boolean;
+            source?: string;
+          }) => element.id === item.id
+        );
+
+        const prevIndex = newLeftData.findIndex(
+          (element: {
+            id: string;
+            value: string;
+            active: boolean;
+            source?: string;
+          }) => element.id === rightData[index].id
+        );
+
+        newRightData[index] = {...item, source: 'right-box'};
+        newLeftData[prevIndex] = {...newLeftData[prevIndex], active: true};
+        newLeftData[Index] = {...item, active: false};
         setLeftData([...newLeftData]);
         setRightData([...newRightData]);
       }

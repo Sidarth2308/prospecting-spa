@@ -15,6 +15,7 @@ import {
 const FIRST_INDEX = 0;
 
 type Props = {
+  height: string;
   questionDetails: {
     question_type: string;
     question_override: {
@@ -77,9 +78,10 @@ type Props = {
     };
   }[];
   graphic?: string;
-
+  handleNext: () => void;
   graphic1?: string;
   graphic2?: string;
+  graphic3?: string;
   dimension: string[];
 };
 
@@ -97,7 +99,9 @@ const QuestionType: FC<Props> = ({
   graphic,
   dimension,
   graphic2,
+  graphic3,
   graphic1,
+  handleNext,
 }) => {
   if (questionDetails[FIRST_INDEX]?.question_type === 'small-multicard') {
     return (
@@ -122,6 +126,7 @@ const QuestionType: FC<Props> = ({
       <SliderComponentWithTransition
         graphic1={graphicCheck(graphic1)}
         graphic2={graphicCheck(graphic2)}
+        graphic3={graphicCheck(graphic3)}
         options={[
           questionDetails[FIRST_INDEX]?.context.left.text.below,
           questionDetails[FIRST_INDEX]?.context.right.text.below,
@@ -133,6 +138,7 @@ const QuestionType: FC<Props> = ({
   } else if (questionDetails[FIRST_INDEX]?.question_type === 'card') {
     return (
       <RadioButtonWithTwoOptions
+        handleNext={handleNext}
         options={[
           questionDetails[FIRST_INDEX]?.context.left.text.center,
           questionDetails[FIRST_INDEX]?.context.right.text.center,

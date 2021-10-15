@@ -9,6 +9,9 @@ import arrowIcon from '../../assets/arrow.svg';
 import {CircularProgress, CircularProgressLabel} from '@chakra-ui/progress';
 import {Image} from '@chakra-ui/image';
 import {isUndefined} from 'lodash';
+import topCircle from '../../assets/top-semicircle.svg';
+import {useMediaQuery} from 'react-responsive';
+import {First_Index} from '../../Data/scoreConstants';
 type Props = {
   data: {
     preface: string;
@@ -86,6 +89,7 @@ type Props = {
     icon?: string;
     icon1?: string;
     icon2?: string;
+    icon3?: string;
     dimensions?: string[];
   };
   progressData: {
@@ -107,6 +111,7 @@ const QuestionContainer: FC<Props> = ({
   handlePrev,
   progressData,
 }) => {
+  const isMobile = useMediaQuery({query: '(max-width: 1000px)'});
   const valueFromContext = useContext(StateContext);
   const disabled = isUndefined(
     valueFromContext?.answers[valueFromContext.section][
@@ -123,6 +128,7 @@ const QuestionContainer: FC<Props> = ({
         justifyContent="center"
         marginBottom="32px"
       >
+        <Image src={topCircle} zIndex="-1" position="absolute" />
         <Flex alignItems="center" justifyContent="center" marginRight="10px">
           <CircularProgress
             value={Math.round(
@@ -130,9 +136,9 @@ const QuestionContainer: FC<Props> = ({
                 progressData.total) *
                 percentageConstant
             )}
-            color="#775ef0"
+            color="#5D23E9"
           >
-            <CircularProgressLabel>
+            <CircularProgressLabel color="#fff">
               <b>
                 {Math.round(
                   ((progressData.counter - INCREMENT_DECREMENT) /
@@ -145,19 +151,14 @@ const QuestionContainer: FC<Props> = ({
           </CircularProgress>
         </Flex>
         <Flex direction="column">
-          <Text className="PercentageHeading">{progressData.heading}</Text>
-          <Text fontSize="sm" className="Percentage">
+          <Text className="PercentageHeading" color="#fff">
+            {progressData.heading}
+          </Text>
+          <Text fontSize="sm" className="Percentage" color="#fff">
             Question {progressData.counter}/{progressData.total}
           </Text>
         </Flex>
       </Flex>
-      <div
-        style={{
-          width: '100%',
-          maxWidth: '1000px',
-          borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
-        }}
-      ></div>
       <Flex className="HeadingContainer">
         {data.preface !== '' && (
           <Text
@@ -169,6 +170,13 @@ const QuestionContainer: FC<Props> = ({
           </Text>
         )}
 
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '1000px',
+            borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
+          }}
+        ></div>
         <Text
           fontSize={['22px', '28px', '34px']}
           lineHeight={['30px', '32px', '48px']}
@@ -178,13 +186,23 @@ const QuestionContainer: FC<Props> = ({
         </Text>
       </Flex>
       <QuestionType
+        handleNext={handleNext}
+        height="450px"
         questionDetails={data.elements}
         graphic={data.icon}
         dimension={data.dimensions || ['', '']}
         graphic1={data.icon1}
         graphic2={data.icon2}
+        graphic3={data.icon3}
       />
-      <Flex alignItems="center" justifyContent="center" userSelect="none">
+      <Flex
+        className="Question-ButtonContainer"
+        position={
+          isMobile || data.elements[First_Index]?.question_type === 'dragdrop'
+            ? 'static'
+            : 'absolute'
+        }
+      >
         <Flex className="PreviousButton" onClick={handlePrev}>
           <Image width="40%" src={arrowIcon} className="LeftArrow" />
         </Flex>

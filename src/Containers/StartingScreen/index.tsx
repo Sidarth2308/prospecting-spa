@@ -5,8 +5,8 @@ import {Flex, Text} from '@chakra-ui/layout';
 import React from 'react';
 import './styles/styles.css';
 import logoImage from '../../assets/Logo.svg';
-import graphic1 from '../../assets/starting-graphic-1.svg';
-import graphic2 from '../../assets/starting-graphic-2.svg';
+import graphic1 from '../../assets/self-awareness 1.png';
+import graphic2 from '../../assets/starting-graphic-4.png';
 type Props = {
   start: {
     part1: boolean;
@@ -41,11 +41,12 @@ const StartingScreen: React.FC<Props> = ({
         <Flex className="Starting-CenterContainer">
           <Flex direction="column">
             <Text className="Starting-HeadingText">
-              What’s Financial <br /> Happiness For You?
+              What factors guide your
+              <br /> financial behavior ?
             </Text>
             <Text className="Starting-SubText">
-              Discover what motivates your money decisions and what makes your
-              financial personality unique.
+              Examine the unconscious factors that influence your money
+              decisions and how you can get better at making them.
             </Text>
             <button
               className="Starting-Button"
@@ -56,10 +57,11 @@ const StartingScreen: React.FC<Props> = ({
                 });
               }}
             >
-              Start The Assessment
+              Yes, I like to learn more!
             </button>
             <Text className="Starting-MiniText">
-              (If you’ve got about three minutes to change your life)
+              We bet you can learn something new about yourself in less than 5
+              minutes!
             </Text>
           </Flex>
           <Flex width="100%">
@@ -79,9 +81,8 @@ const StartingScreen: React.FC<Props> = ({
       <Flex className="Starting-CenterContainer" justifyContent="space-between">
         <Flex direction="column">
           <Text className="Starting-HeadingText">
-            Before we get started, we just
-            <br />
-            like to get your first name...
+            That’s great! Let’s go...now
+            <br /> how do we call you?
           </Text>
           <input
             className="Starting-InputBox"
@@ -107,9 +108,6 @@ const StartingScreen: React.FC<Props> = ({
           >
             Start The Assessment
           </button>
-          <Text className="Starting-MiniText">
-            (If you’ve got about three minutes to change your life)
-          </Text>
         </Flex>
         <Flex>
           <Image

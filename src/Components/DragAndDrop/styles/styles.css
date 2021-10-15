@@ -12,8 +12,7 @@
   margin: 5px 10px;
   width: 186px;
   height: 67px;
-  background: #ffffff;
-  border: 2px dashed rgba(25, 28, 44, 0.7);
+  background: linear-gradient(101.9deg, #86E9C5 27.36%, #EBEE3F 93.24%);
   box-sizing: border-box;
   border-radius: 18px;
 
@@ -23,7 +22,7 @@
   font-size: 22px;
   line-height: 26px;
   text-align: center;
-
+  font-weight: 600;
   color: #191c2c;
   font-family: Inter;
 }
@@ -68,7 +67,6 @@
   user-select: none;
 
   background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
-  border: 2px solid rgba(186, 175, 251, 0.35);
   box-sizing: border-box;
   border-radius: 50px 32px 32px 50px;
 
@@ -87,7 +85,6 @@
   margin: 0px 0px 9px 21px;
 
   background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
-  border: 2px solid rgba(186, 175, 251, 0.35);
   box-sizing: border-box;
   border-radius: 50px 32px 32px 50px;
 

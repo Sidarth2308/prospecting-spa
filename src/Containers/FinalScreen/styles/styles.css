@@ -140,10 +140,6 @@
   font-weight: bold;
   font-size: 45px;
   line-height: 54px;
-  background: linear-gradient(to right, #5d23e9, #6da7f0);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .Final-Section2SubHeading {
   font-family: Inter;
@@ -235,7 +231,7 @@
 .Final-ScreenFooter {
   padding: 84px 151px 50px 151px;
   width: 100%;
-  background: #191c2c;
+  background: linear-gradient(204.5deg, #7B1AC6 15.65%, #3224D9 129.17%);
 }
 .Final-FooterHeading {
   background: linear-gradient(to right, #fa94fc, #86bdfe);
@@ -409,7 +405,9 @@ color: #FFFFFF;
   padding : 27px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
+  
+  background: linear-gradient(204.5deg, #7B1AC6 15.65%, #3224D9 129.17%);
+
   width: 100%;
 }
 .Final-Link{
@@ -422,22 +420,17 @@ color: #FFFFFF;
 margin-right:100px;
 }
 
+.Final-MiddleTextContainer{
+  width:426px;
+}
+
 @media (max-width: 1280px) {
-  .Final-Section1MiddleContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .Final-Section1ImageContainer {
-    margin-right: 0;
-  }
   .Final-DonutChart {
-    margin-bottom: 50px;
-    margin-right : 0px;
+    margin-bottom: 10px;
+    margin-right : 20px;
   }
-  .Final-SectionMiddleTextBoxContainer {
-    flex-direction: column;
-    align-items: center;
+  .Final-MiddleTextContainer{
+    width:386px;
   }
   #Section-1 {
     padding: 50px 50px;
@@ -451,11 +444,6 @@ margin-right:100px;
   #Section-3 {
     padding: 50px 50px;
   }
-  .Final-ScreenFooter {
-    padding: 50px 50px;
-    width: 100%;
-    flex-direction: column;
-  }
   .Final-FooterLeftContainer{
     border : 0px;
   }
@@ -465,6 +453,34 @@ margin-right:100px;
   .Final-CrownIconsText {
     font-size: 8px;
     line-height: 18.75px;
+  }
+}
+@media(max-width : 1050px){
+  .Final-MiddleTextContainer{
+    width:326px;
+    margin-bottom: 20px;
+  }
+  .Final-ScreenFooter {
+    padding: 50px 50px;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .Final-Section1MiddleContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Final-Section1ImageContainer {
+    margin-right: 0;
+  }
+  
+  .Final-SectionMiddleTextBoxContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Final-FooterRightContainer{
+    padding-left : 0;
   }
 }
 @media (max-width: 800px) {
@@ -499,9 +515,7 @@ margin-right:100px;
   #Section-3 {
     padding: 50px 20px;
   }
-  .Final-FooterRightContainer{
-    padding-left : 0;
-  }
+ 
   .Final-CrownIconsText {
     font-size: 8px;
     line-height: 18.75px;
@@ -520,6 +534,7 @@ margin-right:100px;
   }
 }
 @media (max-width: 479px) {
+  
   .Final-CrownIcons {
     width: 100.5px;
     height: 68.25px;

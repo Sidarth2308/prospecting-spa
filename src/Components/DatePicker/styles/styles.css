@@ -36,6 +36,7 @@
   user-select: none;
   align-items: center;
   justify-content: center;
+  cursor: grab;
 }
 .HandleNumber {
   flex-direction: column;

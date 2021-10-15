@@ -1,7 +1,8 @@
 /* eslint-disable node/no-extraneous-import */
 /* eslint-disable no-use-before-define */
 import React, {useState, FC, Suspense, useEffect} from 'react';
-import {Box, Spinner} from '@chakra-ui/react';
+import {Box, Flex} from '@chakra-ui/layout';
+import {Spinner} from '@chakra-ui/react';
 import {useSelector, useDispatch} from 'react-redux';
 import {FetchData} from '../../Redux/actions/data';
 import {StateContext} from '../../Context';
@@ -17,6 +18,7 @@ const INCREMENT_DECREMENT = 1;
 const STARTING1 = 1;
 const STARTING = 0;
 const Success = 1;
+const Timer = 3000;
 
 export const First_Index = 0;
 export const Second_Index = 1;
@@ -54,6 +56,7 @@ const Home: FC = () => {
     [''],
     [''],
   ]);
+  const [showFloat, setShowFloat] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState({
     selected: false,
@@ -76,6 +79,7 @@ const Home: FC = () => {
 
   useEffect(() => {
     if (end && fullCounter === TotalLength + INCREMENT_DECREMENT) {
+      setShowFloat(true);
       const payload = {
         client: {
           name: name,
@@ -89,9 +93,12 @@ const Home: FC = () => {
       axios
         .post<PostResponse>(POST_API_URL, payload)
         .then((response) => {
-          if (response.data.status === Success) {
-            history.push(`/report/${response.data.reportID}`);
-          }
+          setTimeout(() => {
+            setShowFloat(false);
+            if (response.data.status === Success) {
+              history.push(`/report/${response.data.reportID}`);
+            }
+          }, Timer);
         })
         .catch((error) => {
           console.log(error);
@@ -162,6 +169,7 @@ const Home: FC = () => {
           ) : (
             <Box className="HomeContainer">
               <PenultimateScreen
+                showFloat={showFloat}
                 email={email}
                 emailSetter={setEmail}
                 progressData={{
@@ -180,7 +188,14 @@ const Home: FC = () => {
             </Box>
           )
         ) : (
-          <Spinner />
+          <Flex
+            alignItem="center"
+            justifyContent="center"
+            width="100%"
+            height="100vh"
+          >
+            <Spinner />
+          </Flex>
         )}
       </Suspense>
     </StateContext.Provider>

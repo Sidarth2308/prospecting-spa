@@ -31,6 +31,7 @@ type Props = {
 type TransitionProps = {
   graphic1: string;
   graphic2: string;
+  graphic3: string;
   dimension: string[];
   slider?: {
     default: string;
@@ -77,6 +78,12 @@ const MULTIPLICATION_CONSTANT_LARGE = 0.4;
 const IMAGE_SCALING_SMALL = 0.75;
 const IMAGE_SCALING_LARGE = 1;
 const IMAGE_SCALING_EXTRA_SMALL = 0.5;
+
+const LOW_VALUE = -50;
+const MID_VALUE = 0;
+const HIGH_VALUE = 50;
+const DIVISION_CONSTANT = 3;
+const DECIMAL_CONSTANT = 0.1;
 
 // ValueFromContext?.answers[valueFromContext.counter]  || 50
 
@@ -255,9 +262,9 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
           </SliderTrack>
           <SliderThumb
             background="transparent"
-            boxSize={8}
+            boxSize={12}
             backgroundImage={sliderImage}
-            backgroundSize="50px"
+            backgroundSize="80px"
             backgroundRepeat="no-repeat"
             backgroundPosition="center center"
             userSelect="none"
@@ -273,6 +280,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
 export const SliderComponentWithTransition: FC<TransitionProps> = ({
   graphic1,
   graphic2,
+  graphic3,
   dimension,
   slider,
   options,
@@ -301,7 +309,17 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic1}
-          opacity={(PERCENTAGE_CONSTANT - val) / PERCENTAGE_CONSTANT}
+          opacity={((val - LOW_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
+          height={dimension[SECOND_INDEX]}
+          width={dimension[FIRST_INDEX]}
+        />
+        <Image
+          userSelect="none"
+          bottom="10px"
+          right={['8%', '22%', '30%']}
+          position="absolute"
+          src={graphic3}
+          opacity={((val - MID_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
           height={dimension[SECOND_INDEX]}
           width={dimension[FIRST_INDEX]}
         />
@@ -309,7 +327,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           bottom="10px"
           right={['5%', '22%', '30%']}
           position="absolute"
-          opacity={val / PERCENTAGE_CONSTANT}
+          opacity={((val - HIGH_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
           src={graphic2}
           height={dimension[SECOND_INDEX]}
           width={dimension[FIRST_INDEX]}
@@ -331,7 +349,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         >
           <Image
             userSelect="none"
-            top="3px"
+            top="10px"
             width="95%"
             left="2.5%"
             src={sliderNotation1}
@@ -342,9 +360,9 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           </SliderTrack>
           <SliderThumb
             background="transparent"
-            boxSize={8}
+            boxSize={12}
             backgroundImage={sliderImage}
-            backgroundSize="50px"
+            backgroundSize="80px"
             backgroundRepeat="no-repeat"
             backgroundPosition="center center"
           >
@@ -424,7 +442,7 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
         >
           <Image
             userSelect="none"
-            top="3px"
+            top="10px"
             width="95%"
             left="2.5%"
             src={sliderNotation1}
@@ -435,9 +453,9 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
           </SliderTrack>
           <SliderThumb
             background="transparent"
-            boxSize={8}
+            boxSize={12}
             backgroundImage={sliderImage}
-            backgroundSize="50px"
+            backgroundSize="80px"
             backgroundRepeat="no-repeat"
             backgroundPosition="center center"
           >

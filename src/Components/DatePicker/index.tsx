@@ -6,15 +6,48 @@ import {isUndefined} from 'lodash';
 import React, {useContext, useEffect, useState} from 'react';
 import {StateContext} from '../../Context';
 import './styles/styles.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 const dates = ['0', '1', '2', '3', '4'];
+const weeks = [
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+];
 
 const months = ['00', '01', '02', '03', '04'];
 const FIRST_INDEX = 0;
 const SECOND_INDEX = 1;
 const INCREMENT_DECREMENT = 1;
 
+const settings = {
+  speed: 500,
+  vertical: true,
+  infinite: false,
+  slidesToShow: 7,
+  verticalSwiping: true,
+  arrows: false,
+  swipeToSlide: true,
+};
+
 const DatePicker: React.FC = () => {
+  const [selectedWeek, setSelectedWeek] = useState('');
   const valueFromContext = useContext(StateContext);
   const [selectedMonth, setSelectedMonth] = useState<string>(() => {
     if (
@@ -133,6 +166,41 @@ const DatePicker: React.FC = () => {
               );
             })}
           </Flex>
+        </Flex>
+      </Flex>
+
+      <Flex
+        className="DatePickerContainer"
+        alignItems="center"
+        justifyItems="center"
+      >
+        <Flex alignItems="center" justifyContent="center" direction="column">
+          <Flex className="DatePickerHeadline">Weeks</Flex>
+
+          <div className="DateDivider"></div>
+          <Slider {...settings}>
+            {weeks.map((week: string, index: number) => {
+              return (
+                <Box
+                  key={index}
+                  cursor="grab"
+                  onClick={(): void => {
+                    setSelectedWeek(week);
+                  }}
+                >
+                  <Flex
+                    color={selectedWeek === week ? '#191c2c' : '#8A95D6'}
+                    className="DisplayNumber"
+                  >
+                    {week}
+                  </Flex>
+                  {index < weeks.length - INCREMENT_DECREMENT && (
+                    <div className="DateDivider"></div>
+                  )}
+                </Box>
+              );
+            })}
+          </Slider>
         </Flex>
       </Flex>
     </Flex>

@@ -1,6 +1,6 @@
 /* eslint-disable node/no-extraneous-import */
 /* eslint-disable no-use-before-define */
-import {Box} from '@chakra-ui/layout';
+import {Box, Flex} from '@chakra-ui/layout';
 import {Spinner} from '@chakra-ui/spinner';
 import axios from 'axios';
 import {isUndefined} from 'lodash';
@@ -101,7 +101,14 @@ const Report: React.FC = () => {
           DndAnswers={reportData.data.answers[DndFirstParam][DndSecondParam]}
         />
       ) : (
-        <Spinner />
+        <Flex
+          alignItem="center"
+          justifyContent="center"
+          width="100%"
+          height="100vh"
+        >
+          <Spinner />
+        </Flex>
       )}
     </Box>
   );

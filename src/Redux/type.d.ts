@@ -150,6 +150,7 @@ export type Question = {
   dimensions?: string[];
   icon1?: string;
   icon2?: string;
+  icon3?: string;
 };
 
 export type QuestionsData = {

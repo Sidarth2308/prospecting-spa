@@ -6,6 +6,7 @@ import {CircularProgress, CircularProgressLabel} from '@chakra-ui/progress';
 import reportMockup from '../../assets/report-preview.svg';
 import React from 'react';
 import './styles/styles.css';
+import ReactPlayer from 'react-player';
 
 type Props = {
   progressData: {
@@ -29,8 +30,11 @@ type Props = {
   };
   end: boolean;
   endSetter: React.Dispatch<React.SetStateAction<boolean>>;
+  showFloat: boolean;
 };
 const percentageConstant = 100;
+
+import topCircle from '../../assets/top-semicircle.svg';
 
 const PenultimateScreen: React.FC<Props> = ({
   progressData,
@@ -38,7 +42,30 @@ const PenultimateScreen: React.FC<Props> = ({
   endSetter,
   email,
   emailSetter,
+  showFloat,
 }) => {
+  if (showFloat) {
+    return (
+      <Flex className="Loading-Container">
+        <Text className="Loading-Text">
+          Our behavioral engines are now running, your report should be ready in
+          a moment...
+        </Text>
+        <Flex>
+          <ReactPlayer
+            width="360px"
+            height="360px"
+            url={
+              'https://res.cloudinary.com/dmrpikki0/video/upload/v1634299125/Solera-Assessment/animation_rdjxaz.mp4'
+            }
+            playing={true}
+            muted={true}
+            loop={true}
+          />
+        </Flex>
+      </Flex>
+    );
+  }
   return (
     <Flex className="MainContainer">
       <Flex
@@ -47,6 +74,7 @@ const PenultimateScreen: React.FC<Props> = ({
         marginTop="20px"
         marginBottom="32px"
       >
+        <Image src={topCircle} zIndex="-1" position="absolute" />
         <Flex alignItems="center" justifyContent="center" marginRight="10px">
           <CircularProgress
             value={Math.round(
@@ -54,8 +82,8 @@ const PenultimateScreen: React.FC<Props> = ({
             )}
             color="#775ef0"
           >
-            <CircularProgressLabel>
-              <b>
+            <CircularProgressLabel color="#fff">
+              <b style={{color: '#fff'}}>
                 {Math.round(
                   (progressData.counter / progressData.total) *
                     percentageConstant
@@ -66,8 +94,10 @@ const PenultimateScreen: React.FC<Props> = ({
           </CircularProgress>
         </Flex>
         <Flex direction="column">
-          <Text className="PercentageHeading">{progressData.heading}</Text>
-          <Text fontSize="sm" className="Percentage">
+          <Text className="PercentageHeading" color="#fff">
+            {progressData.heading}
+          </Text>
+          <Text fontSize="sm" className="Percentage" color="#fff">
             Question {progressData.counter}/{progressData.total}
           </Text>
         </Flex>
@@ -126,7 +156,7 @@ const PenultimateScreen: React.FC<Props> = ({
         Go to my report
       </button>
       <Image
-        opacity="0.5"
+        opacity="1"
         zIndex="-10"
         position="absolute"
         bottom="0px"

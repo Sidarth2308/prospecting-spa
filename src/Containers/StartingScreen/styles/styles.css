@@ -4,11 +4,10 @@
   background-attachment: fixed !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-    height : 100vh;
-
     flex-direction: column;
     align-items: flex-start;
     padding : 44px 150px;
+    min-height: 100vh;
 }
 .Starting-CenterContainer{
     flex-direction: row;
@@ -38,7 +37,7 @@
 .Starting-Button{
     background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
     border-radius: 16px;
-    padding : 19px 90px;
+    padding : 19px 30px;
 
     font-family: Inter;
     font-style: normal;
@@ -115,15 +114,15 @@ text-align: center;
     color: #191C2C;
 }
 .Starting-GraphicImage1{
-    width: 572px;
-    height: 438px;
+    width: 433px;
+    height: 433px;
     margin-left:auto;
     user-select: none;
 }
 .Starting-GraphicImage2{
     user-select: none;
-    width: 500px;
-    height: 500px;
+    width: 498px;
+    height:421px;
     margin-left:auto;
     mix-blend-mode: multiply;
 }

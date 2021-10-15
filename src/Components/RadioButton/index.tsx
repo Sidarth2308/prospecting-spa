@@ -16,6 +16,7 @@ type TwoOptionsProps = {
   options: string[];
   graphic: string;
   dimension: string[];
+  handleNext: () => void;
 };
 
 const FIRST_INDEX = 0;
@@ -80,6 +81,7 @@ const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
 export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
   options,
   graphic,
+  handleNext,
   dimension,
 }) => {
   const valueFromContext = useContext(StateContext);
@@ -123,6 +125,7 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
                     ] = option;
                     valueFromContext.setAnswers([...tempAnswers]);
                   }
+                  handleNext();
                 }}
               >
                 {option}

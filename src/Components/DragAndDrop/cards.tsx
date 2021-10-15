@@ -4,9 +4,9 @@ import {Flex, Text} from '@chakra-ui/layout';
 import React, {useContext} from 'react';
 import {useDrag, useDrop} from 'react-dnd';
 import {ChangeDataContext} from '../../Context';
-import number1Image from '../../assets/gold1.svg';
-import number2Image from '../../assets/silver2.svg';
-import number3Image from '../../assets/bronze3.svg';
+import number1Image from '../../assets/dollar 1.png';
+import number2Image from '../../assets/dollar 2.png';
+import number3Image from '../../assets/dollar 3.png';
 import {Image} from '@chakra-ui/image';
 
 type Item = {
@@ -98,7 +98,9 @@ export const RightCard: React.FC<RightCardProps> = ({data, numbering}) => {
       <Flex
         ref={data.active ? drag : null}
         color={isDragging ? 'black' : 'red'}
-        bg={isOver ? '#5d23e9' : 'transparent'}
+        border={
+          isOver ? '5px solid #333' : '2px solid rgba(186, 175, 251, 0.35)'
+        }
         className={data.active ? 'RightElement' : 'RightElementDisabled'}
       >
         {data.value}
