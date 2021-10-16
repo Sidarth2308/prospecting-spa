@@ -10,7 +10,6 @@ import {CircularProgress, CircularProgressLabel} from '@chakra-ui/progress';
 import {Image} from '@chakra-ui/image';
 import {isUndefined} from 'lodash';
 import topCircle from '../../assets/top-semicircle.svg';
-import {useMediaQuery} from 'react-responsive';
 import {First_Index} from '../../Data/scoreConstants';
 type Props = {
   data: {
@@ -111,7 +110,6 @@ const QuestionContainer: FC<Props> = ({
   handlePrev,
   progressData,
 }) => {
-  const isMobile = useMediaQuery({query: '(max-width: 1000px)'});
   const valueFromContext = useContext(StateContext);
   const disabled = isUndefined(
     valueFromContext?.answers[valueFromContext.section][
@@ -198,14 +196,7 @@ const QuestionContainer: FC<Props> = ({
         graphic2={data.icon2}
         graphic3={data.icon3}
       />
-      <Flex
-        className="Question-ButtonContainer"
-        position={
-          isMobile || data.elements[First_Index]?.question_type === 'dragdrop'
-            ? 'static'
-            : 'absolute'
-        }
-      >
+      <Flex className="Question-ButtonContainer">
         <Flex className="PreviousButton" onClick={handlePrev}>
           <Image width="40%" src={arrowIcon} className="LeftArrow" />
         </Flex>

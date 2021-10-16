@@ -103,7 +103,13 @@ export const RightCard: React.FC<RightCardProps> = ({data, numbering}) => {
         }
         className={data.active ? 'RightElement' : 'RightElementDisabled'}
       >
-        {data.value}
+        <Flex
+          border={data.active ? '3px dashed rgba(25, 28, 44, 0.5)' : '0'}
+          borderRadius="10px"
+          padding="20px"
+        >
+          {data.value}
+        </Flex>
       </Flex>
     </Flex>
   );
