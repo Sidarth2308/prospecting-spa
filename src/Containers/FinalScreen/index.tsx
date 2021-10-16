@@ -26,9 +26,10 @@ import PieChart, {
 } from 'devextreme-react/pie-chart';
 
 import LogoImage from '../../assets/Logo.svg';
-import Section1Image from '../../assets/finalScreenSection1.svg';
+import Section1Image from '../../assets/finalScreenSection1.png';
 import scrollIcon from '../../assets/scroll.svg';
 import rightArrowLight from './rightChevronLight.svg';
+import stars from '../../assets/finalScreenStars.png';
 
 import {Door, LightBulb, LookingGlass} from './donutCenters';
 import {
@@ -86,7 +87,7 @@ const FinalScreen: React.FC<Props> = ({
           <Flex direction="column" className="Final-Section1ImageContainer">
             <Image
               src={Section1Image}
-              height={['262.5px', '350px']}
+              height={['262.5px', '356px']}
               width={['352.5px', '470px']}
               userSelect="none"
               className=""
@@ -94,26 +95,38 @@ const FinalScreen: React.FC<Props> = ({
             <Flex
               alignItems="center"
               justifyContent="space-between"
-              width={['352.5px', '470px']}
+              width={['320.5px', '430px']}
               userSelect="none"
             >
-              <Flex className="Final-CrownIcons">
+              <Flex
+                className="Final-CrownIcons"
+                bg="linear-gradient(97.18deg, #B294FC -40.71%, #86BDFE 134.95%)"
+              >
                 <Flex className="Final-CrownIconsNumber">1</Flex>
                 <Flex className="Final-CrownIconsText">
                   {DndAnswers[FIRST_INDEX]}
                 </Flex>
+                <Image src={stars} alt="stars" />
               </Flex>
-              <Flex className="Final-CrownIcons">
+              <Flex
+                className="Final-CrownIcons"
+                bg="linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%)"
+              >
                 <Flex className="Final-CrownIconsNumber">2</Flex>
                 <Flex className="Final-CrownIconsText">
                   {DndAnswers[SECOND_INDEX]}
                 </Flex>
+                <Image src={stars} alt="stars" />
               </Flex>
-              <Flex className="Final-CrownIcons">
+              <Flex
+                className="Final-CrownIcons"
+                bg="linear-gradient(97.18deg, #FA94FC -40.71%, #8692FE 82.8%)"
+              >
                 <Flex className="Final-CrownIconsNumber">3</Flex>
                 <Flex className="Final-CrownIconsText">
                   {DndAnswers[THIRD_INDEX]}
                 </Flex>
+                <Image src={stars} alt="stars" />
               </Flex>
             </Flex>
           </Flex>

@@ -169,18 +169,21 @@ const QuestionContainer: FC<Props> = ({
             {data.preface}
           </Text>
         )}
+        {data.elements[First_Index]?.question_type !== 'dragdrop' && (
+          <div
+            style={{
+              width: '100%',
+              maxWidth: '1000px',
+              borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
+            }}
+          ></div>
+        )}
 
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '1000px',
-            borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
-          }}
-        ></div>
         <Text
           fontSize={['22px', '28px', '34px']}
           lineHeight={['30px', '32px', '48px']}
           className="HeadingQuestion"
+          minHeight="100px"
         >
           {data.body}
         </Text>

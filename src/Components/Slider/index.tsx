@@ -9,11 +9,13 @@ import {
   SliderThumb,
   SliderTrack,
 } from '@chakra-ui/slider';
+import {useMediaQuery} from 'react-responsive';
 import {useContext, FC} from 'react';
 import sliderImage from '../../assets/slider.svg';
 import './styles/styles.css';
 import annotationArrow from '../../assets/annotationArrow.svg';
 import sliderNotation1 from '../../assets/sliderNotation1.svg';
+import sliderNotation2 from '../../assets/numbering.png';
 import annotationArrowReverse from '../../assets/annotationArrowReverse.svg';
 import {StateContext} from '../../Context';
 import {isUndefined} from 'lodash';
@@ -84,6 +86,7 @@ const MID_VALUE = 0;
 const HIGH_VALUE = 50;
 const DIVISION_CONSTANT = 3;
 const DECIMAL_CONSTANT = 0.1;
+const NEW_DECIMAL_CONSTANT = 0.7;
 
 // ValueFromContext?.answers[valueFromContext.counter]  || 50
 
@@ -108,7 +111,8 @@ const checkUndefined: (value: string | undefined) => string = (
 
 export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
   const valueFromContext = useContext(StateContext);
-  let val = 0;
+  const isMobile = useMediaQuery({query: '(max-width: 770px)'});
+  let val = 50;
   if (valueFromContext !== null) {
     val = getStateValue(
       valueFromContext.answers[valueFromContext.section][
@@ -118,7 +122,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
     );
   }
   return (
-    <Box marginTop="200px" marginBottom="30px">
+    <Box marginTop="244px" marginBottom="30px">
       <Flex
         position="relative"
         alignItems="flex-end"
@@ -128,8 +132,12 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
           <div
             className="DarkAnnotation"
             style={{
-              bottom: `${LEFT_BOX_BOTTOM - val}px`,
-              left: `${LEFT_BOX_LEFT - val}px`,
+              bottom: isMobile
+                ? `${LEFT_BOX_BOTTOM * NEW_DECIMAL_CONSTANT - val}px`
+                : `${LEFT_BOX_BOTTOM - val}px`,
+              left: isMobile
+                ? `${LEFT_BOX_LEFT * NEW_DECIMAL_CONSTANT - val}px`
+                : `${LEFT_BOX_LEFT - val}px`,
             }}
           >
             You
@@ -140,8 +148,12 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
             src={annotationArrow}
             className="AnnotationArrow"
             style={{
-              bottom: `${LEFT_ARROW_BOTTOM - val}px`,
-              left: `${LEFT_ARROW_LEFT - val}px`,
+              bottom: isMobile
+                ? `${LEFT_ARROW_BOTTOM * NEW_DECIMAL_CONSTANT - val}px`
+                : `${LEFT_ARROW_BOTTOM - val}px`,
+              left: isMobile
+                ? `${LEFT_ARROW_LEFT * NEW_DECIMAL_CONSTANT - val}px`
+                : `${LEFT_ARROW_LEFT - val}px`,
             }}
           />
         </div>
@@ -150,8 +162,12 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
           <div
             className="DarkAnnotation-side"
             style={{
-              bottom: `${RIGHT_BOX_BOTTOM + val}px`,
-              right: `${RIGHT_BOX_RIGHT + val}px`,
+              bottom: isMobile
+                ? `${RIGHT_BOX_BOTTOM * NEW_DECIMAL_CONSTANT + val}px`
+                : `${RIGHT_BOX_BOTTOM + val}px`,
+              right: isMobile
+                ? `${RIGHT_BOX_RIGHT * NEW_DECIMAL_CONSTANT + val}px`
+                : `${RIGHT_BOX_RIGHT + val}px`,
             }}
           >
             Others
@@ -162,8 +178,12 @@ export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
             src={annotationArrowReverse}
             className="AnnotationArrow-side"
             style={{
-              bottom: `${RIGHT_ARROW_BOTTOM + val}px`,
-              right: `${RIGHT_ARROW_RIGHT + val}px`,
+              bottom: isMobile
+                ? `${RIGHT_ARROW_BOTTOM * NEW_DECIMAL_CONSTANT + val}px`
+                : `${RIGHT_ARROW_BOTTOM + val}px`,
+              right: isMobile
+                ? `${RIGHT_ARROW_RIGHT * NEW_DECIMAL_CONSTANT + val}px`
+                : `${RIGHT_ARROW_RIGHT + val}px`,
             }}
           />
         </div>
@@ -297,7 +317,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
     );
   }
   return (
-    <Box marginTop="200px" marginBottom="30px">
+    <Box marginTop="224px" marginBottom="30px">
       <Flex
         position="relative"
         alignItems="flex-end"
@@ -306,7 +326,11 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         <Image
           userSelect="none"
           bottom="10px"
-          right={['8%', '22%', '30%']}
+          right="0"
+          left="0"
+          marginRight="auto"
+          marginLeft="auto"
+          // right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic1}
           opacity={((val - LOW_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
@@ -316,7 +340,11 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         <Image
           userSelect="none"
           bottom="10px"
-          right={['8%', '22%', '30%']}
+          right="0"
+          left="0"
+          marginRight="auto"
+          marginLeft="auto"
+          // right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic3}
           opacity={((val - MID_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
@@ -325,7 +353,11 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
         />
         <Image
           bottom="10px"
-          right={['5%', '22%', '30%']}
+          right="13px"
+          left="0"
+          marginRight="auto"
+          marginLeft="auto"
+          // right={['5%', '22%', '30%']}
           position="absolute"
           opacity={((val - HIGH_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
           src={graphic2}
@@ -400,14 +432,17 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
     );
   }
   return (
-    <Box marginTop="10px" marginBottom="30px">
+    <Box marginTop="280px" marginBottom="30px">
       <Flex
         position="relative"
         alignItems="flex-end"
         justifyContent="space-between"
       >
         <Image
+          position="absolute"
           userSelect="none"
+          left="0"
+          right="0"
           margin="0 auto 27px auto"
           src={graphic}
           height={[
@@ -442,10 +477,10 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
         >
           <Image
             userSelect="none"
-            top="10px"
-            width="95%"
-            left="2.5%"
-            src={sliderNotation1}
+            bottom="30px"
+            width="100%"
+            left="5px"
+            src={sliderNotation2}
             position="absolute"
           />
           <SliderTrack height="13px" borderRadius="100px" bg="#CEC3FF">

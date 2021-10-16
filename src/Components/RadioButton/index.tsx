@@ -27,7 +27,7 @@ const IMAGE_SCALING_LARGE = 1;
 const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
   const valueFromContext = useContext(StateContext);
   return (
-    <Box marginTop="32px">
+    <Box>
       <Flex
         position="relative"
         alignItems="center"
@@ -86,14 +86,18 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
 }) => {
   const valueFromContext = useContext(StateContext);
   return (
-    <Box marginTop="32px">
+    <Box marginTop="200px">
       <Flex
         position="relative"
-        alignItems="center"
-        direction="column"
+        alignItems="flex-end"
         justifyContent="space-between"
       >
         <Image
+          position="absolute"
+          left="50%"
+          bottom="100px"
+          transform="translate(-50%, 0)"
+          margin="auto"
           userSelect="none"
           src={graphic}
           height={[
