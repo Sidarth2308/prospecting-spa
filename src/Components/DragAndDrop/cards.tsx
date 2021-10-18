@@ -106,7 +106,10 @@ export const RightCard: React.FC<RightCardProps> = ({data, numbering}) => {
         <Flex
           border={data.active ? '3px dashed rgba(25, 28, 44, 0.5)' : '0'}
           borderRadius="10px"
-          padding="20px"
+          alignItems="center"
+          justifyContent="center"
+          w="186px"
+          h="67px"
         >
           {data.value}
         </Flex>
