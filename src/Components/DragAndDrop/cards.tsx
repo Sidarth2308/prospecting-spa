@@ -52,8 +52,11 @@ export const LeftCard: React.FC<LeftCardProps> = ({data}) => {
     }),
   });
   return (
-    <Flex className={data.active ? 'LeftElement' : 'LeftElementDisabled'}>
-      <Flex opacity={isDragging ? '0.5' : '1'} ref={data.active ? drag : null}>
+    <Flex
+      className={data.active ? 'LeftElement' : 'LeftElementDisabled'}
+      ref={data.active ? drag : null}
+    >
+      <Flex opacity={isDragging ? '0.5' : '1'}>
         <Text
           className={
             data.active ? 'LeftElementText' : 'LeftElementTextDisabled'
