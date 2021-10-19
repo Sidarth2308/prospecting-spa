@@ -96,6 +96,8 @@ type Props = {
     total: number;
     heading: string;
   };
+  section: number;
+  counter: number;
   handleNext: () => void;
   handlePrev: () => void;
 };
@@ -104,20 +106,24 @@ const percentageConstant = 100;
 
 const INCREMENT_DECREMENT = 1;
 
+// Const disableChecker = (questionType:string, currentValue: (string | string []))=>{
+
+// }
+
 const QuestionContainer: FC<Props> = ({
   data,
   handleNext,
   handlePrev,
   progressData,
+  section,
+  counter,
 }) => {
   const valueFromContext = useContext(StateContext);
-  const disabled = isUndefined(
-    valueFromContext?.answers[valueFromContext.section][
-      valueFromContext.counter
-    ]
-  )
-    ? true
-    : false;
+  const disabled =
+    isUndefined(valueFromContext?.answers[section][counter]) ||
+    valueFromContext?.answers[section][counter] === ''
+      ? true
+      : false;
   return (
     <Flex className="MainContainer">
       <Flex

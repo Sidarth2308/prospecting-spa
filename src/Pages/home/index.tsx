@@ -52,9 +52,9 @@ const Home: FC = () => {
   const [fullCounter, setFullCounter] = useState(STARTING1);
   const [answers, setAnswers] = useState<(string | string[])[][]>([
     [''],
+    ['50'],
     [''],
-    [''],
-    [''],
+    ['40'],
   ]);
   const [showFloat, setShowFloat] = useState(false);
   const [name, setName] = useState('');
@@ -164,6 +164,8 @@ const Home: FC = () => {
                 data={QuestionData.questionData.questions[section][counter]}
                 handleNext={increaseCounter}
                 handlePrev={decreaseCounter}
+                section={section}
+                counter={counter}
               />
             </Box>
           ) : (

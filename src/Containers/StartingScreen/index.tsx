@@ -45,8 +45,8 @@ const StartingScreen: React.FC<Props> = ({
               <br /> financial behavior ?
             </Text>
             <Text className="Starting-SubText">
-              Examine the unconscious factors that influence your money
-              decisions and how you can get better at making them.
+              Learn about the unconscious factors that influence your money
+              decisions and how you can optimize financial wellbeing!
             </Text>
             <button
               className="Starting-Button"
@@ -57,7 +57,7 @@ const StartingScreen: React.FC<Props> = ({
                 });
               }}
             >
-              Yes, I like to learn more!
+              Yes, I’d like to learn more
             </button>
             <Text className="Starting-MiniText">
               We bet you can learn something new about yourself in less than 5
@@ -81,8 +81,8 @@ const StartingScreen: React.FC<Props> = ({
       <Flex className="Starting-CenterContainer" justifyContent="space-between">
         <Flex direction="column">
           <Text className="Starting-HeadingText">
-            That’s great! Let’s go...now
-            <br /> how do we call you?
+            Let’s get to know each other!
+            <br /> What’s your name?
           </Text>
           <input
             className="Starting-InputBox"

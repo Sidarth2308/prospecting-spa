@@ -64,20 +64,25 @@ const Report: React.FC = () => {
         });
     }
   }, [reportID]);
+  const Total = 100;
+
   const FinalAnswerGenerator: () => number[][] = () => {
+    const FirstSectionScore = ScoreConstants.section1.formula(
+      ScoreConstants.section1.scores,
+      reportData.data.answers[First_Index]
+    );
+
+    const SecondSectionScore = ScoreConstants.section2.formula(
+      ScoreConstants.section2.scores,
+      reportData.data.answers[Second_Index]
+    );
+
+    const ReportFirstSection =
+      (FirstSectionScore / (FirstSectionScore + SecondSectionScore)) * Total;
+
     const SectionScores = [
-      [
-        ScoreConstants.section1.formula(
-          ScoreConstants.section1.scores,
-          reportData.data.answers[First_Index]
-        ),
-      ],
-      [
-        ScoreConstants.section2.formula(
-          ScoreConstants.section2.scores,
-          reportData.data.answers[Second_Index]
-        ),
-      ],
+      [ReportFirstSection],
+      [Total - ReportFirstSection],
       ScoreConstants.section3.formula(
         ScoreConstants.section3.scores,
         reportData.data.answers[Third_Index]
@@ -87,7 +92,7 @@ const Report: React.FC = () => {
         reportData.data.answers[Fourth_Index]
       ),
     ];
-    // const SectionScores = [[57], [49], [25, 75], [43, 57]];
+    // Const SectionScores = [[57], [49], [25, 75], [43, 57]];
     return SectionScores;
   };
 

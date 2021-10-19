@@ -17,9 +17,8 @@ const Section4DivisionConstant = 7;
 const Section4SubtractionConstant = 8;
 
 // List Constants
-const Days_Value = 30;
-const Days_Value_Individual = 4;
 const ListNegativeValue = -1;
+const ListHalfValue = 8;
 
 // Answer Weight Constants
 const GeneralWeight = 0.2;
@@ -104,54 +103,19 @@ const SectionScoreCalculator: (
       accumulator =
         accumulator + (selectedAnswer * questionData.weight) / SliderFactor;
     } else if (questionData.type === 'dateSelect') {
-      const selectedMonth = parseInt(results[index][First_Index], 10);
-      const selectedDays = parseInt(results[index][Second_Index], 10);
-      if (
-        selectedMonth >=
-        parseInt(questionData.answer.Option1[Second_Index] as string, 10)
-      ) {
-        accumulator +=
-          (questionData.answer.Option1[First_Index] as number) *
-          questionData.weight;
+      const selectedWeeks = parseInt(results[index][First_Index], 10);
+      const totalDistribution = PositiveGeneralAnswer / ListHalfValue;
+      let totalAnswer = 0;
+      if (selectedWeeks >= ListHalfValue) {
+        totalAnswer =
+          (selectedWeeks - ListHalfValue) *
+          totalDistribution *
+          ListNegativeValue;
       } else {
-        const Scale = Math.abs(
-          (questionData.answer.Option1[First_Index] as number) -
-            (questionData.answer.Option2[First_Index] as number)
-        );
-        const totalDays =
-          parseInt(questionData.answer.Option1[Second_Index] as string, 10) *
-            Days_Value +
-          Days_Value_Individual;
-        const selectedTotalDays = selectedMonth * Days_Value + selectedDays;
-        const scaledTotalValue = Scale / totalDays;
-        const halfTotalValue = totalDays / Divide_Half_Value;
-
-        let totalAnswer = NeutralAnswer;
-        if (selectedTotalDays < halfTotalValue) {
-          if (
-            (questionData.answer.Option1[First_Index] as number) < NeutralAnswer
-          ) {
-            totalAnswer =
-              selectedTotalDays * scaledTotalValue * ListNegativeValue;
-          } else {
-            totalAnswer = selectedTotalDays * scaledTotalValue;
-          }
-        } else {
-          if (
-            (questionData.answer.Option2[First_Index] as number) < NeutralAnswer
-          ) {
-            totalAnswer =
-              (selectedTotalDays - halfTotalValue) *
-              scaledTotalValue *
-              ListNegativeValue;
-          } else {
-            totalAnswer =
-              (selectedTotalDays - halfTotalValue) * scaledTotalValue;
-          }
-        }
-        totalAnswer *= questionData.weight;
-        accumulator = accumulator + totalAnswer;
+        totalAnswer = (ListHalfValue - selectedWeeks) * totalDistribution;
       }
+      totalAnswer *= questionData.weight;
+      accumulator = accumulator + totalAnswer;
     } else {
       accumulator = accumulator + No_Value;
     }
@@ -190,67 +154,6 @@ const Section3ScoreCalculator: (
         PositiveAccumulator += totalAnswer;
       } else {
         NegativeAccumulator += totalAnswer;
-      }
-    } else if (questionData.type === 'dateSelect') {
-      const selectedMonth = parseInt(results[index][First_Index], 10);
-      const selectedDays = parseInt(results[index][Second_Index], 10);
-      if (
-        selectedMonth >=
-        parseInt(questionData.answer.Option1[Second_Index] as string, 10)
-      ) {
-        if (
-          (questionData.answer.Option1[First_Index] as number) > NeutralAnswer
-        ) {
-          PositiveAccumulator =
-            PositiveAccumulator +
-            (questionData.answer.Option1[First_Index] as number);
-        } else {
-          NegativeAccumulator =
-            NegativeAccumulator +
-            (questionData.answer.Option1[First_Index] as number);
-        }
-      } else {
-        const Scale = Math.abs(
-          (questionData.answer.Option1[First_Index] as number) -
-            (questionData.answer.Option2[First_Index] as number)
-        );
-        const totalDays =
-          parseInt(questionData.answer.Option1[Second_Index] as string, 10) *
-            Days_Value +
-          Days_Value_Individual;
-        const selectedTotalDays = selectedMonth * Days_Value + selectedDays;
-        const scaledTotalValue = Scale / totalDays;
-        const halfTotalValue = totalDays / Divide_Half_Value;
-
-        let totalAnswer = NeutralAnswer;
-        if (selectedTotalDays < halfTotalValue) {
-          if (
-            (questionData.answer.Option1[First_Index] as number) < NeutralAnswer
-          ) {
-            totalAnswer =
-              selectedTotalDays * scaledTotalValue * ListNegativeValue;
-          } else {
-            totalAnswer = selectedTotalDays * scaledTotalValue;
-          }
-        } else {
-          if (
-            (questionData.answer.Option2[First_Index] as number) < NeutralAnswer
-          ) {
-            totalAnswer =
-              (selectedTotalDays - halfTotalValue) *
-              scaledTotalValue *
-              ListNegativeValue;
-          } else {
-            totalAnswer =
-              (selectedTotalDays - halfTotalValue) * scaledTotalValue;
-          }
-        }
-        totalAnswer *= questionData.weight;
-        if (totalAnswer > NeutralAnswer) {
-          PositiveAccumulator += totalAnswer;
-        } else {
-          NegativeAccumulator += totalAnswer;
-        }
       }
     } else {
       PositiveAccumulator += No_Value;
@@ -455,7 +358,7 @@ export const ScoreConstants = {
         type: 'dateSelect',
         weight: GeneralWeight,
         answer: {
-          Option1: [NegativeGeneralAnswer, '4'],
+          Option1: [NegativeGeneralAnswer, '16'],
           Option2: [PositiveGeneralAnswer, '1'],
           Option3: [NeutralAnswer, ''],
         },

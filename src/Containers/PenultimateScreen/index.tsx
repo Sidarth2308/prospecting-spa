@@ -97,18 +97,8 @@ const PenultimateScreen: React.FC<Props> = ({
           <Text className="PercentageHeading" color="#fff">
             {progressData.heading}
           </Text>
-          <Text fontSize="sm" className="Percentage" color="#fff">
-            Question {progressData.counter}/{progressData.total}
-          </Text>
         </Flex>
       </Flex>
-      <div
-        style={{
-          width: '100%',
-          maxWidth: '1000px',
-          borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
-        }}
-      ></div>
       <Flex className="HeadingContainer">
         {data.preface !== '' && (
           <Text
@@ -120,6 +110,13 @@ const PenultimateScreen: React.FC<Props> = ({
           </Text>
         )}
 
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '1000px',
+            borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
+          }}
+        ></div>
         <Text
           fontSize={['22px', '28px', '34px']}
           lineHeight={['30px', '32px', '48px']}

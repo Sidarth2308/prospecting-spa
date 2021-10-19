@@ -50,3 +50,54 @@
 .HandleNumber::-webkit-scrollbar {
   display: none;
 }
+
+.DatePickerContainer-2{
+  background: #FFFFFF;
+border: 4px solid #EAEFFF;
+box-sizing: border-box;
+border-radius: 17px;
+}
+.DateNumber-2{
+  width : 100px;
+  height: 80px;
+  align-items:center;
+  justify-content: center;
+
+  font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+display: flex;
+text-align: center;
+
+color: #000000;
+
+ cursor: pointer;
+ user-select:none;
+
+
+}
+
+
+.DateNumberSelected-2{
+  width : 100px;
+  height: 80px;
+  align-items:center;
+  justify-content: center;
+
+  font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+display: flex;
+text-align: center;
+
+color: #fff;
+
+ cursor: pointer;
+ user-select:none;
+background: #A782E9;
+
+}

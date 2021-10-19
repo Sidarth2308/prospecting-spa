@@ -68,19 +68,24 @@ const FinalScreen: React.FC<Props> = ({
     <Flex className="FinalMainScreen">
       <Flex id="Section-1">
         <Flex className="Final-TopHeadingSection">
-          <Image userSelect="none" src={LogoImage} />
+          <Image userSelect="none" src={LogoImage} marginBottom="30px" />
           <Flex direction="column">
-            <Text className="Final-TopHeadingText-bold">{name}</Text>
+            <Text className="Final-TopHeadingText-bold">
+              This report is generated for{' '}
+              <b style={{color: '#5D23E9'}}>{name}</b>
+            </Text>
             <Text className="Final-TopHeadingText">{email}</Text>
           </Flex>
         </Flex>
         <Flex direction="column" marginBottom="40px">
-          <Text className="Final-SectionHeading">How to read this report</Text>
+          <Text className="Final-SectionHeading">
+            Going beyond greed and fear
+          </Text>
           <Text className="Final-SectionSubheading">
-            Protectors display a lower degree of overconfidence and are more
-            risk-averse
-            <br /> than others, probably because the financial field may not be
-            their forte.
+            Understanding the psychological factors that influence our financial
+            decision-making process
+            <br /> is key to making the right decisions to securing our
+            financial future.
           </Text>
         </Flex>
         <Flex className="Final-Section1MiddleContainer">
@@ -134,30 +139,34 @@ const FinalScreen: React.FC<Props> = ({
           <Flex direction="column" flex="1" marginTop="24px">
             <Flex direction="column">
               <Text className="Final-SectionSideMainHeading">
-                Hey Jasmin! This is where...
+                What will you learn from this report
               </Text>
               <Text className="Final-SectionSideMainText">
-                Protectors display a lower degree of overconfidence and are more
-                risk-averse than others, probably because the financial field
-                may not be their forte. Protectors display a lower degree of
-                overconfidence and are more risk-averse
+                This report is divided into three key sections: your{' '}
+                <b>Thinking Style</b>, your <b>Decision Style</b>, and your{' '}
+                <b>Focus</b>; and how they impact your money decisions and
+                values.
               </Text>
             </Flex>
-            <Flex direction="column">
+            <Flex direction="column" marginTop="12px">
               <Text className="Final-SectionSideSubHeading">
-                Hey Jasmin! This is where...
+                From unconscious to conscious
               </Text>
               <Text className="Final-SectionSideSubText">
-                Protectors display a lower degree of overconfidence and are more
-                risk-averse than others, probably because the financial field
-                may not be their forte. Protectors display a lower degree of
-                overconfidence and are more risk-averse
+                By bringing these factors from the unconscious to the conscious,
+                you are now in a better place to take greater control over your
+                financial future.
               </Text>
             </Flex>
           </Flex>
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <Image userSelect="none" src={scrollIcon} />
+          <Image
+            position="relative"
+            bottom="50px"
+            userSelect="none"
+            src={scrollIcon}
+          />
         </Flex>
       </Flex>
       <Flex id="Section-2">
@@ -229,27 +238,21 @@ const FinalScreen: React.FC<Props> = ({
               <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Awareness</Text>
                 <Text
-                  className="Final-Section2SubHeading"
-                  margin="18px 0 12px 0"
+                  className="Final-Section2SubText"
+                  marginTop="18px"
+                  maxWidth="360px"
                 >
-                  What Thinking Style means
-                </Text>
-                <Text className="Final-Section2SubText" maxWidth="360px">
-                  Thinking Style refers to how you think unconsciously. Until
-                  and unless you become aware of the subconscious factors
-                  impacting your decision-making, it is impossible to make good
-                  decisions.
+                  Thinking Style shows how optimism and regret aversion
+                  influence our thinking.
                 </Text>
                 <Text
-                  className="Final-Section2SubHeading"
-                  margin="24px 0 12px 0"
+                  className="Final-Section2SubText"
+                  marginTop="20px"
+                  maxWidth="360px"
                 >
-                  Over-Optimism & Regret Aversion
-                </Text>
-                <Text className="Final-Section2SubText" maxWidth="360px">
-                  OO refers to our tendency to be more optimistic than is
-                  realistic. Regret Aversion refers to the tendency to not act
-                  because of regret.
+                  Optimism is when we expect to experience good outcomes
+                  compared to bad ones. Regret Aversion refers to the tendency
+                  to postpone action for fear of regretting the outcome.
                 </Text>
               </Flex>
               <Flex direction="column" className="Final-SectionRight">
@@ -367,27 +370,21 @@ const FinalScreen: React.FC<Props> = ({
               <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Awareness</Text>
                 <Text
-                  className="Final-Section2SubHeading"
-                  margin="18px 0 12px 0"
+                  className="Final-Section2SubText"
+                  marginTop="18px"
+                  maxWidth="360px"
                 >
-                  What Decision Style means
-                </Text>
-                <Text className="Final-Section2SubText" maxWidth="360px">
-                  Decision Style refers to how you make decisions. By
-                  understanding the psychological factors that underlie your
-                  decision-making process, you can start making better
-                  decisions.
+                  Decision Style shows how we balance over-processing and
+                  under-processing when making decisions
                 </Text>
                 <Text
-                  className="Final-Section2SubHeading"
-                  margin="24px 0 12px 0"
+                  className="Final-Section2SubText"
+                  marginTop="20px"
+                  maxWidth="360px"
                 >
-                  Maximizing & Satisficing
-                </Text>
-                <Text className="Final-Section2SubText" maxWidth="360px">
                   Maximizing refers to our tendency to try and find the most
                   optimal solution possible. Satisficing refers to the tendency
-                  to arrive at decisions that provide a satisfactory solution.
+                  to arrive at decisions that provide a satisfactory solution
                 </Text>
               </Flex>
               <Flex direction="column" className="Final-MiddleTextContainer">
@@ -501,31 +498,22 @@ const FinalScreen: React.FC<Props> = ({
             >
               <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Awareness</Text>
-
                 <Text
-                  className="Final-Section2SubHeading"
-                  margin="18px 0 12px 0"
+                  className="Final-Section2SubText"
+                  marginTop="18px"
+                  maxWidth="360px"
                 >
-                  What Focus means
+                  Focus shows how you pursue goals that matter to you.
                 </Text>
-                <Text className="Final-Section2SubText" maxWidth="360px">
-                  Focus refers to how internally communicate with yourself and
-                  what factors you consider before acting. By understanding the
-                  behavioral factors that underlie your process of cognition,
-                  you can start making better decisions.
-                </Text>
-
                 <Text
-                  className="Final-Section2SubHeading"
-                  margin="24px 0 12px 0"
+                  className="Final-Section2SubText"
+                  marginTop="20px"
+                  maxWidth="360px"
                 >
-                  Prevention & Promotion
-                </Text>
-                <Text className="Final-Section2SubText" maxWidth="360px">
-                  Promotion focus refers to our tendency to focus on the rewards
-                  of a particular action. Prevention on the other hand means
-                  that we tend to pay more attention to the downside than the
-                  upside.
+                  Promotion focus refers to our tendency to take active behavior
+                  to pursue your goals. Prevention on the other hand means that
+                  we tend to be more cautious and pay more attention to the
+                  downside than the upside
                 </Text>
               </Flex>
               <Flex direction="column" className="Final-MiddleTextContainer">

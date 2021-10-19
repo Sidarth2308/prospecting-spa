@@ -17,9 +17,9 @@
 }
 
 .Final-TopHeadingSection {
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 40px;
+  flex-direction: column;
   width: 100%;
 }
 .Final-TopHeadingText-bold {
@@ -28,7 +28,7 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
   color: #191c2c;
 }
 .Final-TopHeadingText {
@@ -36,7 +36,7 @@
   font-style: normal;
   font-size: 14px;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
   color: #191c2c;
 }
 .Final-SectionHeading {
@@ -220,6 +220,8 @@
   width: 316px;
   margin-right: 100px;
   margin-top:100px;
+  position:relative;
+  bottom : 140px;
 }
 .Final-SectionRight {
   flex-direction: column;

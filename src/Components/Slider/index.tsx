@@ -73,6 +73,8 @@ const LEFT_ARROW_LEFT = 210;
 const LEFT_BOX_BOTTOM = 170;
 const LEFT_ARROW_BOTTOM = 165;
 
+const SECONDARY_SLIDER_VALUE = 40;
+
 const MULTIPLICATION_CONSTANT_SMALL = 0.5;
 const MULTIPLICATION_CONSTANT_EXTRA_SMALL = 0.5;
 const MULTIPLICATION_CONSTANT_LARGE = 0.4;
@@ -109,16 +111,16 @@ const checkUndefined: (value: string | undefined) => string = (
   return value;
 };
 
-export const SliderComponent: FC<Props> = ({graphic, dimension, slider}) => {
+export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
   const valueFromContext = useContext(StateContext);
   const isMobile = useMediaQuery({query: '(max-width: 770px)'});
-  let val = 50;
+  let val = HIGH_VALUE;
   if (valueFromContext !== null) {
     val = getStateValue(
       valueFromContext.answers[valueFromContext.section][
         valueFromContext.counter
       ],
-      checkUndefined(slider?.default)
+      HIGH_VALUE.toString()
     );
   }
   return (
@@ -302,18 +304,16 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
   graphic2,
   graphic3,
   dimension,
-  slider,
   options,
 }) => {
   const valueFromContext = useContext(StateContext);
-  let val = parseInt(checkUndefined(slider?.default));
+  let val = 40;
   if (valueFromContext !== null) {
     val = getStateValue(
       valueFromContext.answers[valueFromContext.section][
         valueFromContext.counter
       ],
-
-      checkUndefined(slider?.default)
+      HIGH_VALUE.toString()
     );
   }
   return (
@@ -330,7 +330,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           left="0"
           marginRight="auto"
           marginLeft="auto"
-          // right={['8%', '22%', '30%']}
+          // Right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic1}
           opacity={((val - LOW_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
@@ -344,7 +344,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           left="0"
           marginRight="auto"
           marginLeft="auto"
-          // right={['8%', '22%', '30%']}
+          // Right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic3}
           opacity={((val - MID_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
@@ -357,7 +357,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           left="0"
           marginRight="auto"
           marginLeft="auto"
-          // right={['5%', '22%', '30%']}
+          // Right={['5%', '22%', '30%']}
           position="absolute"
           opacity={((val - HIGH_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
           src={graphic2}
@@ -421,14 +421,13 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
   options,
 }) => {
   const valueFromContext = useContext(StateContext);
-  let val = 0;
+  let val = SECONDARY_SLIDER_VALUE;
   if (valueFromContext !== null) {
     val = getStateValue(
       valueFromContext.answers[valueFromContext.section][
         valueFromContext.counter
       ],
-
-      checkUndefined(slider?.default)
+      SECONDARY_SLIDER_VALUE.toString()
     );
   }
   return (
