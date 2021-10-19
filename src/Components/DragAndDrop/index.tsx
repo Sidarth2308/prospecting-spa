@@ -7,11 +7,19 @@ import {LeftCard, RightCard} from './cards';
 import './styles/styles.css';
 import {ChangeDataContext, StateContext} from '../../Context';
 import {isUndefined} from 'lodash';
+import {useDrop} from 'react-dnd';
 type Props = {
   data?: string[][];
 };
 
 const FIRST_INDEX = 0;
+
+type Item = {
+  id: string;
+  value: string;
+  active: boolean;
+  source: string;
+};
 
 const LeftDataRearrange: (data: string[][] | undefined) => {
   value: string;
@@ -50,9 +58,11 @@ const RightDataRearrange: (data: string[][] | undefined) => {
   return returnData;
 };
 
-// Const ItemTypes = {
-//   CARD: 'card',
-// };
+const NULL_INDEX = -2;
+
+const ItemTypes = {
+  CARD: 'card',
+};
 
 const DragAndDrop: React.FC<Props> = ({data}) => {
   const valueFromContext = useContext(StateContext);
@@ -72,7 +82,38 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
     index: number
   ) => {
     const source = item.source;
-    if (source === 'left-box') {
+    if (index === NULL_INDEX) {
+      const newRightData = rightData;
+      const newLeftData = leftData;
+
+      const LeftIndex = newLeftData.findIndex(
+        (element: {
+          id: string;
+          value: string;
+          active: boolean;
+          source?: string;
+        }) => element.value === item.value
+      );
+      newLeftData[LeftIndex] = {...newLeftData[LeftIndex], active: true};
+      const RightIndex = newRightData.findIndex(
+        (element: {
+          id: string;
+          value: string;
+          active: boolean;
+          source?: string;
+        }) => element.value === item.value
+      );
+
+      newRightData[RightIndex] = {
+        value: '',
+        id: '-1',
+        active: false,
+        source: 'right-box',
+      };
+
+      setLeftData([...newLeftData]);
+      setRightData([...newRightData]);
+    } else if (source === 'left-box') {
       if (rightData[index].id === '-1') {
         const newRightData = rightData;
         newRightData[index] = {...item, source: 'right-box'};
@@ -173,19 +214,43 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
     setLeftData([...newLeftData]);
   };
 
+  const [{isOver}, drop] = useDrop({
+    accept: ItemTypes.CARD,
+    drop: (item: Item) => {
+      DataChange(item, NULL_INDEX);
+    },
+    collect: (monitor) => ({
+      isOver: Boolean(monitor.isOver()),
+    }),
+  });
+
   return (
     <ChangeDataContext.Provider value={{DataChange, TextChange}}>
       <Flex className="DNDContainer">
         <Flex>
-          <Flex className="LeftContainer">
+          <Flex
+            ref={drop}
+            border={isOver ? '1px solid #333' : ''}
+            borderRadius="12px"
+            className="LeftContainer"
+          >
             {leftData.map(
-              (singleLeft: {
-                active: boolean;
-                value: string;
-                id: string;
-                source: string;
-              }) => {
-                return <LeftCard data={singleLeft} key={singleLeft.id} />;
+              (
+                singleLeft: {
+                  active: boolean;
+                  value: string;
+                  id: string;
+                  source: string;
+                },
+                index: number
+              ) => {
+                return (
+                  <LeftCard
+                    data={singleLeft}
+                    key={singleLeft.id}
+                    numbering={index}
+                  />
+                );
               }
             )}
           </Flex>

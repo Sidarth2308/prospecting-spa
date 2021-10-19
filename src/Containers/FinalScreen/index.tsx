@@ -182,7 +182,7 @@ const FinalScreen: React.FC<Props> = ({
                   value: SectionScores[SECOND_INDEX][FIRST_INDEX],
                 },
                 {
-                  name: 'Over-Optimism',
+                  name: 'Optimism',
                   value: SectionScores[FIRST_INDEX][FIRST_INDEX],
                 },
               ]}
@@ -239,11 +239,13 @@ const FinalScreen: React.FC<Props> = ({
                 <Text className="Final-Section2MainHeading">Awareness</Text>
                 <Text
                   className="Final-Section2SubText"
-                  marginTop="18px"
+                  marginTop="20px"
                   maxWidth="360px"
                 >
-                  Thinking Style shows how optimism and regret aversion
-                  influence our thinking.
+                  Thinking Style refers to how our decisions get influenced by
+                  thinking about outcomes instead of thinking about the process.
+                  Research has shown that optimism and regret aversion are key
+                  traits that influence our thinking.
                 </Text>
                 <Text
                   className="Final-Section2SubText"
@@ -251,8 +253,11 @@ const FinalScreen: React.FC<Props> = ({
                   maxWidth="360px"
                 >
                   Optimism is when we expect to experience good outcomes
-                  compared to bad ones. Regret Aversion refers to the tendency
-                  to postpone action for fear of regretting the outcome.
+                  compared to bad ones.
+                  <br />
+                  <br />
+                  Regret Aversion refers to the tendency to postpone action for
+                  fear of regretting the outcome.
                 </Text>
               </Flex>
               <Flex direction="column" className="Final-SectionRight">
@@ -371,11 +376,13 @@ const FinalScreen: React.FC<Props> = ({
                 <Text className="Final-Section2MainHeading">Awareness</Text>
                 <Text
                   className="Final-Section2SubText"
-                  marginTop="18px"
+                  marginTop="20px"
                   maxWidth="360px"
                 >
                   Decision Style shows how we balance over-processing and
-                  under-processing when making decisions
+                  under-processing when making decisions. By understanding how
+                  we evaluate different options, we can get better at making the
+                  right choices.
                 </Text>
                 <Text
                   className="Final-Section2SubText"
@@ -383,8 +390,11 @@ const FinalScreen: React.FC<Props> = ({
                   maxWidth="360px"
                 >
                   Maximizing refers to our tendency to try and find the most
-                  optimal solution possible. Satisficing refers to the tendency
-                  to arrive at decisions that provide a satisfactory solution
+                  optimal solution possible.
+                  <br />
+                  <br />
+                  Satisficing refers to the tendency to arrive at decisions that
+                  provide a satisfactory solution
                 </Text>
               </Flex>
               <Flex direction="column" className="Final-MiddleTextContainer">
@@ -500,10 +510,12 @@ const FinalScreen: React.FC<Props> = ({
                 <Text className="Final-Section2MainHeading">Awareness</Text>
                 <Text
                   className="Final-Section2SubText"
-                  marginTop="18px"
+                  marginTop="20px"
                   maxWidth="360px"
                 >
-                  Focus shows how you pursue goals that matter to you.
+                  Focus shows how you pursue goals that matter to you. Becoming
+                  aware of your style of focus empowers you to understand why
+                  and how you arrive at the decisions that you make.
                 </Text>
                 <Text
                   className="Final-Section2SubText"
@@ -511,9 +523,11 @@ const FinalScreen: React.FC<Props> = ({
                   maxWidth="360px"
                 >
                   Promotion focus refers to our tendency to take active behavior
-                  to pursue your goals. Prevention on the other hand means that
-                  we tend to be more cautious and pay more attention to the
-                  downside than the upside
+                  to pursue our goals.
+                  <br />
+                  <br /> Prevention on the other hand means that we tend to be
+                  more cautious and pay more attention to the downside than the
+                  upside
                 </Text>
               </Flex>
               <Flex direction="column" className="Final-MiddleTextContainer">
@@ -565,10 +579,10 @@ const FinalScreen: React.FC<Props> = ({
 
       <Flex className="Final-ScreenFooter">
         <Flex direction="column" flex="1" className="Final-FooterLeftContainer">
-          <Text className="Final-FooterHeading">Taking Action</Text>
+          <Text className="Final-FooterHeading">Value Behavior Alignment</Text>
           <Text className="Final-FooterSubHeading">
-            Here is where we provide an explanation of how the Taking Action
-            block works
+            Setting the stage for a deeper understanding of how our behaviors
+            interact with our values to influence money decisions.
           </Text>
           <div className="Final-FooterDivider"></div>
           <Flex

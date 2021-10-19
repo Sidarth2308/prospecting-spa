@@ -36,7 +36,7 @@ const DatePicker: React.FC = () => {
     <Flex
       alignItems="center"
       justifyContent="space-between"
-      margin="0 0 10px 0"
+      margin="0 0 30px 0"
     >
       <Flex
         className="DatePickerContainer-2"

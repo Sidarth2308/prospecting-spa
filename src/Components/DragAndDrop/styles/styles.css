@@ -1,6 +1,6 @@
 .LeftContainer {
   width: 420px;
-  height: 400px;
+  height: 360px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@
   background: linear-gradient(101.9deg, #86E9C5 27.36%, #EBEE3F 93.24%);
   box-sizing: border-box;
   border-radius: 18px;
-
+  user-select: none;
   cursor: grab;
 }
 .LeftElementText {
@@ -33,6 +33,7 @@
   text-align: center;
   opacity: 0.4;
   color: #191c2c;
+  user-select: none;
   font-family: Inter;
 }
 .LeftElementDisabled {
@@ -49,10 +50,9 @@
 
 .RightContainer {
   width: 545px;
-  height: 450px;
+  height: 350px;
   box-sizing: border-box;
   border-radius: 32px;
-  padding: 32px;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: column;

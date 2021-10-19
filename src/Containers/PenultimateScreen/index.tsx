@@ -150,7 +150,7 @@ const PenultimateScreen: React.FC<Props> = ({
           endSetter(true);
         }}
       >
-        Go to my report
+        Get My Report
       </button>
       <Image
         opacity="1"

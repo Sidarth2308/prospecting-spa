@@ -86,7 +86,7 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
 }) => {
   const valueFromContext = useContext(StateContext);
   return (
-    <Box marginTop="200px">
+    <Box marginTop="190px" marginBottom="6px">
       <Flex
         position="relative"
         alignItems="flex-end"

@@ -106,9 +106,26 @@ const percentageConstant = 100;
 
 const INCREMENT_DECREMENT = 1;
 
-// Const disableChecker = (questionType:string, currentValue: (string | string []))=>{
-
-// }
+const disableChecker = (
+  questionType: string,
+  currentValue: (string | string[]) | undefined
+): boolean => {
+  if (isUndefined(currentValue)) {
+    return true;
+  }
+  if (questionType === 'dragdrop') {
+    const newCurrentValue = currentValue as string[];
+    let disabled = false;
+    newCurrentValue.forEach((singleValue: string) => {
+      if (singleValue === '') {
+        disabled = true;
+      }
+    });
+    return disabled;
+  }
+  const newCurrentValue = currentValue as string;
+  return newCurrentValue === '' ? true : false;
+};
 
 const QuestionContainer: FC<Props> = ({
   data,
@@ -119,11 +136,14 @@ const QuestionContainer: FC<Props> = ({
   counter,
 }) => {
   const valueFromContext = useContext(StateContext);
-  const disabled =
-    isUndefined(valueFromContext?.answers[section][counter]) ||
-    valueFromContext?.answers[section][counter] === ''
-      ? true
-      : false;
+  const disabled = disableChecker(
+    data.elements[First_Index]?.question_type,
+    valueFromContext?.answers[section][counter]
+  );
+  isUndefined(valueFromContext?.answers[section][counter]) ||
+  valueFromContext?.answers[section][counter] === ''
+    ? true
+    : false;
   return (
     <Flex className="MainContainer">
       <Flex

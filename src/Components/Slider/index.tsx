@@ -15,7 +15,7 @@ import sliderImage from '../../assets/slider.svg';
 import './styles/styles.css';
 import annotationArrow from '../../assets/annotationArrow.svg';
 import sliderNotation1 from '../../assets/sliderNotation1.svg';
-import sliderNotation2 from '../../assets/numbering.png';
+import sliderNotation2 from '../../assets/slider-notation2.png';
 import annotationArrowReverse from '../../assets/annotationArrowReverse.svg';
 import {StateContext} from '../../Context';
 import {isUndefined} from 'lodash';
@@ -124,7 +124,7 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
     );
   }
   return (
-    <Box marginTop="244px" marginBottom="30px">
+    <Box marginTop="244px" marginBottom="48px">
       <Flex
         position="relative"
         alignItems="flex-end"
@@ -317,7 +317,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
     );
   }
   return (
-    <Box marginTop="224px" marginBottom="30px">
+    <Box marginTop="224px" marginBottom="44px">
       <Flex
         position="relative"
         alignItems="flex-end"
@@ -478,7 +478,6 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
             userSelect="none"
             bottom="30px"
             width="100%"
-            left="5px"
             src={sliderNotation2}
             position="absolute"
           />

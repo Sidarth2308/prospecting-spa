@@ -22,6 +22,7 @@ const Image2 = 2;
 
 type LeftCardProps = {
   data: {value: string; id: string; active: boolean; source: string};
+  numbering: number;
 };
 
 type RightCardProps = {
@@ -51,16 +52,16 @@ export const LeftCard: React.FC<LeftCardProps> = ({data}) => {
     }),
   });
   return (
-    <Flex
-      ref={data.active ? drag : null}
-      opacity={isDragging ? '0.5' : '1'}
-      className={data.active ? 'LeftElement' : 'LeftElementDisabled'}
-    >
-      <Text
-        className={data.active ? 'LeftElementText' : 'LeftElementTextDisabled'}
-      >
-        {data.value}
-      </Text>
+    <Flex className={data.active ? 'LeftElement' : 'LeftElementDisabled'}>
+      <Flex opacity={isDragging ? '0.5' : '1'} ref={data.active ? drag : null}>
+        <Text
+          className={
+            data.active ? 'LeftElementText' : 'LeftElementTextDisabled'
+          }
+        >
+          {data.value}
+        </Text>
+      </Flex>
     </Flex>
   );
 };
