@@ -81,8 +81,8 @@ const Report: React.FC = () => {
       (FirstSectionScore / (FirstSectionScore + SecondSectionScore)) * Total;
 
     const SectionScores = [
-      [ReportFirstSection],
-      [Total - ReportFirstSection],
+      [Math.round(ReportFirstSection)],
+      [Math.round(Total - ReportFirstSection)],
       ScoreConstants.section3.formula(
         ScoreConstants.section3.scores,
         reportData.data.answers[Third_Index]
