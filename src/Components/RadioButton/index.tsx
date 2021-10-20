@@ -6,10 +6,12 @@ import {Box, Flex} from '@chakra-ui/layout';
 import {useContext, FC} from 'react';
 import './styles/styles.css';
 import {StateContext} from '../../Context';
+import {useMediaQuery} from 'react-responsive';
 type Props = {
   options: string[][];
   graphic: string;
   dimension: string[];
+  handleNext: () => void;
 };
 
 type TwoOptionsProps = {
@@ -24,7 +26,7 @@ const SECOND_INDEX = 1;
 const IMAGE_SCALING_SMALL = 0.75;
 const IMAGE_SCALING_LARGE = 1;
 
-const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
+const RadioButton: FC<Props> = ({options, graphic, dimension, handleNext}) => {
   const valueFromContext = useContext(StateContext);
   return (
     <Box>
@@ -66,6 +68,7 @@ const RadioButton: FC<Props> = ({options, graphic, dimension}) => {
                     ] = option[FIRST_INDEX];
                     valueFromContext.setAnswers([...tempAnswers]);
                   }
+                  handleNext();
                 }}
               >
                 {option[FIRST_INDEX]}
@@ -84,6 +87,7 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
   handleNext,
   dimension,
 }) => {
+  const isMobile = useMediaQuery({query: '(max-width: 800px)'});
   const valueFromContext = useContext(StateContext);
   return (
     <Box marginTop="190px" marginBottom="6px">
@@ -95,7 +99,7 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
         <Image
           position="absolute"
           left="50%"
-          bottom="100px"
+          bottom={isMobile ? '200px' : '100px'}
           transform="translate(-50%, 0)"
           margin="auto"
           userSelect="none"

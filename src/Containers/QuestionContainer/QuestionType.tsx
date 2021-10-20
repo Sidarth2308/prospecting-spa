@@ -109,6 +109,7 @@ const QuestionType: FC<Props> = ({
         graphic={graphicCheck(graphic)}
         options={questionDetails[FIRST_INDEX]?.context.multicard}
         dimension={dimension}
+        handleNext={handleNext}
       />
     );
   } else if (questionDetails[FIRST_INDEX]?.question_type === 'slider') {

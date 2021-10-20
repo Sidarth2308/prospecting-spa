@@ -106,6 +106,10 @@
   margin-bottom:24px;
   flex-direction:row;
 }
+.RightElementSmallContainer{
+  align-items: center;
+  justify-content: center; 
+}
 
 @media (max-width: 1000px) {
   .DNDContainer{
@@ -113,30 +117,31 @@
   }
   .RightBoxSingle{
     position: relative;
-    right: 80px;
+    right: 50px;
   }
   .LeftContainer {
-    width: 300px;
+    width: 320px;
     margin-right: 0;
     margin-bottom: 50px;
 
   }
   .LeftElementDisabled {
-    width: 120px;
+    width: 130px;
   }
   .LeftElement {
-    width: 120px;
+    width: 130px;
   }
   
 .RightContainer {
-  width: 300px;
+  width: 370px;
 }
 
 .RightElement {
-  width: 300px;
+  width: 370px;
+  margin-left:20px;
 }
 .RightElementDisabled {
-  width: 300px;
+  width: 370px;
 }
 .LeftElementText {
   font-size: 16px;
@@ -145,5 +150,8 @@
 .LeftElementDisabled {
   font-size: 16px;
   line-height: 20px;
+}
+.RightElementSmallContainer{
+  margin-left:30px;
 }
 }

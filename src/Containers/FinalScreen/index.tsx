@@ -217,7 +217,7 @@ const FinalScreen: React.FC<Props> = ({
             <Flex direction="column" marginTop="40px">
               <Flex marginBottom="18px">
                 <Flex className="Final-ChartLegend1"></Flex>
-                <Text className="Final-LegendText">Over - Optimism</Text>
+                <Text className="Final-LegendText">Optimism</Text>
               </Flex>
               <Flex>
                 <Flex className="Final-ChartLegend2"></Flex>

@@ -231,7 +231,7 @@ const QuestionContainer: FC<Props> = ({
               }
             }}
           >
-            Complete assessment
+            Complete Assessment
           </button>
         ) : (
           <Flex
