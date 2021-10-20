@@ -431,7 +431,7 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
     );
   }
   return (
-    <Box marginTop="280px" marginBottom="30px">
+    <Box marginTop="280px" marginBottom="62px">
       <Flex
         position="relative"
         alignItems="flex-end"

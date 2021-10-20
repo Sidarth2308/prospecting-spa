@@ -140,10 +140,6 @@ const QuestionContainer: FC<Props> = ({
     data.elements[First_Index]?.question_type,
     valueFromContext?.answers[section][counter]
   );
-  isUndefined(valueFromContext?.answers[section][counter]) ||
-  valueFromContext?.answers[section][counter] === ''
-    ? true
-    : false;
   return (
     <Flex className="MainContainer">
       <Flex
