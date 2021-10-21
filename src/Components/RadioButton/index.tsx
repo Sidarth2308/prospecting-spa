@@ -1,42 +1,139 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable node/no-extraneous-import */
+/* eslint-disable no-use-before-define */
+
 import {Image} from '@chakra-ui/image';
 import {Box, Flex} from '@chakra-ui/layout';
 import {useContext, FC} from 'react';
 import './styles/styles.css';
 import {StateContext} from '../../Context';
+import {useMediaQuery} from 'react-responsive';
 type Props = {
-  options?: string[];
-  graphic?: string;
+  options: string[][];
+  graphic: string;
+  dimension: string[];
+  handleNext: () => void;
 };
 
-const RadioButton: FC<Props> = ({options, graphic}) => {
+type TwoOptionsProps = {
+  options: string[];
+  graphic: string;
+  dimension: string[];
+  handleNext: () => void;
+};
+
+const FIRST_INDEX = 0;
+const SECOND_INDEX = 1;
+const IMAGE_SCALING_SMALL = 0.75;
+const IMAGE_SCALING_LARGE = 1;
+
+const RadioButton: FC<Props> = ({options, graphic, dimension, handleNext}) => {
   const valueFromContext = useContext(StateContext);
   return (
-    <Box marginTop="30px" marginBottom="30px">
+    <Box>
       <Flex
         position="relative"
         alignItems="center"
         direction="column"
         justifyContent="space-between"
       >
-        <Image src={graphic} />
+        <Image
+          userSelect="none"
+          src={graphic}
+          height={[
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
+          width={[
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
+        />
         <Flex className="RadioButtonsContainer">
-          {options?.map((option, index) => {
+          {options.map((option: string[], index: number) => {
             return (
               <Flex
                 key={index}
                 className={
-                  valueFromContext?.answers[valueFromContext.counter] === option
+                  valueFromContext?.answers[valueFromContext.section][
+                    valueFromContext.counter
+                  ] === option[FIRST_INDEX]
                     ? 'RadioButtonSelected'
                     : 'RadioButton'
                 }
-                onClick={() => {
+                onClick={(): void => {
                   if (valueFromContext !== null) {
                     const tempAnswers = valueFromContext.answers;
-                    tempAnswers[valueFromContext.counter] = option;
+                    tempAnswers[valueFromContext.section][
+                      valueFromContext.counter
+                    ] = option[FIRST_INDEX];
                     valueFromContext.setAnswers([...tempAnswers]);
                   }
+                  handleNext();
+                }}
+              >
+                {option[FIRST_INDEX]}
+              </Flex>
+            );
+          })}
+        </Flex>
+      </Flex>
+    </Box>
+  );
+};
+
+export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
+  options,
+  graphic,
+  handleNext,
+  dimension,
+}) => {
+  const isMobile = useMediaQuery({query: '(max-width: 800px)'});
+  const valueFromContext = useContext(StateContext);
+  return (
+    <Box marginTop="190px" marginBottom="6px">
+      <Flex
+        position="relative"
+        alignItems="flex-end"
+        justifyContent="space-between"
+      >
+        <Image
+          position="absolute"
+          left="50%"
+          bottom={isMobile ? '200px' : '100px'}
+          transform="translate(-50%, 0)"
+          margin="auto"
+          userSelect="none"
+          src={graphic}
+          height={[
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[SECOND_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
+          width={[
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_SMALL})`,
+            `calc(${dimension[FIRST_INDEX]} * ${IMAGE_SCALING_LARGE})`,
+          ]}
+        />
+        <Flex className="RadioButtonsContainer">
+          {options.map((option: string, index: number) => {
+            return (
+              <Flex
+                key={index}
+                className={
+                  valueFromContext?.answers[valueFromContext.section][
+                    valueFromContext.counter
+                  ] === option
+                    ? 'RadioButtonSelected'
+                    : 'RadioButton'
+                }
+                onClick={(): void => {
+                  if (valueFromContext !== null) {
+                    const tempAnswers = valueFromContext.answers;
+                    tempAnswers[valueFromContext.section][
+                      valueFromContext.counter
+                    ] = option;
+                    valueFromContext.setAnswers([...tempAnswers]);
+                  }
+                  handleNext();
                 }}
               >
                 {option}

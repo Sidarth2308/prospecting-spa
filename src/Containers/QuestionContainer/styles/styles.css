@@ -1,5 +1,5 @@
 body {
-  background-image: url('../../../assets/background.svg') !important;
+  background-image: url('../../../assets/background.png') !important;
 
   background-position: center center !important;
   background-attachment: fixed !important;
@@ -10,28 +10,59 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
+  margin: auto;
+  max-width: 100%;
 }
+
+.PercentageHeading {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color:#fff;
+}
+.Percentage {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+
+  /* or 171% */
+
+  color: rgba(255, 255, 255, 0.71);
+}
+
 .HeadingContainer {
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 32px;
   flex-direction: column;
   margin-bottom: 20px;
 }
 .HeadingQuestion {
-  font-weight: 700;
   color: #000;
-  font-size: 38px;
-  line-height: 64px;
+  max-width: 997px;
   text-align: center;
+  font-family: 'Inter', sans-serif;
+
+  font-style: normal;
+  font-weight: bold;
+  white-space: pre-line;
 }
 .HeadingQuestionDescription {
-  color: #191c2cb2;
-  font-size: 18px;
-  line-height: 40px;
+  font-family: Inter;
+  font-style: normal;
+
+  max-width: 1040px;
+  font-weight: 500;
+  white-space: pre-line;
+  /* identical to box height, or 160% */
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: rgba(25, 28, 44, 0.7);
 }
 
 .NextButton {
@@ -39,6 +70,15 @@ body {
   width: 50px;
   height: 50px;
   background: #191c2c;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.NextButtonDisabled {
+  width: 50px;
+  height: 50px;
+  background: grey;
   border-radius: 50px;
   align-items: center;
   justify-content: center;
@@ -59,4 +99,54 @@ body {
   border-radius: 50px;
   filter: invert(56%) sepia(59%) saturate(492%) hue-rotate(212deg)
     brightness(103%) contrast(98%);
+}
+.NextButtonFinal{
+  background: linear-gradient(204.5deg, #BE6CFD 15.65%, #7367FF 129.17%);
+    border-radius: 16px;
+    padding : 19px 90px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: #FFFFFF;
+    max-width: 400px;
+}
+
+.NextButtonFinalDisabled{
+  background: lightslategray;
+  border-radius: 16px;
+    padding : 19px 90px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+    color: #FFFFFF;
+    max-width: 400px;
+}
+
+@media (max-width: 1000px) {
+  .NextButtonFinal{
+      padding : 19px 20px;
+      font-size: 14px;
+    line-height: 20px;
+  
+  }
+  
+  .NextButtonFinalDisabled{
+      padding : 19px 20px;
+      font-size: 14px;
+    line-height: 20px;
+      max-width: 400px;
+  }
+}
+
+.Question-ButtonContainer{
+  align-items:center;
+  justify-content:center;
+  user-select:none;
+  bottom : 20px;
 }
