@@ -8,6 +8,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import FinalScreen from '../../Containers/FinalScreen';
 import {REPORT_API_URL, ScoreConstants} from '../../Data';
+import NotFound from '../not-found';
 
 // Type Props = {};
 const First_Index = 0;
@@ -52,12 +53,10 @@ const Report: React.FC = () => {
       axios
         .get<ResponseData>(REPORT_API_URL + `/${reportID}`)
         .then((response) => {
-          if (response.data.status === Success) {
-            setReportData({
-              fetched: true,
-              data: response.data,
-            });
-          }
+          setReportData({
+            fetched: true,
+            data: response.data,
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -95,16 +94,21 @@ const Report: React.FC = () => {
     // Const SectionScores = [[57], [49], [25, 75], [43, 57]];
     return SectionScores;
   };
+  console.log(reportData);
 
   return (
     <Box className="ResultContainer">
       {reportData.fetched ? (
-        <FinalScreen
-          name={reportData.data.client.name}
-          email={reportData.data.client.email}
-          SectionScores={FinalAnswerGenerator()}
-          DndAnswers={reportData.data.answers[DndFirstParam][DndSecondParam]}
-        />
+        reportData.data.status === Success ? (
+          <FinalScreen
+            name={reportData.data.client.name}
+            email={reportData.data.client.email}
+            SectionScores={FinalAnswerGenerator()}
+            DndAnswers={reportData.data.answers[DndFirstParam][DndSecondParam]}
+          />
+        ) : (
+          <NotFound />
+        )
       ) : (
         <Flex
           alignItem="center"

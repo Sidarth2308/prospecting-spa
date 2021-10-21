@@ -52,7 +52,7 @@
 .Starting-ButtonDisabled{
     background: lightslategray;
     border-radius: 16px;
-    padding : 19px 90px;
+    padding : 19px 30px;
     cursor: not-allowed;
     font-family: Inter, sans-serif;
     font-style: normal;

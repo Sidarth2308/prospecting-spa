@@ -141,7 +141,7 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
             value: string;
             active: boolean;
             source?: string;
-          }) => element.id === item.id
+          }) => element.value === item.value
         );
 
         const prevIndex = newLeftData.findIndex(

@@ -1,0 +1,24 @@
+
+
+.Text404Container{
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url('../../../assets/background.png') !important;
+  
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.Text404{
+    font-family: Inter, sans-serif;
+    font-size:56px;
+    line-height: 56px;
+    font-weight: 600;
+    text-align: center;
+    user-select: none;
+}

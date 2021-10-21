@@ -148,7 +148,7 @@ const QuestionContainer: FC<Props> = ({
         justifyContent="center"
         marginBottom="32px"
       >
-        <Image src={topCircle} zIndex="-1" position="absolute" />
+        <Image src={topCircle} zIndex="-1" position="absolute" top="0px" />
         <Flex alignItems="center" justifyContent="center" marginRight="10px">
           <CircularProgress
             value={Math.round(

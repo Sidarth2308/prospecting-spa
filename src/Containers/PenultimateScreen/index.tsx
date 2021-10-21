@@ -35,6 +35,7 @@ type Props = {
 const percentageConstant = 100;
 
 import topCircle from '../../assets/top-semicircle.svg';
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const PenultimateScreen: React.FC<Props> = ({
   progressData,
@@ -44,6 +45,7 @@ const PenultimateScreen: React.FC<Props> = ({
   emailSetter,
   showFloat,
 }) => {
+  const notDisabled = email.selected && !regexEmail.test(email.email);
   if (showFloat) {
     return (
       <Flex className="Loading-Container">
@@ -145,9 +147,11 @@ const PenultimateScreen: React.FC<Props> = ({
         placeholder="Enter your email"
       />
       <button
-        className="Starting-Button"
+        className={notDisabled ? 'Starting-ButtonDisabled' : 'Starting-Button'}
         onClick={(): void => {
-          endSetter(true);
+          if (!notDisabled) {
+            endSetter(true);
+          }
         }}
       >
         Get My Report

@@ -7,6 +7,7 @@ import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import {extendTheme, ThemeConfig} from '@chakra-ui/react';
+import NotFound from './Pages/not-found';
 const config: ThemeConfig = {
   initialColorMode: 'light',
   useSystemColorMode: false,
@@ -24,6 +25,9 @@ function App(): JSX.Element {
             </Route>
             <Route path="/report/:reportID">
               <Report />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </Router>
