@@ -6,10 +6,17 @@ import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
+import {extendTheme, ThemeConfig} from '@chakra-ui/react';
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+};
+const theme = extendTheme({config});
+
 function App(): JSX.Element {
   return (
     <DndProvider options={HTML5toTouch}>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Router>
           <Switch>
             <Route path="/" exact>
