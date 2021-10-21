@@ -24,7 +24,7 @@
   text-align: center;
   font-weight: 600;
   color: #191c2c;
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 }
 .LeftElementDisabled {
   cursor: not-allowed;
@@ -34,7 +34,7 @@
   opacity: 0.4;
   color: #191c2c;
   user-select: none;
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 }
 .LeftElementDisabled {
   align-items: center;
@@ -73,7 +73,7 @@
   line-height: 26px;
   text-align: center;
   color: #ffffff;
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 }
 .RightElementDisabled {
   width: 100%;
@@ -90,7 +90,7 @@
 }
 
 .NumberText {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 
   color: #ffffff;
 }

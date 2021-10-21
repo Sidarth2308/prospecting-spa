@@ -23,7 +23,7 @@
   width: 100%;
 }
 .Final-TopHeadingText-bold {
-  font-family: Poppins, "sans-serif";
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -32,7 +32,7 @@
   color: #191c2c;
 }
 .Final-TopHeadingText {
-  font-family: Poppins, "sans-serif";
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-size: 14px;
   line-height: 20px;
@@ -40,7 +40,7 @@
   color: #191c2c;
 }
 .Final-SectionHeading {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
@@ -50,7 +50,7 @@
   color: #000000;
 }
 .Final-SectionSubheading {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -70,7 +70,7 @@
   border-radius: 50%;
 }
 .Final-CrownIconsNumber {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 38px;
@@ -79,7 +79,7 @@
   margin-bottom: 3px;
 }
 .Final-CrownIconsText {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 0.8vw;
@@ -87,7 +87,7 @@
   color: #fff;
 }
 .Final-SectionSideMainHeading {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
@@ -96,7 +96,7 @@
 }
 
 .Final-SectionSideMainText {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: normal;
   max-width: 641px;
@@ -105,7 +105,7 @@
   color: #191c2c;
 }
 .Final-SectionSideSubHeading {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
@@ -113,7 +113,7 @@
   color: #5d23e9;
 }
 .Final-SectionSideSubText {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   max-width: 641px;
   font-weight: normal;
@@ -133,14 +133,14 @@
 
 .Final-Section2MainHeading {
   color: #5d23e9;
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 45px;
   line-height: 54px;
 }
 .Final-Section2SubHeading {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -148,7 +148,7 @@
   color: #191c2c;
 }
 .Final-Section2SubText {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -157,7 +157,7 @@
   opacity: 0.8;
 }
 .Final-Section2BottomText {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -173,7 +173,7 @@
 }
 
 .Final-LegendText{
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -239,7 +239,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
@@ -247,7 +247,7 @@
   margin-bottom: 16px;
 }
 .Final-FooterSubHeading {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -267,7 +267,7 @@
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.3);
 
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -285,7 +285,7 @@
   border: 1px solid #ffffff;
   background: #FFFFFF;
 
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -301,7 +301,7 @@
 
 
 .Final-OptionText {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -310,7 +310,7 @@
   color: #ffffff;
 }
 .Final-OptionText-Selected {
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -356,7 +356,7 @@
 }
 
 .Final-ActionSteps{
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
@@ -367,7 +367,7 @@ color: #FFFFFF;
 opacity: 0.5;
 }
 .Final-FooterSelectedHeading{
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 font-style: normal;
 font-weight: 500;
 font-size: 28px;
@@ -388,7 +388,7 @@ color: #FFFFFF;
   margin-top : 14px;
 }
 .Final-FooterText{
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 20px;
@@ -411,7 +411,7 @@ color: #FFFFFF;
   width: 100%;
 }
 .Final-Link{
-  font-family: Inter, "sans-serif";
+  font-family: Inter, sans-serif;
 font-style: normal;
 font-weight: 600;
 font-size: 18px;
