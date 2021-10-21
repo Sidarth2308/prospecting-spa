@@ -126,6 +126,8 @@
   }
   .LeftElementDisabled {
     width: 130px;
+  font-size: 16px;
+  line-height: 20px;
   }
   .LeftElement {
     width: 130px;
@@ -143,10 +145,6 @@
   width: 370px;
 }
 .LeftElementText {
-  font-size: 16px;
-  line-height: 20px;
-}
-.LeftElementDisabled {
   font-size: 16px;
   line-height: 20px;
 }
