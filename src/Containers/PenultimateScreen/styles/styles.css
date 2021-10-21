@@ -7,7 +7,7 @@
     margin-top:40px;
     margin-bottom : 40px;
     text-align: center;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -22,7 +22,7 @@
 
 .Ending-InputBox:-moz-placeholder{
 text-align: center;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -31,7 +31,7 @@ text-align: center;
 }
 .Ending-InputBox::-webkit-input-placeholder{
     text-align: center;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -49,7 +49,7 @@ text-align: center;
 }
 .Loading-Text{
     text-align: center;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
