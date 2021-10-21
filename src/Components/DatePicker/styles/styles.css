@@ -7,7 +7,7 @@
   margin-bottom: 15px;
 }
 .DatePickerHeadline {
-  font-family: Inter;
+  font-family: Inter, "sans-serif";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -26,7 +26,7 @@
   width: 100%;
 }
 .DisplayNumber {
-  font-family: Inter;
+  font-family: Inter, "sans-serif";
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -63,7 +63,7 @@ border-radius: 17px;
   align-items:center;
   justify-content: center;
 
-  font-family: Inter;
+  font-family: Inter, "sans-serif";
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
@@ -86,7 +86,7 @@ color: #000000;
   align-items:center;
   justify-content: center;
 
-  font-family: Inter;
+  font-family: Inter, "sans-serif";
 font-style: normal;
 font-weight: 600;
 font-size: 24px;

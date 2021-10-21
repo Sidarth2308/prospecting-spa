@@ -17,7 +17,7 @@
     align-items:center;
 }
 .Starting-HeadingText{
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: bold;
     font-size: 48px;
@@ -26,7 +26,7 @@
     color: #000000;
 }
 .Starting-SubText{
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: normal;
     font-size: 34px;
@@ -39,7 +39,7 @@
     border-radius: 16px;
     padding : 19px 30px;
 
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -54,7 +54,7 @@
     border-radius: 16px;
     padding : 19px 90px;
     cursor: not-allowed;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -65,7 +65,7 @@
     margin-bottom : 38px;
 }
 .Starting-MiniText{
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -82,7 +82,7 @@
     margin-top:80px;
     margin-bottom : 40px;
     text-align: center;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -97,7 +97,7 @@
 
 .Starting-InputBox:-moz-placeholder{
 text-align: center;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -106,7 +106,7 @@ text-align: center;
 }
 .Starting-InputBox::-webkit-input-placeholder{
     text-align: center;
-    font-family: Inter;
+    font-family: Inter, "sans-serif";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
