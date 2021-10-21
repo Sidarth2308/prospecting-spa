@@ -51,6 +51,14 @@ const SectionScoreCalculator: (
   answers: Section,
   results: (string | string[])[]
 ) => number = (answers: Section, results: (string | string[])[]) => {
+  /**
+   * Returns the accumulated value of all the scores of the first and second Section.
+   *
+   * @param answers - A list of question types and their answer score and other info.(Type Section)
+   * @param results - The list of answers submitted by the user.
+   * @returns A single integer number denoting the total accumulated score.
+   *
+   */
   let accumulator = 0;
   answers.forEach((questionData, index) => {
     if (questionData.type === 'options') {
@@ -119,7 +127,6 @@ const SectionScoreCalculator: (
     } else {
       accumulator = accumulator + No_Value;
     }
-
     // Console.log(accumulator, results[index]);
   });
   return accumulator;
@@ -129,6 +136,16 @@ const Section3ScoreCalculator: (
   answers: Section,
   results: (string | string[])[]
 ) => number[] = (answers: Section, results: (string | string[])[]) => {
+  /**
+   * Returns the accumulated Positive and Negative values of all the scores of the
+   * third section.
+   *
+   * @param answers - A list of question types and their answer score and other info. (Type Section)
+   * @param results - The list of answers submitted by the user.
+   * @returns A number Array with 2 integers, the first one being all the positive accumulation and the second one being all the negative accumulation.
+   *
+   */
+
   let PositiveAccumulator = 0;
   let NegativeAccumulator = 0;
   answers.forEach((questionData, index) => {
@@ -167,6 +184,15 @@ const Section4ScoreCalculator: (
   answers: Section,
   results: (string | string[])[]
 ) => number = (answers: Section, results: (string | string[])[]) => {
+  /**
+   * Returns the accumulated values of all the scores of the
+   * fourth section.
+   *
+   * @param answers - A list of question types and their answer score and other info. (Type Section)
+   * @param results - The list of answers submitted by the user.
+   * @returns A single integer number denoting the total accumulated score.
+   *
+   */
   let accumulator = 0;
   answers.forEach((questionData, index) => {
     if (questionData.type === 'slider') {
@@ -187,6 +213,16 @@ const Section1Formula: (
   answers: Section,
   results: (string | string[])[]
 ) => number = (answers: Section, results: (string | string[])[]) => {
+  /**
+   * Returns the total Optimism score after applying the given formula
+   *
+   * @param answers - A list of question types and their answer score and other info. (Type Section)
+   * @param results - The list of answers submitted by the user.
+   * @returns A single integer number denoting the total Optimism score.
+   *
+   * Here accumulator is the accumulated value of the section.
+   *
+   */
   const accumulator = SectionScoreCalculator(answers, results);
   const defaultCalculation = accumulator - SubtractionConstant;
   const SectionScore = Math.round(
@@ -199,6 +235,17 @@ const Section2Formula: (
   answers: Section,
   results: (string | string[])[]
 ) => number = (answers: Section, results: (string | string[])[]) => {
+  /**
+   * Returns the total Regret Aversion score after applying the given formula
+   *
+   * @param answers - A list of question types and their answer score and other info. (Type Section)
+   * @param results - The list of answers submitted by the user.
+   * @returns A single integer number denoting the total Regret Aversion score.
+   *
+   * Here accumulator is the accumulated value of the section.
+   *
+   */
+
   const accumulator = SectionScoreCalculator(answers, results);
   const defaultCalculation =
     (SubtractionConstant / DivisionConstant) * PercentageConstant;
@@ -210,6 +257,16 @@ const Section3Formula: (
   answers: Section,
   results: (string | string[])[]
 ) => number[] = (answers: Section, results: (string | string[])[]) => {
+  /**
+   * Returns An array containing Promotion and Prevention score after applying the given formula
+   *
+   * @param answers - A list of question types and their answer score and other info. (Type Section)
+   * @param results - The list of answers submitted by the user.
+   * @returns An integer array where the first element is Promotion Score and the second element is Prevention Score.
+   *
+   * Here accumulator is the accumulated Positive and Negative values of the section.
+   *
+   */
   const accumulatorArray = Section3ScoreCalculator(answers, results);
   const PromotionScore = Math.round(
     (accumulatorArray[First_Index] /
@@ -233,6 +290,17 @@ export const Section4Formula: (
   answers: Section,
   results: (string | string[])[]
 ) => number[] = (answers: Section, results: (string | string[])[]) => {
+  /**
+   * Returns An array containing Satisfice and Maximize score after applying the given formula
+   *
+   * @param answers - A list of question types and their answer score and other info. (Type Section)
+   * @param results - The list of answers submitted by the user.
+   * @returns An integer array where the first element is  Satisfice Score and the second element is Maximize Score.
+   *
+   * Here accumulator is the accumulated value of the section.
+   *
+   */
+
   // ROUND((8-J65)/7*100,0)
   const accumulator = Section4ScoreCalculator(answers, results);
   const Satisfice = Math.round(
