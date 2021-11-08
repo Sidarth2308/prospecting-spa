@@ -69,96 +69,106 @@ const PenultimateScreen: React.FC<Props> = ({
     );
   }
   return (
-    <Flex className="MainContainer">
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        marginTop="20px"
-        marginBottom="32px"
-      >
-        <Image src={topCircle} zIndex="-1" position="absolute" />
-        <Flex alignItems="center" justifyContent="center" marginRight="10px">
-          <CircularProgress
-            value={Math.round(
-              (progressData.counter / progressData.total) * percentageConstant
-            )}
-            color="#775ef0"
-          >
-            <CircularProgressLabel color="#fff">
-              <b style={{color: '#fff'}}>
-                {Math.round(
+    <Flex className="Penultimate-Container">
+      <Flex className="Penultimate-Container-Secondary">
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          marginTop="20px"
+          marginBottom="32px"
+        >
+          <Image src={topCircle} zIndex="-1" position="absolute" top="0px" />
+          <Flex position="absolute" top="30px" alignItems="center">
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              marginRight="10px"
+            >
+              <CircularProgress
+                value={Math.round(
                   (progressData.counter / progressData.total) *
                     percentageConstant
                 )}
-                %
-              </b>
-            </CircularProgressLabel>
-          </CircularProgress>
+                color="#775ef0"
+              >
+                <CircularProgressLabel color="#fff">
+                  <b style={{color: '#fff'}}>
+                    {Math.round(
+                      (progressData.counter / progressData.total) *
+                        percentageConstant
+                    )}
+                    %
+                  </b>
+                </CircularProgressLabel>
+              </CircularProgress>
+            </Flex>
+            <Flex direction="column">
+              <Text className="PercentageHeading" color="#fff">
+                {progressData.heading}
+              </Text>
+            </Flex>
+          </Flex>
         </Flex>
-        <Flex direction="column">
-          <Text className="PercentageHeading" color="#fff">
-            {progressData.heading}
-          </Text>
-        </Flex>
-      </Flex>
-      <Flex className="HeadingContainer">
-        {data.preface !== '' && (
+        <Flex className="HeadingContainer">
+          {data.preface !== '' && (
+            <Text
+              fontSize={['14px', '14px', '19px']}
+              lineHeight={['20px', '24px', '32px']}
+              className="HeadingQuestionDescription"
+            >
+              {data.preface}
+            </Text>
+          )}
+
+          <div
+            style={{
+              width: '100%',
+              maxWidth: '1000px',
+              borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
+            }}
+          ></div>
           <Text
-            fontSize={['14px', '14px', '19px']}
-            lineHeight={['20px', '24px', '32px']}
-            className="HeadingQuestionDescription"
+            fontSize={['22px', '28px', '34px']}
+            lineHeight={['30px', '32px', '48px']}
+            className="HeadingQuestion"
           >
-            {data.preface}
+            {data.body}
           </Text>
-        )}
+        </Flex>
 
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '1000px',
-            borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
+        <input
+          className="Ending-InputBox"
+          value={email.email}
+          onChange={(event): void => {
+            if (event.target.value === '') {
+              emailSetter({
+                selected: false,
+                email: '',
+              });
+            } else {
+              emailSetter({
+                selected: true,
+                email: event.target.value,
+              });
+            }
           }}
-        ></div>
-        <Text
-          fontSize={['22px', '28px', '34px']}
-          lineHeight={['30px', '32px', '48px']}
-          className="HeadingQuestion"
+          placeholder="Enter your email"
+        />
+        <button
+          className={
+            notDisabled ? 'Starting-ButtonDisabled' : 'Starting-Button'
+          }
+          onClick={(): void => {
+            if (!notDisabled) {
+              endSetter(true);
+            }
+          }}
         >
-          {data.body}
-        </Text>
+          Get My Report
+        </button>
       </Flex>
-
-      <input
-        className="Ending-InputBox"
-        value={email.email}
-        onChange={(event): void => {
-          if (event.target.value === '') {
-            emailSetter({
-              selected: false,
-              email: '',
-            });
-          } else {
-            emailSetter({
-              selected: true,
-              email: event.target.value,
-            });
-          }
-        }}
-        placeholder="Enter your email"
-      />
-      <button
-        className={notDisabled ? 'Starting-ButtonDisabled' : 'Starting-Button'}
-        onClick={(): void => {
-          if (!notDisabled) {
-            endSetter(true);
-          }
-        }}
-      >
-        Get My Report
-      </button>
       <Image
-        opacity="1"
-        zIndex="-10"
+        opacity="0.8"
         position="absolute"
         bottom="0px"
         width="400"

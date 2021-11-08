@@ -34,7 +34,7 @@ export const First_Index = 0;
 const Second_Index = 1;
 export const Third_Index = 2;
 const No_Value = 0;
-export const Divide_Half_Value = 2;
+const Divide_Half_Value = 2;
 
 type Section = {
   id: number;
@@ -127,7 +127,7 @@ const SectionScoreCalculator: (
     } else {
       accumulator = accumulator + No_Value;
     }
-    // Console.log(accumulator, results[index]);
+    // console.log(accumulator, results[index], questionData.type);
   });
   return accumulator;
 };

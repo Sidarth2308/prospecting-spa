@@ -27,6 +27,16 @@ const IMAGE_SCALING_SMALL = 0.75;
 const IMAGE_SCALING_LARGE = 1;
 
 const RadioButton: FC<Props> = ({options, graphic, dimension, handleNext}) => {
+  /**
+   *React functional component which renders the option select question
+   * @param options - The options for the question
+   * @param graphic- The image associated with the question
+   * @param dimension- The dimensions of the image
+   * @param handleNext- Function to be triggered when an option is selected
+   *
+   * @returns Returns a react functional component which renders the option select question
+   *
+   */
   const valueFromContext = useContext(StateContext);
   return (
     <Box>
@@ -87,6 +97,16 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
   handleNext,
   dimension,
 }) => {
+  /**
+   *React functional component which renders the option select question
+   * @param options - The options for the question
+   * @param graphic- The image associated with the question
+   * @param dimension- The dimensions of the image
+   * @param handleNext- Function to be triggered when an option is selected
+   *
+   * @returns Returns a react functional component which renders the option select question
+   *
+   */
   const isMobile = useMediaQuery({query: '(max-width: 800px)'});
   const valueFromContext = useContext(StateContext);
   return (

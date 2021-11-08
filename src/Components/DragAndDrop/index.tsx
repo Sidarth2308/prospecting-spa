@@ -65,6 +65,14 @@ const ItemTypes = {
 };
 
 const DragAndDrop: React.FC<Props> = ({data}) => {
+  /**
+   *React functional component which renders the Drag and drop question
+   *
+   * @param data - The question data and the fields which are to be dragged from left to right
+   * @returns Returns a react functional component which renders the Drag and drop question
+   *
+   */
+
   const valueFromContext = useContext(StateContext);
   const [leftData, setLeftData] = useState(LeftDataRearrange(data));
   const [rightData, setRightData] = useState(RightDataRearrange(data));
@@ -81,6 +89,13 @@ const DragAndDrop: React.FC<Props> = ({data}) => {
     item: {id: string; value: string; active: boolean; source: string},
     index: number
   ) => {
+    /**
+     *Function which changes the data according to the drag and drop
+     *
+     * @param item - The item that was dragged and dropped
+     * @param index- The index at which the item was dropped
+     *
+     */
     const source = item.source;
     if (index === NULL_INDEX) {
       const newRightData = rightData;

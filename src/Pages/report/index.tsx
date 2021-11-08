@@ -94,8 +94,6 @@ const Report: React.FC = () => {
     // Const SectionScores = [[57], [49], [25, 75], [43, 57]];
     return SectionScores;
   };
-  console.log(reportData);
-
   return (
     <Box className="ResultContainer">
       {reportData.fetched ? (

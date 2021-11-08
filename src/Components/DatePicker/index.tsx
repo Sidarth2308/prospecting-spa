@@ -22,6 +22,13 @@ const FOURTH_INDEX = 3;
 const LAST_INDEX = 3;
 
 const DatePicker: React.FC = () => {
+  /**
+   *React functional component which renders the date picker question.
+   *
+   * @returns Returns a react functional component which renders the date picker question.
+   *
+   */
+
   const valueFromContext = useContext(StateContext);
   const [selectedWeek, setSelectedWeek] = useState(() => {
     if (valueFromContext !== null) {

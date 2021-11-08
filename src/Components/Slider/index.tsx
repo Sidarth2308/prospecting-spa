@@ -112,6 +112,14 @@ const checkUndefined: (value: string | undefined) => string = (
 };
 
 export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
+  /**
+   *React functional component which renders the slider questions.
+   * @param graphic- The image associated with the question
+   * @param dimension- The dimensions of the image
+   *
+   * @returns Returns a react functional component which renders the slider questions.
+   *
+   */
   const valueFromContext = useContext(StateContext);
   const isMobile = useMediaQuery({query: '(max-width: 770px)'});
   let val = HIGH_VALUE;
@@ -306,6 +314,17 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
   dimension,
   options,
 }) => {
+  /**
+   *React functional component which renders the slider questions.
+   * @param options- The left and right side of the slider text
+   * @param graphic1- The image associated with the question
+   * @param graphic2- The image associated with the question
+   * @param graphic3- The image associated with the question
+   * @param dimension- The dimensions of the image
+   *
+   * @returns Returns a react functional component which renders the slider questions.
+   *
+   */
   const valueFromContext = useContext(StateContext);
   let val = 40;
   if (valueFromContext !== null) {
@@ -420,6 +439,16 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
   slider,
   options,
 }) => {
+  /**
+   *React functional component which renders the slider questions.
+   * @param options- The left and right side of the slider text
+   * @param graphic- The image associated with the question
+   * @param slider The slider information and max value
+   * @param dimension- The dimensions of the image
+   *
+   * @returns Returns a react functional component which renders the slider questions.
+   *
+   */
   const valueFromContext = useContext(StateContext);
   let val = SECONDARY_SLIDER_VALUE;
   if (valueFromContext !== null) {
