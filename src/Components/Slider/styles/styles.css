@@ -63,3 +63,19 @@
   /* C */
   color: #191c2c;
 }
+@media (max-width: 480px) {
+  .DarkAnnotation {
+    padding: 6px 12px;
+  
+    font-size: 12px;
+    line-height: 15px;
+  }
+  
+  .DarkAnnotation-side {
+    padding: 6px 12px;
+  
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+}

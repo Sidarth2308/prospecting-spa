@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 /* eslint-disable radix */
 /* eslint-disable node/no-extraneous-import */
 /* eslint-disable no-use-before-define */
@@ -82,13 +83,15 @@ const MULTIPLICATION_CONSTANT_LARGE = 0.4;
 const IMAGE_SCALING_SMALL = 0.75;
 const IMAGE_SCALING_LARGE = 1;
 const IMAGE_SCALING_EXTRA_SMALL = 0.5;
+const SUBTRACTION_CONSTANT = 10;
 
 const LOW_VALUE = -50;
 const MID_VALUE = 0;
 const HIGH_VALUE = 50;
 const DIVISION_CONSTANT = 3;
 const DECIMAL_CONSTANT = 0.1;
-const NEW_DECIMAL_CONSTANT = 0.7;
+const NEW_DECIMAL_CONSTANT_1 = 0.4;
+const NEW_DECIMAL_CONSTANT_2 = 0.6;
 
 // ValueFromContext?.answers[valueFromContext.counter]  || 50
 
@@ -143,10 +146,16 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
             className="DarkAnnotation"
             style={{
               bottom: isMobile
-                ? `${LEFT_BOX_BOTTOM * NEW_DECIMAL_CONSTANT - val}px`
+                ? `${
+                    LEFT_BOX_BOTTOM * NEW_DECIMAL_CONSTANT_2 -
+                    val * NEW_DECIMAL_CONSTANT_2
+                  }px`
                 : `${LEFT_BOX_BOTTOM - val}px`,
               left: isMobile
-                ? `${LEFT_BOX_LEFT * NEW_DECIMAL_CONSTANT - val}px`
+                ? `${
+                    LEFT_BOX_LEFT * NEW_DECIMAL_CONSTANT_1 -
+                    val * NEW_DECIMAL_CONSTANT_1
+                  }px`
                 : `${LEFT_BOX_LEFT - val}px`,
             }}
           >
@@ -159,10 +168,16 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
             className="AnnotationArrow"
             style={{
               bottom: isMobile
-                ? `${LEFT_ARROW_BOTTOM * NEW_DECIMAL_CONSTANT - val}px`
+                ? `${
+                    LEFT_ARROW_BOTTOM * NEW_DECIMAL_CONSTANT_2 -
+                    val * NEW_DECIMAL_CONSTANT_2
+                  }px`
                 : `${LEFT_ARROW_BOTTOM - val}px`,
               left: isMobile
-                ? `${LEFT_ARROW_LEFT * NEW_DECIMAL_CONSTANT - val}px`
+                ? `${
+                    LEFT_ARROW_LEFT * NEW_DECIMAL_CONSTANT_1 -
+                    val * NEW_DECIMAL_CONSTANT_1
+                  }px`
                 : `${LEFT_ARROW_LEFT - val}px`,
             }}
           />
@@ -173,10 +188,16 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
             className="DarkAnnotation-side"
             style={{
               bottom: isMobile
-                ? `${RIGHT_BOX_BOTTOM * NEW_DECIMAL_CONSTANT + val}px`
+                ? `${
+                    RIGHT_BOX_BOTTOM * NEW_DECIMAL_CONSTANT_2 +
+                    val * NEW_DECIMAL_CONSTANT_2
+                  }px`
                 : `${RIGHT_BOX_BOTTOM + val}px`,
               right: isMobile
-                ? `${RIGHT_BOX_RIGHT * NEW_DECIMAL_CONSTANT + val}px`
+                ? `${
+                    RIGHT_BOX_RIGHT * NEW_DECIMAL_CONSTANT_1 +
+                    val * NEW_DECIMAL_CONSTANT_1
+                  }px`
                 : `${RIGHT_BOX_RIGHT + val}px`,
             }}
           >
@@ -189,10 +210,16 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
             className="AnnotationArrow-side"
             style={{
               bottom: isMobile
-                ? `${RIGHT_ARROW_BOTTOM * NEW_DECIMAL_CONSTANT + val}px`
+                ? `${
+                    RIGHT_ARROW_BOTTOM * NEW_DECIMAL_CONSTANT_2 +
+                    val * NEW_DECIMAL_CONSTANT_2
+                  }px`
                 : `${RIGHT_ARROW_BOTTOM + val}px`,
               right: isMobile
-                ? `${RIGHT_ARROW_RIGHT * NEW_DECIMAL_CONSTANT + val}px`
+                ? `${
+                    RIGHT_ARROW_RIGHT * NEW_DECIMAL_CONSTANT_1 +
+                    val * NEW_DECIMAL_CONSTANT_1
+                  }px`
                 : `${RIGHT_ARROW_RIGHT + val}px`,
             }}
           />
@@ -352,7 +379,10 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           // Right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic1}
-          opacity={((val - LOW_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
+          opacity={
+            ((val - SUBTRACTION_CONSTANT - LOW_VALUE) / DIVISION_CONSTANT) *
+            DECIMAL_CONSTANT
+          }
           height={dimension[SECOND_INDEX]}
           width={dimension[FIRST_INDEX]}
         />
@@ -366,7 +396,10 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           // Right={['8%', '22%', '30%']}
           position="absolute"
           src={graphic3}
-          opacity={((val - MID_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
+          opacity={
+            ((val - SUBTRACTION_CONSTANT - MID_VALUE) / DIVISION_CONSTANT) *
+            DECIMAL_CONSTANT
+          }
           height={dimension[SECOND_INDEX]}
           width={dimension[FIRST_INDEX]}
         />
@@ -378,7 +411,10 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
           marginLeft="auto"
           // Right={['5%', '22%', '30%']}
           position="absolute"
-          opacity={((val - HIGH_VALUE) / DIVISION_CONSTANT) * DECIMAL_CONSTANT}
+          opacity={
+            ((val - SUBTRACTION_CONSTANT - HIGH_VALUE) / DIVISION_CONSTANT) *
+            DECIMAL_CONSTANT
+          }
           src={graphic2}
           height={dimension[SECOND_INDEX]}
           width={dimension[FIRST_INDEX]}
@@ -443,7 +479,7 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
    *React functional component which renders the slider questions.
    * @param options- The left and right side of the slider text
    * @param graphic- The image associated with the question
-   * @param slider The slider information and max value
+   * @param slider- The slider information and max value
    * @param dimension- The dimensions of the image
    *
    * @returns Returns a react functional component which renders the slider questions.

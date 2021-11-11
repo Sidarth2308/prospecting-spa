@@ -101,3 +101,23 @@ color: #fff;
 background: #A782E9;
 
 }
+
+@media (max-width: 600px) {
+  .DateNumber-2{
+    width : 80px;
+    height: 50px;
+  font-size: 20px;
+  line-height: 25px;
+  }
+  
+  
+  .DateNumberSelected-2{
+    width : 80px;
+    height: 50px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  
+  
+  }
+}

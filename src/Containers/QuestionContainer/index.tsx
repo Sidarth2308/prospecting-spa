@@ -141,55 +141,62 @@ const QuestionContainer: FC<Props> = ({
     valueFromContext?.answers[section][counter]
   );
   return (
-    <Flex className="MainContainer">
-      <Flex
-        alignItems="center"
-        marginTop="20px"
-        justifyContent="center"
-        marginBottom="32px"
-      >
-        <Image src={topCircle} zIndex="-1" position="absolute" top="0px" />
-        <Flex alignItems="center" justifyContent="center" marginRight="10px">
-          <CircularProgress
-            value={Math.round(
-              ((progressData.counter - INCREMENT_DECREMENT) /
-                progressData.total) *
-                percentageConstant
-            )}
-            color="#5D23E9"
-          >
-            <CircularProgressLabel color="#fff">
-              <b>
-                {Math.round(
+    <Flex className="Penultimate-Container">
+      <Flex className="Penultimate-Container-Secondary">
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          marginTop="20px"
+          marginBottom="60px"
+        >
+          <Image src={topCircle} zIndex="-1" position="absolute" top="0px" />
+          <Flex position="absolute" top="30px" alignItems="center">
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              marginRight="10px"
+            >
+              <CircularProgress
+                value={Math.round(
                   ((progressData.counter - INCREMENT_DECREMENT) /
                     progressData.total) *
                     percentageConstant
                 )}
-                %
-              </b>
-            </CircularProgressLabel>
-          </CircularProgress>
+                color="#5D23E9"
+              >
+                <CircularProgressLabel color="#fff">
+                  <b>
+                    {Math.round(
+                      ((progressData.counter - INCREMENT_DECREMENT) /
+                        progressData.total) *
+                        percentageConstant
+                    )}
+                    %
+                  </b>
+                </CircularProgressLabel>
+              </CircularProgress>
+            </Flex>
+            <Flex direction="column">
+              <Text className="PercentageHeading" color="#fff">
+                {progressData.heading}
+              </Text>
+              <Text fontSize="sm" className="Percentage" color="#fff">
+                Question {progressData.counter}/{progressData.total}
+              </Text>
+            </Flex>
+          </Flex>
         </Flex>
-        <Flex direction="column">
-          <Text className="PercentageHeading" color="#fff">
-            {progressData.heading}
-          </Text>
-          <Text fontSize="sm" className="Percentage" color="#fff">
-            Question {progressData.counter}/{progressData.total}
-          </Text>
-        </Flex>
-      </Flex>
-      <Flex className="HeadingContainer">
-        {data.preface !== '' && (
-          <Text
-            fontSize={['14px', '14px', '19px']}
-            lineHeight={['20px', '24px', '32px']}
-            className="HeadingQuestionDescription"
-          >
-            {data.preface}
-          </Text>
-        )}
-        {data.elements[First_Index]?.question_type !== 'dragdrop' && (
+        <Flex className="HeadingContainer">
+          {data.preface !== '' && (
+            <Text
+              fontSize={['14px', '14px', '19px']}
+              lineHeight={['20px', '24px', '32px']}
+              className="HeadingQuestionDescription"
+            >
+              {data.preface}
+            </Text>
+          )}
+
           <div
             style={{
               width: '100%',
@@ -197,16 +204,14 @@ const QuestionContainer: FC<Props> = ({
               borderBottom: '2px solid rgba(202, 201, 209, 0.44)',
             }}
           ></div>
-        )}
-
-        <Text
-          fontSize={['22px', '28px', '34px']}
-          lineHeight={['30px', '32px', '48px']}
-          className="HeadingQuestion"
-          minHeight="100px"
-        >
-          {data.body}
-        </Text>
+          <Text
+            fontSize={['22px', '28px', '34px']}
+            lineHeight={['30px', '32px', '48px']}
+            className="HeadingQuestion"
+          >
+            {data.body}
+          </Text>
+        </Flex>
       </Flex>
       <QuestionType
         handleNext={handleNext}

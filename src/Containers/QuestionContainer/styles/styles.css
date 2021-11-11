@@ -70,12 +70,13 @@
 
   font-style: normal;
   font-weight: bold;
+  padding : 10px;
   white-space: pre-line;
 }
 .HeadingQuestionDescription {
   font-family: Inter, sans-serif;
   font-style: normal;
-
+  padding: 10px;
   max-width: 1040px;
   font-weight: 500;
   white-space: pre-line;
