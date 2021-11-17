@@ -161,12 +161,7 @@ const FinalScreen: React.FC<Props> = ({
           </Flex>
         </Flex>
         <Flex alignItems="center" justifyContent="center">
-          <Image
-            position="relative"
-            bottom="50px"
-            userSelect="none"
-            src={scrollIcon}
-          />
+          <Image position="relative" userSelect="none" src={scrollIcon} />
         </Flex>
       </Flex>
       <Flex id="Section-2">

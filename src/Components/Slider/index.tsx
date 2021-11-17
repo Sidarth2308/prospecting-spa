@@ -135,7 +135,10 @@ export const SliderComponent: FC<Props> = ({graphic, dimension}) => {
     );
   }
   return (
-    <Box marginTop="244px" marginBottom="48px">
+    <Box
+      marginTop={isMobile ? '100px' : '244px'}
+      marginBottom={isMobile ? '30px' : '48px'}
+    >
       <Flex
         position="relative"
         alignItems="flex-end"
@@ -352,6 +355,7 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
    * @returns Returns a react functional component which renders the slider questions.
    *
    */
+  const isMobile = useMediaQuery({query: '(max-width: 770px)'});
   const valueFromContext = useContext(StateContext);
   let val = 40;
   if (valueFromContext !== null) {
@@ -363,7 +367,10 @@ export const SliderComponentWithTransition: FC<TransitionProps> = ({
     );
   }
   return (
-    <Box marginTop="224px" marginBottom="44px">
+    <Box
+      marginTop={isMobile ? '160px' : '224px'}
+      marginBottom={isMobile ? '30px' : '44px'}
+    >
       <Flex
         position="relative"
         alignItems="flex-end"
@@ -485,6 +492,7 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
    * @returns Returns a react functional component which renders the slider questions.
    *
    */
+  const isMobile = useMediaQuery({query: '(max-width: 770px)'});
   const valueFromContext = useContext(StateContext);
   let val = SECONDARY_SLIDER_VALUE;
   if (valueFromContext !== null) {
@@ -496,7 +504,10 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
     );
   }
   return (
-    <Box marginTop="280px" marginBottom="62px">
+    <Box
+      marginTop={isMobile ? '160px' : '280px'}
+      marginBottom={isMobile ? '30px' : '62px'}
+    >
       <Flex
         position="relative"
         alignItems="flex-end"

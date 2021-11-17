@@ -75,7 +75,7 @@ const PenultimateScreen: React.FC<Props> = ({
           alignItems="center"
           justifyContent="center"
           marginTop="20px"
-          marginBottom="32px"
+          marginBottom="70px"
         >
           <Image src={topCircle} zIndex="-1" position="absolute" top="0px" />
           <Flex position="absolute" top="30px" alignItems="center">
