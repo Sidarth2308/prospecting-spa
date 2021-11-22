@@ -505,7 +505,7 @@ export const SliderComponentWithNotation: FC<NotationProps> = ({
   }
   return (
     <Box
-      marginTop={isMobile ? '160px' : '280px'}
+      marginTop={isMobile ? '120px' : '280px'}
       marginBottom={isMobile ? '30px' : '62px'}
     >
       <Flex

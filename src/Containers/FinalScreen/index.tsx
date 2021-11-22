@@ -62,13 +62,13 @@ const FinalScreen: React.FC<Props> = ({
   name,
   email,
 }) => {
-  const isMobile = useMediaQuery({query: '(max-width: 800px)'});
+  const isMobile = useMediaQuery({query: '(max-width: 1050px)'});
   const [footerOption, setFooterOption] = useState(DndAnswers[FIRST_INDEX]);
   return (
     <Flex className="FinalMainScreen">
       <Flex id="Section-1">
         <Flex className="Final-TopHeadingSection">
-          <Image userSelect="none" src={LogoImage} marginBottom="30px" />
+          <Image className="Final-LogoImage" src={LogoImage} />
           <Flex direction="column">
             <Text className="Final-TopHeadingText-bold">
               This report is generated for{' '}
@@ -166,6 +166,9 @@ const FinalScreen: React.FC<Props> = ({
       </Flex>
       <Flex id="Section-2">
         <Flex alignItems="center" className="Final-Section1MiddleContainer">
+          {isMobile && (
+            <Text className="Final-SectionHeading">Thinking Style</Text>
+          )}
           <Flex className="Final-DonutChart" direction="column">
             <PieChart
               id="pie"
@@ -209,7 +212,7 @@ const FinalScreen: React.FC<Props> = ({
               </Series>
             </PieChart>
 
-            <Flex direction="column" marginTop="40px">
+            <Flex direction="column" marginTop={isMobile ? '10px' : '40px'}>
               <Flex marginBottom="18px">
                 <Flex className="Final-ChartLegend1"></Flex>
                 <Text className="Final-LegendText">Optimism</Text>
@@ -221,11 +224,13 @@ const FinalScreen: React.FC<Props> = ({
             </Flex>
           </Flex>
           <Flex flex="2" direction="column">
-            <Flex className="Final-SectionMiddleTextBoxContainer">
-              <Text className="Final-SectionHeading" marginBottom="30px">
-                Thinking Style
-              </Text>
-            </Flex>
+            {!isMobile && (
+              <Flex className="Final-SectionMiddleTextBoxContainer">
+                <Text className="Final-SectionHeading" marginBottom="30px">
+                  Thinking Style
+                </Text>
+              </Flex>
+            )}
             <Flex
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
@@ -255,7 +260,7 @@ const FinalScreen: React.FC<Props> = ({
                   fear of regretting the outcome.
                 </Text>
               </Flex>
-              <Flex direction="column" className="Final-SectionRight">
+              <Flex direction="column" className="Final-MiddleTextContainer">
                 <Text className="Final-Section2MainHeading">Analysis</Text>
 
                 <Text
@@ -277,7 +282,11 @@ const FinalScreen: React.FC<Props> = ({
                 >
                   What to watch out for
                 </Text>
-                <Text className="Final-Section2SubText" maxWidth="360px">
+                <Text
+                  className="Final-Section2SubText"
+                  marginTop="20px"
+                  maxWidth="360px"
+                >
                   {ThinkingStyleTextCalc2(
                     SectionScores[FIRST_INDEX][FIRST_INDEX],
                     SectionScores[SECOND_INDEX][FIRST_INDEX]
@@ -303,6 +312,9 @@ const FinalScreen: React.FC<Props> = ({
       </Flex>
       <Flex id="Section-3">
         <Flex alignItems="center" className="Final-Section1MiddleContainer">
+          {isMobile && (
+            <Text className="Final-SectionHeading">Decision Style</Text>
+          )}
           <Flex className="Final-DonutChart" direction="column">
             <PieChart
               id="pie"
@@ -346,7 +358,7 @@ const FinalScreen: React.FC<Props> = ({
                 </Label>
               </Series>
             </PieChart>
-            <Flex direction="column" marginTop="40px">
+            <Flex direction="column" marginTop={isMobile ? '10px' : '40px'}>
               <Flex marginBottom="18px">
                 <Flex className="Final-ChartLegend1"></Flex>
                 <Text className="Final-LegendText">Maximizing</Text>
@@ -358,11 +370,14 @@ const FinalScreen: React.FC<Props> = ({
             </Flex>
           </Flex>
           <Flex flex="2" direction="column">
-            <Flex className="Final-SectionMiddleTextBoxContainer">
-              <Text className="Final-SectionHeading" marginBottom="30px">
-                Decision Style
-              </Text>
-            </Flex>
+            {!isMobile && (
+              <Flex className="Final-SectionMiddleTextBoxContainer">
+                <Text className="Final-SectionHeading" marginBottom="30px">
+                  Decision Style
+                </Text>
+              </Flex>
+            )}
+
             <Flex
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"
@@ -438,6 +453,7 @@ const FinalScreen: React.FC<Props> = ({
       </Flex>
       <Flex id="Section-4">
         <Flex className="Final-Section1MiddleContainer">
+          {isMobile && <Text className="Final-SectionHeading">Focus</Text>}
           <Flex className="Final-DonutChart" direction="column">
             <PieChart
               id="pie"
@@ -480,7 +496,7 @@ const FinalScreen: React.FC<Props> = ({
                 </Label>
               </Series>
             </PieChart>
-            <Flex direction="column" marginTop="40px">
+            <Flex direction="column" marginTop={isMobile ? '10px' : '40px'}>
               <Flex marginBottom="18px">
                 <Flex className="Final-ChartLegend1"></Flex>
                 <Text className="Final-LegendText">Prevention</Text>
@@ -492,11 +508,14 @@ const FinalScreen: React.FC<Props> = ({
             </Flex>
           </Flex>
           <Flex flex="2" direction="column">
-            <Flex className="Final-SectionMiddleTextBoxContainer">
-              <Text className="Final-SectionHeading" marginBottom="30px">
-                Focus
-              </Text>
-            </Flex>
+            {!isMobile && (
+              <Flex className="Final-SectionMiddleTextBoxContainer">
+                <Text className="Final-SectionHeading" marginBottom="30px">
+                  Focus
+                </Text>
+              </Flex>
+            )}
+
             <Flex
               marginBottom="60px"
               className="Final-SectionMiddleTextBoxContainer"

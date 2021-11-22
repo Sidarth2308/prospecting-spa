@@ -71,12 +71,7 @@ const PenultimateScreen: React.FC<Props> = ({
   return (
     <Flex className="Penultimate-Container">
       <Flex className="Penultimate-Container-Secondary">
-        <Flex
-          alignItems="center"
-          justifyContent="center"
-          marginTop="20px"
-          marginBottom="70px"
-        >
+        <Flex className="Penultimate-Top-Circle">
           <Image src={topCircle} zIndex="-1" position="absolute" top="0px" />
           <Flex position="absolute" top="30px" alignItems="center">
             <Flex

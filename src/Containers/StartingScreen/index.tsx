@@ -40,9 +40,11 @@ const StartingScreen: React.FC<Props> = ({
         />
         <Flex className="Starting-CenterContainer">
           <Flex direction="column">
-            <Text className="Starting-HeadingText">
-              What factors guide your
-              <br /> financial behavior ?
+            <Text
+              className="Starting-HeadingText"
+              style={{marginBottom: '24px'}}
+            >
+              What factors guide your financial behavior ?
             </Text>
             <Text className="Starting-SubText">
               Learn about the unconscious factors that influence your money
@@ -80,7 +82,7 @@ const StartingScreen: React.FC<Props> = ({
       <Image src={logoImage} width="164px" height="20px" alt="Syntoniq" />
       <Flex className="Starting-CenterContainer" justifyContent="space-between">
         <Flex direction="column">
-          <Text className="Starting-HeadingText">
+          <Text className="Starting-HeadingText" style={{marginBottom: '8px'}}>
             Let’s get to know each other!
             <br /> What’s your name?
           </Text>

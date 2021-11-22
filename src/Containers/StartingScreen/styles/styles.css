@@ -22,7 +22,6 @@
     font-weight: bold;
     font-size: 48px;
     line-height: 64px;
-    margin-bottom: 24px;
     color: #000000;
 }
 .Starting-SubText{
@@ -167,7 +166,6 @@ text-align: center;
     .Starting-HeadingText{
         font-size: 36px;
         line-height: 40px;
-        margin-bottom: 24px;
     }
     .Starting-SubText{
         font-size: 28px;
@@ -181,6 +179,9 @@ text-align: center;
 }
 
 @media (max-width: 600px) {
+    .Starting-CenterContainer{
+        margin-top: 20px;
+    }
     .Starting-GraphicImage1{
         width: 100%;
         height: 100%;
@@ -198,15 +199,17 @@ text-align: center;
     .Starting-HeadingText{
         font-size: 34px;
         line-height: 40px;
-        margin-bottom: 24px;
     }
-
+    .Starting-InputBox{
+        margin-top:20px;
+        margin-bottom : 20px;
+    }
 }
 
 @media (max-width: 400px) and (min-width: 300px){
     .Starting-HeadingText{
         font-size: 28px;
         line-height: 36px;
-        margin-bottom: 24px;
+
     }
 }

@@ -108,7 +108,7 @@ export const RightCard: React.FC<RightCardProps> = ({data, numbering}) => {
         className={data.active ? 'RightElement' : 'RightElementDisabled'}
       >
         <Flex
-          border={data.active ? '3px dashed rgba(25, 28, 44, 0.5)' : '0'}
+          border="3px dashed rgba(25, 28, 44, 0.5)"
           borderRadius="10px"
           w="186px"
           h="67px"

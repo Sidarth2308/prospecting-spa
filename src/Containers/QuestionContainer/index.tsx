@@ -143,12 +143,7 @@ const QuestionContainer: FC<Props> = ({
   return (
     <Flex className="Penultimate-Container">
       <Flex className="Penultimate-Container-Secondary">
-        <Flex
-          alignItems="center"
-          justifyContent="center"
-          marginTop="20px"
-          marginBottom="60px"
-        >
+        <Flex className="Penultimate-Top-Circle">
           <Image src={topCircle} zIndex="-1" position="absolute" top="0px" />
           <Flex position="absolute" top="30px" alignItems="center">
             <Flex
@@ -187,7 +182,7 @@ const QuestionContainer: FC<Props> = ({
           </Flex>
         </Flex>
         <Flex className="HeadingContainer">
-          {data.preface !== '' && (
+          {data.preface !== ' ' && (
             <Text
               fontSize={['14px', '14px', '19px']}
               lineHeight={['20px', '24px', '32px']}

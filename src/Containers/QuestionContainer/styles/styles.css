@@ -169,5 +169,28 @@
   align-items:center;
   justify-content:center;
   user-select:none;
-  bottom : 20px;
+}
+.Penultimate-Top-Circle{
+  align-items:center;
+  justify-content:center;
+  margin-top:20px;
+  margin-bottom:60px;
+}
+@media (max-width: 600px) {
+  .HeadingContainer {
+    margin-bottom: 40px;
+  }
+  .HeadingQuestionDescription{
+    text-align: left;
+  }
+  .HeadingQuestion{
+    text-align: left;
+  }
+  .Question-ButtonContainer{
+    margin-bottom: auto;
+  }
+
+  .Penultimate-Container-Secondary{
+    margin: 0 auto;
+  }
 }

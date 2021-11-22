@@ -16,6 +16,10 @@
   flex-direction: column;
   
 }
+.Final-LogoImage {
+  margin-bottom:30px;
+  user-select: none;
+}
 
 .Final-TopHeadingSection {
   align-items: flex-start;
@@ -457,6 +461,10 @@ margin-right:100px;
   }
 }
 @media(max-width : 1050px){
+  .Final-DonutChart {
+    margin-top:0px;
+    bottom : 0px;
+  }
   .Final-MiddleTextContainer{
     width:326px;
     margin-bottom: 20px;
@@ -523,7 +531,6 @@ margin-right:100px;
   }
   .Final-TopHeadingText-bold{
     text-align: left;
-    margin-top: 10px;
   }
   .Final-TopHeadingSection{
     flex-direction: column;
@@ -535,7 +542,9 @@ margin-right:100px;
   }
 }
 @media (max-width: 479px) {
-  
+  .Final-LogoImage {
+    margin-bottom : 8px;
+  }
   .Final-CrownIcons {
     width: 80px;
     height: 80px;

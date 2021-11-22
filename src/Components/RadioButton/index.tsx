@@ -110,7 +110,7 @@ export const RadioButtonWithTwoOptions: FC<TwoOptionsProps> = ({
   const isMobile = useMediaQuery({query: '(max-width: 800px)'});
   const valueFromContext = useContext(StateContext);
   return (
-    <Box marginTop="190px" marginBottom="6px">
+    <Box marginTop={isMobile ? '120px' : '190px'} marginBottom="6px">
       <Flex
         position="relative"
         alignItems="flex-end"
