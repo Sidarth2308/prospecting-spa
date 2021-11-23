@@ -4,9 +4,9 @@ export {ScoreConstants} from './scoreConstants';
 export const API_URL = 'https://solera-phase-1-backend.herokuapp.com';
 export const TEST_API_URL = 'http://localhost:5000';
 
-export const FETCH_API_URL = `${TEST_API_URL}/fetch-questions`;
-export const POST_API_URL = `${TEST_API_URL}/post-answers`;
-export const REPORT_API_URL = `${TEST_API_URL}/report`;
+export const FETCH_API_URL = `${API_URL}/fetch-questions`;
+export const POST_API_URL = `${API_URL}/post-answers`;
+export const REPORT_API_URL = `${API_URL}/report`;
 
 // export const QuestionData = {
 //   id: 'ASSESSMENT-UUIDv4-GOES-HERE',
