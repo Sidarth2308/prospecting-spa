@@ -84,7 +84,8 @@ type Props = {
         dragdrop: string[][];
       };
     }[];
-
+    prefaceDimension: string;
+    bodyDimension: string;
     icon?: string;
     icon1?: string;
     icon2?: string;
@@ -187,6 +188,7 @@ const QuestionContainer: FC<Props> = ({
               fontSize={['14px', '14px', '19px']}
               lineHeight={['20px', '24px', '32px']}
               className="HeadingQuestionDescription"
+              maxW={data.prefaceDimension}
             >
               {data.preface}
             </Text>
@@ -203,6 +205,7 @@ const QuestionContainer: FC<Props> = ({
             fontSize={['22px', '28px', '34px']}
             lineHeight={['30px', '32px', '48px']}
             className="HeadingQuestion"
+            maxW={data.bodyDimension}
           >
             {data.body}
           </Text>

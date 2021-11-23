@@ -2,11 +2,12 @@
 /* eslint-disable no-use-before-define */
 import {Image} from '@chakra-ui/image';
 import {Flex, Text} from '@chakra-ui/layout';
-import React from 'react';
+import React, {useEffect} from 'react';
 import './styles/styles.css';
 import logoImage from '../../assets/Logo.svg';
 import graphic1 from '../../assets/self-awareness 1.png';
 import graphic2 from '../../assets/starting-graphic-4.png';
+
 type Props = {
   start: {
     part1: boolean;
@@ -21,6 +22,7 @@ type Props = {
   >;
   nameSetter: React.Dispatch<React.SetStateAction<string>>;
 };
+const TopPage = 0;
 
 const StartingScreen: React.FC<Props> = ({
   start,
@@ -28,6 +30,9 @@ const StartingScreen: React.FC<Props> = ({
   nameSetter,
   startSetter,
 }) => {
+  useEffect(() => {
+    window.scroll(TopPage, TopPage);
+  }, [start]);
   if (!start.part1) {
     return (
       <Flex className="StartContainer">

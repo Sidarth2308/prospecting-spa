@@ -87,6 +87,8 @@ export function fetchData(
               },
             },
           ],
+          prefaceDimension: '1000px',
+          bodyDimension: '1000px',
           icon: '',
           dimensions: ['163px', '272px'],
         },

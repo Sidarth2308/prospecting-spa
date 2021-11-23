@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
   min-height: 100vh;
 }
 .Penultimate-Container-Secondary{
@@ -64,7 +63,6 @@
 }
 .HeadingQuestion {
   color: #000;
-  max-width: 997px;
   text-align: center;
   font-family: 'Inter', sans-serif;
 
@@ -77,7 +75,6 @@
   font-family: Inter, sans-serif;
   font-style: normal;
   padding: 10px;
-  max-width: 1040px;
   font-weight: 500;
   white-space: pre-line;
   /* identical to box height, or 160% */
@@ -190,7 +187,4 @@
     margin-bottom: auto;
   }
 
-  .Penultimate-Container-Secondary{
-    margin: 0 auto;
-  }
 }

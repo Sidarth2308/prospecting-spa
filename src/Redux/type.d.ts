@@ -151,6 +151,8 @@ export type Question = {
   icon1?: string;
   icon2?: string;
   icon3?: string;
+  prefaceDimension: string;
+  bodyDimension: string;
 };
 
 export type QuestionsData = {
