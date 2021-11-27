@@ -49,7 +49,7 @@ const StartingScreen: React.FC<Props> = ({
               className="Starting-HeadingText"
               style={{marginBottom: '24px'}}
             >
-              What factors guide your financial behavior ?
+              What factors guide your financial behavior?
             </Text>
             <Text className="Starting-SubText">
               Learn about the unconscious factors that influence your money
@@ -88,8 +88,7 @@ const StartingScreen: React.FC<Props> = ({
       <Flex className="Starting-CenterContainer" justifyContent="space-between">
         <Flex direction="column">
           <Text className="Starting-HeadingText" style={{marginBottom: '8px'}}>
-            Let’s get to know each other!
-            <br /> What’s your name?
+            Let’s get to know each other! What’s your name?
           </Text>
           <input
             className="Starting-InputBox"

@@ -77,7 +77,7 @@ const FinalScreen: React.FC<Props> = ({
             <Text className="Final-TopHeadingText">{email}</Text>
           </Flex>
         </Flex>
-        <Flex direction="column" marginBottom="40px">
+        <Flex className="Final-SectionHeadingContainer">
           <Text className="Final-SectionHeading">
             Going beyond greed and fear
           </Text>
@@ -160,7 +160,11 @@ const FinalScreen: React.FC<Props> = ({
             </Flex>
           </Flex>
         </Flex>
-        <Flex alignItems="center" justifyContent="center">
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          marginTop={isMobile ? '25px' : '12px'}
+        >
           <Image position="relative" userSelect="none" src={scrollIcon} />
         </Flex>
       </Flex>
@@ -212,14 +216,19 @@ const FinalScreen: React.FC<Props> = ({
               </Series>
             </PieChart>
 
-            <Flex direction="column" marginTop={isMobile ? '10px' : '40px'}>
-              <Flex marginBottom="18px">
-                <Flex className="Final-ChartLegend1"></Flex>
-                <Text className="Final-LegendText">Optimism</Text>
-              </Flex>
-              <Flex>
-                <Flex className="Final-ChartLegend2"></Flex>
-                <Text className="Final-LegendText">Regret Aversion </Text>
+            <Flex
+              marginTop={isMobile ? '10px' : '40px'}
+              justifyContent={isMobile ? 'center' : 'flex-start'}
+            >
+              <Flex direction="column">
+                <Flex marginBottom="18px">
+                  <Flex className="Final-ChartLegend1"></Flex>
+                  <Text className="Final-LegendText">Optimism</Text>
+                </Flex>
+                <Flex>
+                  <Flex className="Final-ChartLegend2"></Flex>
+                  <Text className="Final-LegendText">Regret Aversion </Text>
+                </Flex>
               </Flex>
             </Flex>
           </Flex>
@@ -232,7 +241,7 @@ const FinalScreen: React.FC<Props> = ({
               </Flex>
             )}
             <Flex
-              marginBottom="60px"
+              marginBottom={isMobile ? '5px' : '60px'}
               className="Final-SectionMiddleTextBoxContainer"
             >
               <Flex direction="column" className="Final-MiddleTextContainer">
@@ -282,11 +291,7 @@ const FinalScreen: React.FC<Props> = ({
                 >
                   What to watch out for
                 </Text>
-                <Text
-                  className="Final-Section2SubText"
-                  marginTop="20px"
-                  maxWidth="360px"
-                >
+                <Text className="Final-Section2SubText" maxWidth="360px">
                   {ThinkingStyleTextCalc2(
                     SectionScores[FIRST_INDEX][FIRST_INDEX],
                     SectionScores[SECOND_INDEX][FIRST_INDEX]
@@ -295,7 +300,12 @@ const FinalScreen: React.FC<Props> = ({
               </Flex>
             </Flex>
 
-            <Flex direction="column" marginBottom="50px">
+            <Flex
+              direction="column"
+              marginBottom={isMobile ? '5px' : '50px'}
+              maxWidth={isMobile ? '360px' : ''}
+              padding={isMobile ? '16px' : ''}
+            >
               <Flex alignItems="center" marginBottom="10px">
                 <Text className="Final-Section2MainHeading">Action</Text>
                 <div className="Final-ScreenDivider"></div>
@@ -358,14 +368,19 @@ const FinalScreen: React.FC<Props> = ({
                 </Label>
               </Series>
             </PieChart>
-            <Flex direction="column" marginTop={isMobile ? '10px' : '40px'}>
-              <Flex marginBottom="18px">
-                <Flex className="Final-ChartLegend1"></Flex>
-                <Text className="Final-LegendText">Maximizing</Text>
-              </Flex>
-              <Flex>
-                <Flex className="Final-ChartLegend2"></Flex>
-                <Text className="Final-LegendText">Satisficing</Text>
+            <Flex
+              marginTop={isMobile ? '10px' : '40px'}
+              justifyContent={isMobile ? 'center' : 'flex-start'}
+            >
+              <Flex direction="column">
+                <Flex marginBottom="18px">
+                  <Flex className="Final-ChartLegend1"></Flex>
+                  <Text className="Final-LegendText">Maximizing</Text>
+                </Flex>
+                <Flex>
+                  <Flex className="Final-ChartLegend2"></Flex>
+                  <Text className="Final-LegendText">Satisficing</Text>
+                </Flex>
               </Flex>
             </Flex>
           </Flex>
@@ -379,7 +394,7 @@ const FinalScreen: React.FC<Props> = ({
             )}
 
             <Flex
-              marginBottom="60px"
+              marginBottom={isMobile ? '5px' : '60px'}
               className="Final-SectionMiddleTextBoxContainer"
             >
               <Flex direction="column" className="Final-MiddleTextContainer">
@@ -436,7 +451,12 @@ const FinalScreen: React.FC<Props> = ({
               </Flex>
             </Flex>
 
-            <Flex direction="column" marginBottom="50px">
+            <Flex
+              direction="column"
+              marginBottom={isMobile ? '5px' : '50px'}
+              maxWidth={isMobile ? '360px' : ''}
+              padding={isMobile ? '16px' : ''}
+            >
               <Flex alignItems="center" marginBottom="10px">
                 <Text className="Final-Section2MainHeading">Action</Text>
                 <div className="Final-ScreenDivider"></div>
@@ -496,14 +516,19 @@ const FinalScreen: React.FC<Props> = ({
                 </Label>
               </Series>
             </PieChart>
-            <Flex direction="column" marginTop={isMobile ? '10px' : '40px'}>
-              <Flex marginBottom="18px">
-                <Flex className="Final-ChartLegend1"></Flex>
-                <Text className="Final-LegendText">Prevention</Text>
-              </Flex>
-              <Flex>
-                <Flex className="Final-ChartLegend2"></Flex>
-                <Text className="Final-LegendText">Promotion</Text>
+            <Flex
+              marginTop={isMobile ? '10px' : '40px'}
+              justifyContent={isMobile ? 'center' : 'flex-start'}
+            >
+              <Flex direction="column">
+                <Flex marginBottom="18px">
+                  <Flex className="Final-ChartLegend1"></Flex>
+                  <Text className="Final-LegendText">Prevention</Text>
+                </Flex>
+                <Flex>
+                  <Flex className="Final-ChartLegend2"></Flex>
+                  <Text className="Final-LegendText">Promotion</Text>
+                </Flex>
               </Flex>
             </Flex>
           </Flex>
@@ -517,7 +542,7 @@ const FinalScreen: React.FC<Props> = ({
             )}
 
             <Flex
-              marginBottom="60px"
+              marginBottom={isMobile ? '5px' : '60px'}
               className="Final-SectionMiddleTextBoxContainer"
             >
               <Flex direction="column" className="Final-MiddleTextContainer">
@@ -575,7 +600,12 @@ const FinalScreen: React.FC<Props> = ({
               </Flex>
             </Flex>
 
-            <Flex direction="column" marginBottom="50px">
+            <Flex
+              direction="column"
+              marginBottom={isMobile ? '5px' : '50px'}
+              maxWidth={isMobile ? '360px' : ''}
+              padding={isMobile ? '16px' : ''}
+            >
               <Flex alignItems="center" marginBottom="10px">
                 <Text className="Final-Section2MainHeading">Action</Text>
                 <div className="Final-ScreenDivider"></div>

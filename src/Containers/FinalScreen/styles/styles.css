@@ -44,6 +44,11 @@
   text-align: left;
   color: #191c2c;
 }
+.Final-SectionHeadingContainer{
+  flex-direction:column; 
+  margin-bottom:40px;
+  margin-top:20px;
+}
 .Final-SectionHeading {
   font-family: Inter, sans-serif;
   font-style: normal;
@@ -465,6 +470,9 @@ margin-right:100px;
     margin-top:0px;
     bottom : 0px;
   }
+  .Final-SectionHeadingContainer{
+    margin-top:23px;
+  }
   .Final-MiddleTextContainer{
     width:326px;
     margin-bottom: 20px;
@@ -493,6 +501,19 @@ margin-right:100px;
   }
 }
 @media (max-width: 800px) {
+  .Final-DonutChart{
+    margin-bottom: 38px;
+  }
+  .Final-SectionSideMainHeading {
+    font-size: 36px;
+    line-height: 43px;
+    margin-bottom: 20px;
+  }
+  .Final-SectionSideSubHeading{
+    line-height: 38px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
   .Final-Section2MainHeading{
     font-size: 30px;
     line-height: 45px;
